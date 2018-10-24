@@ -7,7 +7,7 @@
 @base <https://w3id.org/dco#> .
 
 <https://w3id.org/dco#> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/dco/0.1.0> ;
+                         owl:versionIRI <https://w3id.org/dco/0.1.2> ;
                          <http://purl.org/dc/elements/1.1/Language> "en" ;
                          <http://purl.org/dc/elements/1.1/description> "Ontology for damage and defects in structures." ;
                          <http://purl.org/dc/elements/1.1/modified> "October 12th 2018" ;
@@ -234,9 +234,6 @@
              rdfs:subClassOf :Damage ;
              owl:disjointWith :Damage_Pattern ,
                               :Individual_Damage ;
-             owl:disjointUnionOf ( :Defect_Area
-                                   :Structural_Damage_Area
-                                 ) ;
              rdfs:comment "Area in a component where damage is located."@en ;
              rdfs:label "Damage Area"@en .
 
@@ -253,19 +250,8 @@
 :Defect rdf:type owl:Class ;
         rdfs:subClassOf :Damage ;
         owl:disjointWith :Structural_Damage ;
-        owl:disjointUnionOf ( :Defect_Area
-                              :Individual_Defect
-                            ) ;
         rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."@en ;
         rdfs:label "Defect"@en .
-
-
-###  https://w3id.org/dco#Defect_Area
-:Defect_Area rdf:type owl:Class ;
-             rdfs:subClassOf :Damage_Area ,
-                             :Defect ;
-             rdfs:comment "A Damage Area that is also a Defect"@en ;
-             rdfs:label "Defect Area"@en .
 
 
 ###  https://w3id.org/dco#Description
@@ -296,45 +282,15 @@
 ###  https://w3id.org/dco#Individual_Damage
 :Individual_Damage rdf:type owl:Class ;
                    rdfs:subClassOf :Damage ;
-                   owl:disjointUnionOf ( :Individual_Defect
-                                         :Individual_Structural_Damage
-                                       ) ;
                    rdfs:comment "Damage that is modelled on a very detailled level and belongs with other adjacent individual damage elements to a broader damage area."@en ;
                    rdfs:label "Individual Damage"@en .
-
-
-###  https://w3id.org/dco#Individual_Defect
-:Individual_Defect rdf:type owl:Class ;
-                   rdfs:subClassOf :Defect ,
-                                   :Individual_Damage ;
-                   rdfs:comment "Individual Damage that is also a Defect"@en ;
-                   rdfs:label "Individual Defect"@en .
-
-
-###  https://w3id.org/dco#Individual_Structural_Damage
-:Individual_Structural_Damage rdf:type owl:Class ;
-                              rdfs:subClassOf :Individual_Damage ,
-                                              :Structural_Damage ;
-                              rdfs:comment "An individual damage that is also a structural damage."@en ;
-                              rdfs:label "Individual Structural Damage"@en .
 
 
 ###  https://w3id.org/dco#Structural_Damage
 :Structural_Damage rdf:type owl:Class ;
                    rdfs:subClassOf :Damage ;
-                   owl:disjointUnionOf ( :Individual_Structural_Damage
-                                         :Structural_Damage_Area
-                                       ) ;
                    rdfs:comment "Damage that impairs the structural integrity of the structure."@en ;
                    rdfs:label "Structural Damage"@en .
-
-
-###  https://w3id.org/dco#Structural_Damage_Area
-:Structural_Damage_Area rdf:type owl:Class ;
-                        rdfs:subClassOf :Damage_Area ,
-                                        :Structural_Damage ;
-                        rdfs:comment "A Damage Area that is also a Structural Damage."@en ;
-                        rdfs:label "Structural Damage Area"@en .
 
 
 ###  https://w3id.org/dco#Structure
