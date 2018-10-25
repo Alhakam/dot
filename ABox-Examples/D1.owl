@@ -1,0 +1,286 @@
+@prefix : <http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/s7251409/ontologies/2018/9/D1> .
+
+<http://www.semanticweb.org/s7251409/ontologies/2018/9/D1> rdf:type owl:Ontology ;
+                                                            owl:imports <https://w3id.org/damagemodels/cdo#/0.1.0> ,
+                                                                        <https://w3id.org/damagemodels/d-asb-ing#/0.1.0> ,
+                                                                        <https://w3id.org/dco/0.1.2> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_1
+:D1_1 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/dco#Damage_Area> ,
+               <https://w3id.org/dco#Structural_Damage> ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_1DA ;
+      <https://w3id.org/dco#content> "The spacer gap across is restricted continuosly behind the abutment. The formwork residues are not removed from the joint between the super and substructure." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_1DA
+:D1_1DA rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+        <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+        <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+        <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_23
+:D1_23 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_23DA ;
+       <https://w3id.org/dco#content> "Strip foundation has settled <2cm. Different settlements of the retaining walls on the left behind the abutment." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_23DA
+:D1_23DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_28
+:D1_28 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_28DA ;
+       <https://w3id.org/dco#content> "Bearing metal/steel plate is regionally bent on the right of axis number 14. Bending is on all sides of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_28DA
+:D1_28DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_29
+:D1_29 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_29DA ;
+       <https://w3id.org/dco#content> "Bearing metal/steel plate under is regionally bent on the left and behind abutment. Bending is on front side of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_29DA
+:D1_29DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_34
+:D1_34 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_34DA ;
+       <https://w3id.org/dco#content> "The steel/metal edge profile is continuously rusted with cross-sectional weakening underside in front of the abutment." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_34DA
+:D1_34DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 2 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_37
+:D1_37 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_37DA ;
+       <https://w3id.org/dco#content> "Steel lamella construction with plastic flat profiles with are elatically controlled are fully rusted underside in front of the structure." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_37DA
+:D1_37DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_38
+:D1_38 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_38DA ;
+       <https://w3id.org/dco#content> "Steel/metal travers-box regionally rusted with leaf rust from underside in front of the structure. Travers-box and finishing profile of the anchorage is corroded in the superstructure." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_38DA
+:D1_38DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 1 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_55
+:D1_55 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/damagemodels/cdo#Spalling> ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_55DA ;
+       <https://w3id.org/dco#content> "Numerous spalling with exposed reinforcement on the right at the outside between superstructures." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_55DA
+:D1_55DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 1 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_6
+:D1_6 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/damagemodels/cdo#Crack> ,
+               <https://w3id.org/damagemodels/cdo#Reinforcement_Corrosion> ,
+               <https://w3id.org/damagemodels/cdo#Spalling> ,
+               <https://w3id.org/dco#Damage_Area> ,
+               <https://w3id.org/dco#Structural_Damage> ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_6DA ;
+      <https://w3id.org/dco#content> "Mutiple spalling with exposed reinforcement in front left of the abutment. Additional cracks and cavities due to corrosion and consequential damages due to leaking road joint construction." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_63
+:D1_63 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dco#Damage_Area> ,
+                <https://w3id.org/dco#Structural_Damage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_63DA ;
+       <https://w3id.org/dco#content> "Lighting pole is regionally red rusted on the left. Pole base at the connection with superstructure is corroded." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_63DA
+:D1_63DA rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+         <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+         <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+         <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_6DA
+:D1_6DA rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+        <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+        <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+        <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_7
+:D1_7 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/damagemodels/cdo#Transverse_Crack> ,
+               <https://w3id.org/dco#Damage_Area> ,
+               <https://w3id.org/dco#Structural_Damage> ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_7DA ;
+      <https://w3id.org/damagemodels/cdo#width> "between 0.4 and 1mm." ;
+      <https://w3id.org/dco#content> "Continuous cracks from left to right, behind the abutment." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_7DA
+:D1_7DA rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment> ;
+        <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+        <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+        <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_abutment_wall
+:D1_abutment_wall rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/dco#Component> ;
+                  <https://w3id.org/dco##hasDamage> :D1_6 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_chamber_wall
+:D1_chamber_wall rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/dco#Component> ;
+                 <https://w3id.org/dco##hasDamage> :D1_7 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_cornice
+:D1_cornice rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/dco#Component> ;
+            <https://w3id.org/dco##hasDamage> :D1_55 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_foundation
+:D1_foundation rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/dco#Component> ;
+               <https://w3id.org/dco##hasDamage> :D1_23 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_lighting_pole
+:D1_lighting_pole rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/dco#Component> ;
+                  <https://w3id.org/dco##hasDamage> :D1_63 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_plain_with_pot_bearing
+:D1_plain_with_pot_bearing rdf:type owl:NamedIndividual ,
+                                    <https://w3id.org/dco#Component> ;
+                           <https://w3id.org/dco##hasDamage> :D1_28 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_plain_with_pot_bearing_2
+:D1_plain_with_pot_bearing_2 rdf:type owl:NamedIndividual ,
+                                      <https://w3id.org/dco#Component> ;
+                             <https://w3id.org/dco##hasDamage> :D1_29 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_road_joint
+:D1_road_joint rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/dco#Component> ;
+               <https://w3id.org/dco##hasDamage> :D1_37 ,
+                                                 :D1_38 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_road_joint_2
+:D1_road_joint_2 rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/dco#Component> ;
+                 <https://w3id.org/dco##hasDamage> :D1_34 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_slab
+:D1_slab rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/dco#Component> ;
+         <https://w3id.org/dco##hasDamage> :D1_1 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#SA1
+:SA1 rdf:type owl:NamedIndividual ,
+              <https://w3id.org/damagemodels/d-asb-ing#Structure_Assessment> ;
+     <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+     <https://w3id.org/damagemodels/d-asb-ing#overallRating> 3.4 ;
+     <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 2 ;
+     <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 2 .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#Western_city_ramp
+:Western_city_ramp rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dco#Structure> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :SA1 ;
+                   <https://w3id.org/dco##hasComponent> :D1_abutment_wall ,
+                                                        :D1_chamber_wall ,
+                                                        :D1_cornice ,
+                                                        :D1_foundation ,
+                                                        :D1_lighting_pole ,
+                                                        :D1_plain_with_pot_bearing ,
+                                                        :D1_plain_with_pot_bearing_2 ,
+                                                        :D1_road_joint ,
+                                                        :D1_road_joint_2 ,
+                                                        :D1_slab .
+
+
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
