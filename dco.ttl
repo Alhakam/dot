@@ -5,6 +5,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/dco#> .
 
 <https://w3id.org/dco#> rdf:type owl:Ontology ;
@@ -13,10 +15,12 @@
                          dce:description "Ontology for damage and defects in structures." ;
                          dce:modified "October 25th 2018" ;
                          dce:title "Damage Core Ontology" ;
-                         <http://purl.org/dc/terms/creator> "Al-Hakam Hamdan" ;
-                         <http://purl.org/dc/terms/description> "Ontology for damage and defects in structures." ;
-                         <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" ;
-                         <http://purl.org/dc/terms/title> "Damage Core Ontology" .
+                         dcterms:creator "Al-Hakam Hamdan" ;
+                         dcterms:description "Ontology for damage and defects in structures." ;
+                         dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+                         dcterms:title "Damage Core Ontology" ;
+                         vann:preferredNamespacePrefix "dco" ;
+                         vann:preferredNamespaceUri "https://w3id.org/dco#" .
 
 #################################################################
 #    Annotation properties
@@ -39,47 +43,39 @@ dce:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/contributor
-<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+dcterms:contributor rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/creator
-<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+dcterms:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+dcterms:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
-<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+dcterms:issued rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+dcterms:license rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
-<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+dcterms:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+dcterms:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
-<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
-<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
-<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/opm#valueAtState
-<https://w3id.org/opm#valueAtState> rdf:type owl:AnnotationProperty .
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
 #################################################################
