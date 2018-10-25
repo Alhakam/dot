@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/dco#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,10 +9,10 @@
 
 <https://w3id.org/dco#> rdf:type owl:Ontology ;
                          owl:versionIRI <https://w3id.org/dco/0.1.2> ;
-                         <http://purl.org/dc/elements/1.1/Language> "en" ;
-                         <http://purl.org/dc/elements/1.1/description> "Ontology for damage and defects in structures." ;
-                         <http://purl.org/dc/elements/1.1/modified> "October 25th 2018" ;
-                         <http://purl.org/dc/elements/1.1/title> "Damage Core Ontology" ;
+                         dce:Language "en" ;
+                         dce:description "Ontology for damage and defects in structures." ;
+                         dce:modified "October 25th 2018" ;
+                         dce:title "Damage Core Ontology" ;
                          <http://purl.org/dc/terms/creator> "Al-Hakam Hamdan" ;
                          <http://purl.org/dc/terms/description> "Ontology for damage and defects in structures." ;
                          <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" ;
@@ -22,19 +23,19 @@
 #################################################################
 
 ###  http://purl.org/dc/elements/1.1/Language
-<http://purl.org/dc/elements/1.1/Language> rdf:type owl:AnnotationProperty .
+dce:Language rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/description
-<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+dce:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/modified
-<http://purl.org/dc/elements/1.1/modified> rdf:type owl:AnnotationProperty .
+dce:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/title
-<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+dce:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/contributor
