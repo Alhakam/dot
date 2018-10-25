@@ -10,7 +10,7 @@
                          owl:versionIRI <https://w3id.org/dco/0.1.2> ;
                          <http://purl.org/dc/elements/1.1/Language> "en" ;
                          <http://purl.org/dc/elements/1.1/description> "Ontology for damage and defects in structures." ;
-                         <http://purl.org/dc/elements/1.1/modified> "October 12th 2018" ;
+                         <http://purl.org/dc/elements/1.1/modified> "October 25th 2018" ;
                          <http://purl.org/dc/elements/1.1/title> "Damage Core Ontology" ;
                          <http://purl.org/dc/terms/creator> "Al-Hakam Hamdan" ;
                          <http://purl.org/dc/terms/description> "Ontology for damage and defects in structures." ;
