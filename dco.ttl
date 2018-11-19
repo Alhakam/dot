@@ -10,7 +10,7 @@
 @base <https://w3id.org/dco#> .
 
 <https://w3id.org/dco#> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/dco/0.1.2> ;
+                         owl:versionIRI <https://w3id.org/dco/0.2> ;
                          dce:Language "en" ;
                          dce:description "Ontology for damage and defects in structures." ;
                          dce:modified "October 25th 2018" ;
@@ -82,121 +82,146 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  https://w3id.org/dco#combinesIndividualDamage
+:combinesIndividualDamage rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :Damage_Pattern ;
+                          rdfs:range :Individual_Damage ;
+                          owl:propertyChainAxiom ( :combinesIndividualDamage
+                                                   :connectsDamage
+                                                 ) ;
+                          rdfs:comment "Combines Individual Damage parts that are physically connected in a Damage Pattern."@en ,
+                                       "Recommended Cardinality: min 2"@en ;
+                          rdfs:label "combines Individual Damages"@en .
+
+
+###  https://w3id.org/dco#connectsDamage
+:connectsDamage rdf:type owl:ObjectProperty ,
+                         owl:SymmetricProperty ;
+                rdfs:domain :Damage ;
+                rdfs:range :Damage ;
+                rdfs:comment "Defines the relationship between two damage individuals that are physically connected with each other."@en ;
+                rdfs:label "connects damage"@en .
+
+
+###  https://w3id.org/dco#contains
+:contains rdf:type owl:ObjectProperty ,
+                   owl:TransitiveProperty ;
+          rdfs:comment "A relationship between an object and its constituent part(s)."@en ;
+          rdfs:label "contains"@en .
+
+
+###  https://w3id.org/dco#hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :contains ;
+              rdfs:domain :Structure ;
+              rdfs:range :Component ;
+              rdfs:comment "The relationship between a structure and its component."@en ;
+              rdfs:label "has component"@en .
+
+
+###  https://w3id.org/dco#hasDamage
+:hasDamage rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :contains ;
+           rdf:type owl:TransitiveProperty ;
+           rdfs:range :Damage ;
+           owl:propertyChainAxiom ( :hasComponent
+                                    :hasDamage
+                                  ) ,
+                                  ( :hasDamage
+                                    :connectsDamage
+                                  ) ,
+                                  ( :hasPart
+                                    :hasDamage
+                                  ) ;
+           rdfs:comment "The relationship between an individual and its contained damage individuals"@en ;
+           rdfs:label "has damage"@en .
+
+
+###  https://w3id.org/dco#hasDamageArea
+:hasDamageArea rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasDamage ;
+               rdfs:range :Damage_Area ;
+               rdfs:comment "A relationship between an individual (Component recommended) and its consisting Damage Area individuals."@en ;
+               rdfs:label "has Damage Area"@en .
+
+
+###  https://w3id.org/dco#hasDamagePattern
+:hasDamagePattern rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasDamage ;
+                  rdfs:range :Damage_Pattern ;
+                  rdfs:comment "A relationship between an individual (Damage Area recommended) and its consisting Damage Pattern."@en ;
+                  rdfs:label "has Damage Pattern"@en .
+
+
+###  https://w3id.org/dco#hasDocumentation
+:hasDocumentation rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:range :Documentation ;
+                  rdfs:comment "Relationship between a Documenation and the relevant documented or inspected object which could be either a Damage or a Structure Element."@en ;
+                  rdfs:label "has Documentation"@en .
+
+
+###  https://w3id.org/dco#hasIndividualDamage
+:hasIndividualDamage rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :hasDamage ;
+                     rdfs:range :Individual_Damage ;
+                     owl:propertyChainAxiom ( :hasDamageArea
+                                              :combinesIndividualDamage
+                                            ) ;
+                     rdfs:comment "A relationship between an individual (Damage Area or Damage Pattern recommended) and its consisting Individual Damage elements"@en ;
+                     rdfs:label "has Individual Damage"@en .
+
+
 ###  https://w3id.org/dco#hasPart
 :hasPart rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf <https://w3id.org/dco##contains> ;
+         rdfs:subPropertyOf :contains ;
+         rdf:type owl:TransitiveProperty ;
          rdfs:domain :Component ;
          rdfs:range :Component ;
          rdfs:comment "A relationship between a component and its sub-parts (which are also components)."@en ;
-         rdfs:label "has part"@en .
-
-
-###  https://w3id.org/dco##combines
-<https://w3id.org/dco##combines> rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf <https://w3id.org/dco##contains> ;
-                                 rdfs:domain :Damage_Pattern ;
-                                 rdfs:range :Individual_Damage ;
-                                 rdfs:comment "Combines Individual Damage parts that are physically connected in a Damage Pattern."@en ;
-                                 rdfs:label "combines"@en .
-
-
-###  https://w3id.org/dco##consistsOf
-<https://w3id.org/dco##consistsOf> rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf <https://w3id.org/dco##contains> ;
-                                   rdfs:domain :Damage_Area ;
-                                   rdfs:range :Damage_Pattern ,
-                                              :Individual_Damage ;
-                                   rdfs:comment "A relationship between a Damage Area and its consisting Individual Damage elements and / or Damage Patterns."@en ;
-                                   rdfs:label "consists of"@en .
-
-
-###  https://w3id.org/dco##contains
-<https://w3id.org/dco##contains> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :Damage ,
-                                             :Structure_Element ;
-                                 rdfs:comment "A relationship between an object and its constituent part(s)."@en ;
-                                 rdfs:label "contains"@en .
-
-
-###  https://w3id.org/dco##hasComponent
-<https://w3id.org/dco##hasComponent> rdf:type owl:ObjectProperty ;
-                                     rdfs:subPropertyOf <https://w3id.org/dco##contains> ;
-                                     rdfs:domain :Structure ;
-                                     rdfs:range :Component ;
-                                     rdfs:comment "The relationship between a structure and its component."@en ;
-                                     rdfs:label "has component"@en .
-
-
-###  https://w3id.org/dco##hasDamage
-<https://w3id.org/dco##hasDamage> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf <https://w3id.org/dco##contains> ;
-                                  rdfs:domain :Component ;
-                                  rdfs:range :Damage_Area ;
-                                  rdfs:comment "The relationship between a Component and its belonging Damage Area."@en ;
-                                  rdfs:label "has damage"@en .
-
-
-###  https://w3id.org/dco##hasDocumentation
-<https://w3id.org/dco##hasDocumentation> rdf:type owl:ObjectProperty ;
-                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                         rdfs:domain :Damage ,
-                                                     :Structure_Element ;
-                                         rdfs:range :Documentation ;
-                                         rdfs:comment "Relationship between a Documenation and the relevant documented or inspected object which could be either a Damage or a Structure Element."@en ;
-                                         rdfs:label "has Documentation"@en .
+         rdfs:label "has part"@en ;
+         owl:deprecated "should be handled in other ontologies for component / building element topology"@en .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  https://w3id.org/dco#content
-:content rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Description ;
-         rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
-         rdfs:label "content"@en .
+###  http://schema.org/Property
+<http://schema.org/Property> rdf:type owl:DatatypeProperty .
 
 
-###  https://w3id.org/dco##author
-<https://w3id.org/dco##author> rdf:type owl:DatatypeProperty ;
-                               rdfs:subPropertyOf <https://w3id.org/dco##metadata> ;
-                               rdfs:comment "Name of the responsible person or company that created the record of the related element."@en ;
-                               rdfs:label "author"@en .
+###  http://schema.org/author
+<http://schema.org/author> rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf <http://schema.org/Property> .
 
 
-###  https://w3id.org/dco##creationDate
-<https://w3id.org/dco##creationDate> rdf:type owl:DatatypeProperty ;
-                                     rdfs:subPropertyOf <https://w3id.org/dco##metadata> ;
-                                     rdfs:comment "Date and time in which the relevant element has been firstly created by the author."@en ;
-                                     rdfs:label "creation date"@en .
+###  http://schema.org/dateCreated
+<http://schema.org/dateCreated> rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf <http://schema.org/Property> .
 
 
-###  https://w3id.org/dco##lastModification
-<https://w3id.org/dco##lastModification> rdf:type owl:DatatypeProperty ;
-                                         rdfs:subPropertyOf <https://w3id.org/dco##metadata> ;
-                                         rdfs:comment "Date and time of the last modification for the relevant element."@en ;
-                                         rdfs:label "last modification"@en .
+###  http://schema.org/dateModified
+<http://schema.org/dateModified> rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf <http://schema.org/Property> .
 
 
-###  https://w3id.org/dco##metadata
-<https://w3id.org/dco##metadata> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain :Damage ,
-                                             :Documentation ,
-                                             :Structure_Element .
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf <http://schema.org/Property> .
 
 
-###  https://w3id.org/dco##name
-<https://w3id.org/dco##name> rdf:type owl:DatatypeProperty ;
-                             rdfs:subPropertyOf <https://w3id.org/dco##metadata> ;
-                             rdfs:comment "A given name for the relevant element by the author. Optional and only used for easier identification by humans besides the IRI."@en ;
-                             rdfs:label "name"@en .
+###  http://schema.org/version
+<http://schema.org/version> rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf <http://schema.org/Property> .
 
 
-###  https://w3id.org/dco##version
-<https://w3id.org/dco##version> rdf:type owl:DatatypeProperty ;
-                                rdfs:subPropertyOf <https://w3id.org/dco##metadata> ;
-                                rdfs:comment "Version number of the relevant element. Should be changed after every modficiation of the element."@en ;
-                                rdfs:label "version"@en .
+###  https://w3id.org/dco#description_content
+:description_content rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Description ;
+                     rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
+                     rdfs:label "description content"@en .
 
 
 #################################################################
@@ -215,13 +240,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 :Damage rdf:type owl:Class ;
         owl:disjointWith :Documentation ,
                          :Structure_Element ;
-        owl:disjointUnionOf ( :Damage_Area
-                              :Damage_Pattern
-                              :Individual_Damage
-                            ) ,
-                            ( :Defect
-                              :Structural_Damage
-                            ) ;
         rdfs:comment "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value."@en ;
         rdfs:label "Damage"@en .
 
@@ -254,7 +272,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/dco#Description
 :Description rdf:type owl:Class ;
              rdfs:subClassOf :Documentation ;
-             owl:disjointWith :External_Ressource ;
              rdfs:comment "Short textual documentation about a Damage or Structure Element. Generally created by the inspecting person."@en ;
              rdfs:label "Description"@en .
 
@@ -262,9 +279,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/dco#Documentation
 :Documentation rdf:type owl:Class ;
                owl:disjointWith :Structure_Element ;
-               owl:disjointUnionOf ( :Description
-                                     :External_Ressource
-                                   ) ;
                rdfs:comment "Material or data that provides information or evidence about the structure and its components or that serves as a record."@en ;
                rdfs:label "Documentation"@en .
 
@@ -299,11 +313,9 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/dco#Structure_Element
 :Structure_Element rdf:type owl:Class ;
-                   owl:disjointUnionOf ( :Component
-                                         :Structure
-                                       ) ;
                    rdfs:comment "Objects that are damaged."@en ;
-                   rdfs:label "Structure Element"@en .
+                   rdfs:label "Structure Element"@en ;
+                   owl:deprecated "Perhaps replace with bot:Element and bot:Zone ? (discussion)"@en .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
