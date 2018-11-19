@@ -7,11 +7,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix props: <https://w3id.org/product/props#> .
 @prefix dcterms: <http://purl.org/dc/terms> .
 @base <https://w3id.org/damagemodels/cdo#> .
 
 <https://w3id.org/damagemodels/cdo#> rdf:type owl:Ontology ;
-                                      owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.1.0> ;
+                                      owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.2.0> ;
                                       dce:Language "en" ;
                                       dce:description "Ontology for damage and defects in reinforced concrete." ;
                                       dce:modified "October 25th 2018" ;
@@ -83,43 +84,25 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 #    Data properties
 #################################################################
 
-###  https://w3id.org/damagemodels/cdo#area
-:area rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf :measurements ;
-      rdfs:domain :Chemical_Damage ,
-                  :Spalling ;
-      rdfs:comment "Defines the area of the Damage Area (used for Chemical Damage or Spalling)"@en ;
-      rdfs:label "area" .
+###  https://w3id.org/damagemodels/cdo#crack_spacing
+:crack_spacing rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Crack ;
+               rdfs:comment "Defines the crack spacing."@en ;
+               rdfs:label "crack_spacing" .
 
 
-###  https://w3id.org/damagemodels/cdo#depth
-:depth rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf :measurements ;
-       rdfs:domain :Crack ;
-       rdfs:comment "Defines the crack depth"@en ;
-       rdfs:label "depth"@en .
+###  https://w3id.org/measurement/area
+<https://w3id.org/measurement/area> rdf:type owl:DatatypeProperty .
 
 
-###  https://w3id.org/damagemodels/cdo#measurements
-:measurements rdf:type owl:DatatypeProperty ;
-              rdfs:comment "Simple measurement values that could be attached to the Damage Elements for queries."@en ;
-              rdfs:label "measurements"@en .
+###  https://w3id.org/product/props#depth
+props:depth rdf:type owl:DatatypeProperty .
 
 
-###  https://w3id.org/damagemodels/cdo#spacing
-:spacing rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf :measurements ;
-         rdfs:domain :Crack ;
-         rdfs:comment "Defines the crack spacing."@en ;
-         rdfs:label "spacing" .
-
-
-###  https://w3id.org/damagemodels/cdo#width
-:width rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf :measurements ;
-       rdfs:domain :Crack ;
-       rdfs:comment "Defines the crack width"@en ;
-       rdfs:label "width"@en .
+###  https://w3id.org/product/props#width
+props:width rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty .
 
 
 #################################################################
@@ -136,10 +119,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/damagemodels/cdo#Chemical_Damage
 :Chemical_Damage rdf:type owl:Class ;
                  rdfs:subClassOf dco:Damage ;
-                 owl:disjointUnionOf ( :Carbonatation
-                                       :Chloride_Attack
-                                       :Sulfate_Attack
-                                     ) ;
                  rdfs:comment "Damage that is caused by chemical reactions in the concrete material or the reinforcement."@en ;
                  rdfs:label "Chemical Damage"@en .
 
@@ -154,11 +133,6 @@ vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/damagemodels/cdo#Crack
 :Crack rdf:type owl:Class ;
        rdfs:subClassOf dco:Damage ;
-       owl:disjointUnionOf ( :Diagonal_Crack
-                             :Longitudinal_Crack
-                             :Surface_Crack
-                             :Transverse_Crack
-                           ) ;
        rdfs:comment "A defect that defines a discontinuity in the structure due to material failuer / exceeding the breaking strength of the material."@en ;
        rdfs:label "Crack"@en .
 
