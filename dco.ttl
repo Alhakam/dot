@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/dco#> .
+@prefix bot: <https://w3id.org/bot#> .
 @prefix dce: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -7,315 +8,381 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/dco#> .
 
-<https://w3id.org/dco#> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/dco/0.2> ;
-                         dce:Language "en" ;
-                         dce:description "Ontology for damage and defects in structures." ;
-                         dce:modified "October 25th 2018" ;
-                         dce:title "Damage Core Ontology" ;
-                         dcterms:creator "Al-Hakam Hamdan" ;
-                         dcterms:description "Ontology for damage and defects in structures." ;
-                         dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-                         dcterms:title "Damage Core Ontology" ;
-                         vann:preferredNamespacePrefix "dco" ;
-                         vann:preferredNamespaceUri "https://w3id.org/dco#" .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/elements/1.1/Language
-dce:Language rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/description
-dce:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/modified
-dce:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/title
-dce:title rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/contributor
-dcterms:contributor rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/vocab/vann/preferredNamespacePrefix
-vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/vocab/vann/preferredNamespaceUri
-vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/dco#combinesIndividualDamage
-:combinesIndividualDamage rdf:type owl:ObjectProperty ;
-                          rdfs:subPropertyOf owl:topObjectProperty ;
-                          rdfs:domain :Damage_Pattern ;
-                          rdfs:range :Individual_Damage ;
-                          owl:propertyChainAxiom ( :combinesIndividualDamage
-                                                   :connectsDamage
-                                                 ) ;
-                          rdfs:comment "Combines Individual Damage parts that are physically connected in a Damage Pattern."@en ,
-                                       "Recommended Cardinality: min 2"@en ;
-                          rdfs:label "combines Individual Damages"@en .
-
-
-###  https://w3id.org/dco#connectsDamage
-:connectsDamage rdf:type owl:ObjectProperty ,
-                         owl:SymmetricProperty ;
-                rdfs:domain :Damage ;
-                rdfs:range :Damage ;
-                rdfs:comment "Defines the relationship between two damage individuals that are physically connected with each other."@en ;
-                rdfs:label "connects damage"@en .
-
-
-###  https://w3id.org/dco#contains
-:contains rdf:type owl:ObjectProperty ,
-                   owl:TransitiveProperty ;
-          rdfs:comment "A relationship between an object and its constituent part(s)."@en ;
-          rdfs:label "contains"@en .
-
-
-###  https://w3id.org/dco#hasComponent
-:hasComponent rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :contains ;
-              rdfs:domain :Structure ;
-              rdfs:range :Component ;
-              rdfs:comment "The relationship between a structure and its component."@en ;
-              rdfs:label "has component"@en .
-
-
-###  https://w3id.org/dco#hasDamage
-:hasDamage rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :contains ;
-           rdf:type owl:TransitiveProperty ;
-           rdfs:range :Damage ;
-           owl:propertyChainAxiom ( :hasComponent
-                                    :hasDamage
-                                  ) ,
-                                  ( :hasDamage
-                                    :connectsDamage
-                                  ) ,
-                                  ( :hasPart
-                                    :hasDamage
-                                  ) ;
-           rdfs:comment "The relationship between an individual and its contained damage individuals"@en ;
-           rdfs:label "has damage"@en .
-
-
-###  https://w3id.org/dco#hasDamageArea
-:hasDamageArea rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :hasDamage ;
-               rdfs:range :Damage_Area ;
-               rdfs:comment "A relationship between an individual (Component recommended) and its consisting Damage Area individuals."@en ;
-               rdfs:label "has Damage Area"@en .
-
-
-###  https://w3id.org/dco#hasDamagePattern
-:hasDamagePattern rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :hasDamage ;
-                  rdfs:range :Damage_Pattern ;
-                  rdfs:comment "A relationship between an individual (Damage Area recommended) and its consisting Damage Pattern."@en ;
-                  rdfs:label "has Damage Pattern"@en .
-
-
-###  https://w3id.org/dco#hasDocumentation
-:hasDocumentation rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:range :Documentation ;
-                  rdfs:comment "Relationship between a Documenation and the relevant documented or inspected object which could be either a Damage or a Structure Element."@en ;
-                  rdfs:label "has Documentation"@en .
-
-
-###  https://w3id.org/dco#hasIndividualDamage
-:hasIndividualDamage rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf :hasDamage ;
-                     rdfs:range :Individual_Damage ;
-                     owl:propertyChainAxiom ( :hasDamageArea
-                                              :combinesIndividualDamage
-                                            ) ;
-                     rdfs:comment "A relationship between an individual (Damage Area or Damage Pattern recommended) and its consisting Individual Damage elements"@en ;
-                     rdfs:label "has Individual Damage"@en .
-
-
-###  https://w3id.org/dco#hasPart
-:hasPart rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :contains ;
-         rdf:type owl:TransitiveProperty ;
-         rdfs:domain :Component ;
-         rdfs:range :Component ;
-         rdfs:comment "A relationship between a component and its sub-parts (which are also components)."@en ;
-         rdfs:label "has part"@en ;
-         owl:deprecated "should be handled in other ontologies for component / building element topology"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://schema.org/Property
-<http://schema.org/Property> rdf:type owl:DatatypeProperty .
-
-
-###  http://schema.org/author
-<http://schema.org/author> rdf:type owl:DatatypeProperty ;
-                           rdfs:subPropertyOf <http://schema.org/Property> .
-
-
-###  http://schema.org/dateCreated
-<http://schema.org/dateCreated> rdf:type owl:DatatypeProperty ;
-                                rdfs:subPropertyOf <http://schema.org/Property> .
-
-
-###  http://schema.org/dateModified
-<http://schema.org/dateModified> rdf:type owl:DatatypeProperty ;
-                                 rdfs:subPropertyOf <http://schema.org/Property> .
-
-
-###  http://schema.org/name
-<http://schema.org/name> rdf:type owl:DatatypeProperty ;
-                         rdfs:subPropertyOf <http://schema.org/Property> .
-
-
-###  http://schema.org/version
-<http://schema.org/version> rdf:type owl:DatatypeProperty ;
-                            rdfs:subPropertyOf <http://schema.org/Property> .
-
-
-###  https://w3id.org/dco#description_content
-:description_content rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :Description ;
-                     rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
-                     rdfs:label "description content"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/dco#Component
-:Component rdf:type owl:Class ;
-           rdfs:subClassOf :Structure_Element ;
-           owl:disjointWith :Structure ;
-           rdfs:comment "Object that is part of a structure."@en ;
-           rdfs:label "Component"@en .
-
-
-###  https://w3id.org/dco#Damage
-:Damage rdf:type owl:Class ;
-        owl:disjointWith :Documentation ,
-                         :Structure_Element ;
-        rdfs:comment "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value."@en ;
-        rdfs:label "Damage"@en .
-
-
-###  https://w3id.org/dco#Damage_Area
-:Damage_Area rdf:type owl:Class ;
-             rdfs:subClassOf :Damage ;
-             owl:disjointWith :Damage_Pattern ,
-                              :Individual_Damage ;
-             rdfs:comment "Area in a component where damage is located."@en ;
-             rdfs:label "Damage Area"@en .
-
-
-###  https://w3id.org/dco#Damage_Pattern
-:Damage_Pattern rdf:type owl:Class ;
-                rdfs:subClassOf :Damage ;
-                owl:disjointWith :Individual_Damage ;
-                rdfs:comment "Defines a group of physically connected individual damage elements."@en ;
-                rdfs:label "Damage Pattern"@en .
-
-
-###  https://w3id.org/dco#Defect
-:Defect rdf:type owl:Class ;
-        rdfs:subClassOf :Damage ;
-        owl:disjointWith :Structural_Damage ;
-        rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."@en ;
-        rdfs:label "Defect"@en .
-
-
-###  https://w3id.org/dco#Description
-:Description rdf:type owl:Class ;
-             rdfs:subClassOf :Documentation ;
-             rdfs:comment "Short textual documentation about a Damage or Structure Element. Generally created by the inspecting person."@en ;
-             rdfs:label "Description"@en .
-
-
-###  https://w3id.org/dco#Documentation
-:Documentation rdf:type owl:Class ;
-               owl:disjointWith :Structure_Element ;
-               rdfs:comment "Material or data that provides information or evidence about the structure and its components or that serves as a record."@en ;
-               rdfs:label "Documentation"@en .
-
-
-###  https://w3id.org/dco#External_Ressource
-:External_Ressource rdf:type owl:Class ;
-                    rdfs:subClassOf :Documentation ;
-                    rdfs:comment "Document that is stored in a separate file, referenced by an external path."@en ;
-                    rdfs:label "External Ressource"@en .
-
-
-###  https://w3id.org/dco#Individual_Damage
-:Individual_Damage rdf:type owl:Class ;
-                   rdfs:subClassOf :Damage ;
-                   rdfs:comment "Damage that is modelled on a very detailled level and belongs with other adjacent individual damage elements to a broader damage area."@en ;
-                   rdfs:label "Individual Damage"@en .
-
-
-###  https://w3id.org/dco#Structural_Damage
-:Structural_Damage rdf:type owl:Class ;
-                   rdfs:subClassOf :Damage ;
-                   rdfs:comment "Damage that impairs the structural integrity of the structure."@en ;
-                   rdfs:label "Structural Damage"@en .
-
-
-###  https://w3id.org/dco#Structure
-:Structure rdf:type owl:Class ;
-           rdfs:subClassOf :Structure_Element ;
-           rdfs:comment "Something (such as a building or a bridge) that is constructed."@en ;
-           rdfs:label "Structure"@en .
-
-
-###  https://w3id.org/dco#Structure_Element
-:Structure_Element rdf:type owl:Class ;
-                   rdfs:comment "Objects that are damaged."@en ;
-                   rdfs:label "Structure Element"@en ;
-                   owl:deprecated "Perhaps replace with bot:Element and bot:Zone ? (discussion)"@en .
-
-
-###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
+<https://w3id.org/dco#> a owl:Ontology ;
+	owl:versionIRI <https://w3id.org/dco/0.2> ;
+	dce:Language "en" ;
+	dce:description "Ontology for damage and defects in structures." ;
+	dce:modified "October 25th 2018" ;
+	dce:title "Damage Core Ontology" ;
+	dcterms:creator "Al-Hakam Hamdan" ;
+	dcterms:description "Ontology for damage and defects in structures." ;
+	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	dcterms:title "Damage Core Ontology" ;
+	vann:preferredNamespacePrefix "dco" ;
+	vann:preferredNamespaceUri "https://w3id.org/dco#" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/Language
+
+dce:Language a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/description
+
+dce:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/modified
+
+dce:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/title
+
+dce:title a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/contributor
+
+dcterms:contributor a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/creator
+
+dcterms:creator a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/description
+
+dcterms:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/issued
+
+dcterms:issued a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/license
+
+dcterms:license a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/modified
+
+dcterms:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
+
+dcterms:title a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/bot#hasElement
+
+bot:hasElement a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasComponent .
+# 
+# https://w3id.org/bot#hasSubElement
+
+bot:hasSubElement a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasPart .
+# 
+# https://w3id.org/dco#combinesDamageElement
+
+:combinesDamageElement a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Damage_Pattern ;
+	rdfs:range :Damage_Element ;
+	owl:propertyChainAxiom _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :combinesDamageElement ;
+	rdf:rest _:genid1 .
+
+_:genid1 a rdf:List ;
+	rdf:first :connectsDamage ;
+	rdf:rest rdf:nil .
+
+:combinesDamageElement rdfs:comment "Combines Damage Element parts that are physically connected in a Damage Pattern."@en , "Recommended Cardinality: min 2"@en ;
+	rdfs:label "combines Damage Elements"@en .
+# 
+# https://w3id.org/dco#connectsDamage
+
+:connectsDamage a owl:ObjectProperty , owl:SymmetricProperty ;
+	rdfs:domain :Damage ;
+	rdfs:range :Damage ;
+	rdfs:comment "Defines the relationship between two damage individuals that are physically connected with each other."@en ;
+	rdfs:label "connects damage"@en .
+# 
+# https://w3id.org/dco#hasComponent
+
+:hasComponent a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasStructuralElement ;
+	rdfs:domain :Structure ;
+	rdfs:range :Component ;
+	rdfs:comment "The relationship between a structure and its component."@en ;
+	rdfs:label "has component"@en .
+# 
+# https://w3id.org/dco#hasDamage
+
+:hasDamage a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	a owl:TransitiveProperty ;
+	rdfs:range :Damage ;
+	owl:propertyChainAxiom _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first :hasComponent ;
+	rdf:rest _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :hasDamage ;
+	rdf:rest rdf:nil .
+
+:hasDamage owl:propertyChainAxiom _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :hasDamage ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
+	rdf:first :connectsDamage ;
+	rdf:rest rdf:nil .
+
+:hasDamage owl:propertyChainAxiom _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first :hasPart ;
+	rdf:rest _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first :hasDamage ;
+	rdf:rest rdf:nil .
+
+:hasDamage rdfs:comment "The relationship between an individual and its contained damage individuals"@en ;
+	rdfs:label "has damage"@en .
+# 
+# https://w3id.org/dco#hasDamageArea
+
+:hasDamageArea a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasDamage ;
+	rdfs:range :Damage_Area ;
+	rdfs:comment "A relationship between an individual (Component recommended) and its consisting Damage Area individuals."@en ;
+	rdfs:label "has Damage Area"@en .
+# 
+# https://w3id.org/dco#hasDamageElement
+
+:hasDamageElement a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasDamage ;
+	rdfs:range :Damage_Element ;
+	owl:propertyChainAxiom _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first :hasDamagePattern ;
+	rdf:rest _:genid9 .
+
+_:genid9 a rdf:List ;
+	rdf:first :combinesDamageElement ;
+	rdf:rest rdf:nil .
+
+:hasDamageElement rdfs:comment "A relationship between an individual (Damage Area or Damage Pattern recommended) and its consisting Damage Element elements"@en ;
+	rdfs:label "has Damage Element"@en .
+# 
+# https://w3id.org/dco#hasDamagePattern
+
+:hasDamagePattern a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasDamage ;
+	rdfs:range :Damage_Pattern ;
+	rdfs:comment "A relationship between an individual (Damage Area recommended) and its consisting Damage Pattern."@en ;
+	rdfs:label "has Damage Pattern"@en .
+# 
+# https://w3id.org/dco#hasDocumentation
+
+:hasDocumentation a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:range :Documentation ;
+	rdfs:comment "Relationship between a Documenation and the relevant documented or inspected object which could be either a Damage or a Structure Element."@en ;
+	rdfs:label "has Documentation"@en .
+# 
+# https://w3id.org/dco#hasPart
+
+:hasPart a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasStructuralElement ;
+	a owl:TransitiveProperty ;
+	rdfs:domain :Component ;
+	rdfs:range :Component ;
+	rdfs:comment "A relationship between a component and its sub-parts (which are also components)."@en ;
+	rdfs:label "has part"@en .
+# 
+# https://w3id.org/dco#hasStructuralElement
+
+:hasStructuralElement a owl:ObjectProperty , owl:TransitiveProperty ;
+	rdfs:comment "A relationship between an object and its constituent part(s)."@en ;
+	rdfs:label "contains"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/Property
+
+<http://schema.org/Property> a owl:DatatypeProperty .
+# 
+# http://schema.org/author
+
+<http://schema.org/author> a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/Property> .
+# 
+# http://schema.org/dateCreated
+
+<http://schema.org/dateCreated> a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/Property> .
+# 
+# http://schema.org/dateModified
+
+<http://schema.org/dateModified> a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/Property> .
+# 
+# http://schema.org/name
+
+<http://schema.org/name> a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/Property> .
+# 
+# http://schema.org/version
+
+<http://schema.org/version> a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/Property> .
+# 
+# https://w3id.org/dco#description_content
+
+:description_content a owl:DatatypeProperty ;
+	rdfs:domain :Description ;
+	rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
+	rdfs:label "description content"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/bot#Element
+
+bot:Element a owl:Class ;
+	rdfs:subClassOf :Component .
+# 
+# https://w3id.org/bot#Zone
+
+bot:Zone a owl:Class ;
+	rdfs:subClassOf :Structure .
+# 
+# https://w3id.org/dco#Component
+
+:Component a owl:Class ;
+	rdfs:subClassOf :Structure_Element ;
+	owl:disjointWith :Structure ;
+	rdfs:comment "Object that is part of a structure."@en ;
+	rdfs:label "Component"@en .
+# 
+# https://w3id.org/dco#Damage
+
+:Damage a owl:Class ;
+	owl:disjointWith :Documentation , :Structure_Element ;
+	rdfs:comment "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value."@en ;
+	rdfs:label "Damage"@en .
+# 
+# https://w3id.org/dco#Damage_Area
+
+:Damage_Area a owl:Class ;
+	rdfs:subClassOf :Damage ;
+	owl:disjointWith :Damage_Element , :Damage_Pattern ;
+	rdfs:comment "Area in a component where damage is located."@en ;
+	rdfs:label "Damage Area"@en .
+# 
+# https://w3id.org/dco#Damage_Element
+
+:Damage_Element a owl:Class ;
+	rdfs:subClassOf :Damage ;
+	owl:disjointWith :Damage_Pattern ;
+	rdfs:comment "Damage that is modelled on a very detailled level and belongs with other adjacent Damage Element elements to a broader damage area."@en ;
+	rdfs:label "Damage Element"@en .
+# 
+# https://w3id.org/dco#Damage_Pattern
+
+:Damage_Pattern a owl:Class ;
+	rdfs:subClassOf :Damage ;
+	rdfs:comment "Defines a group of physically connected Damage Element elements."@en ;
+	rdfs:label "Damage Pattern"@en .
+# 
+# https://w3id.org/dco#Defect
+
+:Defect a owl:Class ;
+	rdfs:subClassOf :Damage ;
+	owl:disjointWith :Structural_Damage ;
+	rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."@en ;
+	rdfs:label "Defect"@en .
+# 
+# https://w3id.org/dco#Description
+
+:Description a owl:Class ;
+	rdfs:subClassOf :Documentation ;
+	rdfs:comment "Short textual documentation about a Damage or Structure Element. Generally created by the inspecting person."@en ;
+	rdfs:label "Description"@en .
+# 
+# https://w3id.org/dco#Documentation
+
+:Documentation a owl:Class ;
+	owl:disjointWith :Structure_Element ;
+	rdfs:comment "Material or data that provides information or evidence about the structure and its components or that serves as a record."@en ;
+	rdfs:label "Documentation"@en .
+# 
+# https://w3id.org/dco#External_Ressource
+
+:External_Ressource a owl:Class ;
+	rdfs:subClassOf :Documentation ;
+	rdfs:comment "Document that is stored in a separate file, referenced by an external path."@en ;
+	rdfs:label "External Ressource"@en .
+# 
+# https://w3id.org/dco#Structural_Damage
+
+:Structural_Damage a owl:Class ;
+	rdfs:subClassOf :Damage ;
+	rdfs:comment "Damage that impairs the structural integrity of the structure."@en ;
+	rdfs:label "Structural Damage"@en .
+# 
+# https://w3id.org/dco#Structure
+
+:Structure a owl:Class ;
+	rdfs:subClassOf :Structure_Element ;
+	rdfs:comment "Something (such as a building or a bridge) that is constructed."@en ;
+	rdfs:label "Structure"@en .
+# 
+# https://w3id.org/dco#Structure_Element
+
+:Structure_Element a owl:Class ;
+	rdfs:comment "Objects that are damaged."@en ;
+	rdfs:label "Structure Element"@en .
+# 
+# Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
