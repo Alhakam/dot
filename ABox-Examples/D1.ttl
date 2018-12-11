@@ -19,6 +19,7 @@
 <http://www.semanticweb.org/s7251409/ontologies/2018/9/D1> rdf:type owl:Ontology ;
                                                             owl:imports <https://w3id.org/damagemodels/cdo#/0.2.0> ,
                                                                         <https://w3id.org/damagemodels/d-asb-ing#/0.1.0> ,
+                                                                        <https://w3id.org/damagemodels/dmo#/0.1.0> ,
                                                                         <https://w3id.org/dco/0.2> ;
                                                             dc:Language "en" ;
                                                             dc:description "An example ABox of a damaged bridge structure" ;
@@ -195,6 +196,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
                 dco:Damage_Area ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_29DA ;
+       <https://w3id.org/damagemodels/dmo#hasReducedStiffness> :D1_BStiffness1 ;
        dco:hasDocumentation :D1_29DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
@@ -357,6 +359,19 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 :D1_7DD rdf:type owl:NamedIndividual ,
                  dco:Description ;
         dco:description_content "Continuous cracks from left to right, behind the abutment." .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_BStiffness1
+:D1_BStiffness1 rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/damagemodels/dmo#Bending_Stiffness> ;
+                <https://w3id.org/damagemodels/dmo#hasStiffnessParameter> :D1_BStiffness1RP .
+
+
+###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_BStiffness1RP
+:D1_BStiffness1RP rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/dmo#Reduction_Parameter> ;
+                  schema:maxValue 0.9 ;
+                  schema:minValue 0.1 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_DamageReport
