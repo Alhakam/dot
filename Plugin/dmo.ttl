@@ -83,13 +83,6 @@ dcterms:title rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/damagemodels/dmo#belongsToStiffnessModulus
-:belongsToStiffnessModulus rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf owl:topObjectProperty ;
-                           rdfs:domain :Stiffness ;
-                           rdfs:range :Stiffness_Modulus .
-
-
 ###  https://w3id.org/damagemodels/dmo#hasModulusParameter
 :hasModulusParameter rdf:type owl:ObjectProperty ;
                      rdfs:domain :Stiffness_Modulus ;
@@ -113,14 +106,20 @@ dcterms:title rdf:type owl:AnnotationProperty .
                             rdfs:subPropertyOf :hasReducedMaterialParameter ;
                             rdfs:range :Stiffness_Modulus ;
                             owl:propertyChainAxiom ( :hasReducedStiffness
-                                                     :belongsToStiffnessModulus
+                                                     :hasStiffnessModulus
                                                    ) .
+
+
+###  https://w3id.org/damagemodels/dmo#hasStiffnessModulus
+:hasStiffnessModulus rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Stiffness ;
+                     rdfs:range :Stiffness_Modulus .
 
 
 ###  https://w3id.org/damagemodels/dmo#hasStiffnessParameter
 :hasStiffnessParameter rdf:type owl:ObjectProperty ;
-                       rdfs:domain :Stiffness ;
-                       rdfs:range :Stiffness_Parameter .
+                       rdfs:domain :Stiffness .
 
 
 #################################################################
@@ -139,17 +138,22 @@ dcterms:title rdf:type owl:AnnotationProperty .
 <http://schema.org/value> rdf:type owl:DatatypeProperty .
 
 
-###  http://schema.org/valueReference
-<http://schema.org/valueReference> rdf:type owl:DatatypeProperty .
+###  https://w3id.org/damagemodels/dmo#direction
+:direction rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/damagemodels/dmo#matrixIndex
 :matrixIndex rdf:type owl:DatatypeProperty .
 
 
-###  https://w3id.org/damagemodels/dmo#reductionParameter
-:reductionParameter rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf <http://schema.org/valueReference> .
+###  https://w3id.org/damagemodels/dmo#reductionValue
+:reductionValue rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf <http://schema.org/value> ;
+                rdfs:comment """A value, defining the amount of reduction of all other parameters of an individual with this dataproperty.
+
+Example: Stiffness matrix with multiple values linked to Stiffness-Individual.
+
+The linked redcuctionValue of the Stiffness-Individual is 0.9, so all values in the linked stiffness matrix are reduced by 10%.""" .
 
 
 #################################################################
@@ -183,6 +187,11 @@ dcterms:title rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/damagemodels/dmo#Modulus_Parameter
 :Modulus_Parameter rdf:type owl:Class ;
                    rdfs:subClassOf <http://schema.org/QuantitativeValue> .
+
+
+###  https://w3id.org/damagemodels/dmo#Reduction_Parameter
+:Reduction_Parameter rdf:type owl:Class ;
+                     rdfs:subClassOf <http://schema.org/QuantitativeValue> .
 
 
 ###  https://w3id.org/damagemodels/dmo#Shear_Stiffness
