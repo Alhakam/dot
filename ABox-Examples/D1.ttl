@@ -34,20 +34,8 @@
 #    Annotation properties
 #################################################################
 
-###  https://w3id.org/damagemodels/cdo#width
-cdo:width rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/dco#content
-dco:content rdf:type owl:AnnotationProperty .
-
-
 ###  https://w3id.org/dco##hasComponent
 dco1:hasComponent rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/dco##hasDamage
-dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -56,16 +44,17 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1O_63ID
 :D1O_63ID rdf:type owl:NamedIndividual ,
-                   dco:Damage_Element ;
+                   dco:DamageElement ,
+                   dco:Defect ;
           measurement:area 23.5 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1O_72
 :D1O_72 rdf:type owl:NamedIndividual ,
-                 dco:Damage_Area ,
+                 dco:DamageArea ,
                  dco:Defect ;
         d-asb-ing:hasAssessment :D1O_72DA ;
-        dco:hasDamagePattern :D1O_72DP ;
+        dco:containsDamagePattern :D1O_72DP ;
         dco:hasDocumentation :D1O_72DD ;
         schema:author "Al-Hakam Hamdan" ;
         schema:dateCreated "October 25th 2018" ;
@@ -89,14 +78,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1O_72DP
 :D1O_72DP rdf:type owl:NamedIndividual ,
-                   dco:Damage_Pattern ;
+                   dco:DamagePattern ;
           dco:combinesDamageElement :D1O_72ID1 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1O_72ID1
 :D1O_72ID1 rdf:type owl:NamedIndividual ,
                     cdo:Transverse_Crack ,
-                    dco:Damage_Element ;
+                    dco:DamageElement ;
            dco:connectsDamage :D1O_72ID2 ;
            props:depth 1.2 ;
            props:width 0.4 .
@@ -105,22 +94,21 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1O_72ID2
 :D1O_72ID2 rdf:type owl:NamedIndividual ,
                     cdo:Transverse_Crack ,
-                    dco:Damage_Element ;
+                    dco:DamageElement ;
            props:depth 1.2 ;
            props:width 0.7 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_1
 :D1_1 rdf:type owl:NamedIndividual ,
-               dco:Damage_Area ,
+               dco:DamageArea ,
                dco:Structural_Damage ;
       d-asb-ing:hasAssessment :D1_1DA ;
       dco:hasDocumentation :D1_1DD ;
       schema:author "Al-Hakam Hamdan" ;
       schema:dateCreated "October 25th 2018" ;
       schema:dateModified "November 26th 2018" ;
-      schema:version 2.0 ;
-      dco:content "The spacer gap across is restricted continuosly behind the abutment. The formwork residues are not removed from the joint between the super and substructure." .
+      schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_1DA
@@ -139,15 +127,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_23
 :D1_23 rdf:type owl:NamedIndividual ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_23DA ;
        dco:hasDocumentation :D1_23DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "Strip foundation has settled <2cm. Different settlements of the retaining walls on the left behind the abutment." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_23DA
@@ -166,15 +153,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_28
 :D1_28 rdf:type owl:NamedIndividual ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_28DA ;
        dco:hasDocumentation :D1_28DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "Bearing metal/steel plate is regionally bent on the right of axis number 14. Bending is on all sides of the plate with 1mm engraving." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_28DA
@@ -193,7 +179,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_29
 :D1_29 rdf:type owl:NamedIndividual ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_29DA ;
        <https://w3id.org/damagemodels/dmo#hasReducedStiffness> :D1_BStiffness1 ;
@@ -201,8 +187,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "Bearing metal/steel plate under is regionally bent on the left and behind abutment. Bending is on front side of the plate with 1mm engraving." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_29DA
@@ -221,15 +206,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_34
 :D1_34 rdf:type owl:NamedIndividual ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_34DA ;
        dco:hasDocumentation :D1_34DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "The steel/metal edge profile is continuously rusted with cross-sectional weakening underside in front of the abutment." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_34DA
@@ -249,15 +233,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_55
 :D1_55 rdf:type owl:NamedIndividual ,
                 cdo:Spalling ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_55DA ;
        dco:hasDocumentation :D1_55DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "Numerous spalling with exposed reinforcement on the right at the outside between superstructures." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_55DA
@@ -279,28 +262,26 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
                cdo:Crack ,
                cdo:Reinforcement_Corrosion ,
                cdo:Spalling ,
-               dco:Damage_Area ,
+               dco:DamageArea ,
                dco:Structural_Damage ;
       d-asb-ing:hasAssessment :D1_6DA ;
       dco:hasDocumentation :D1_6DD ;
       schema:author "Al-Hakam Hamdan" ;
       schema:dateCreated "October 25th 2018" ;
       schema:dateModified "November 26th 2018" ;
-      schema:version 2.0 ;
-      dco:content "Mutiple spalling with exposed reinforcement in front left of the abutment. Additional cracks and cavities due to corrosion and consequential damages due to leaking road joint construction." .
+      schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_63
 :D1_63 rdf:type owl:NamedIndividual ,
-                dco:Damage_Area ,
+                dco:DamageArea ,
                 dco:Structural_Damage ;
        d-asb-ing:hasAssessment :D1_63DA ;
        dco:hasDocumentation :D1_63DD ;
        schema:author "Al-Hakam Hamdan" ;
        schema:dateCreated "October 25th 2018" ;
        schema:dateModified "November 26th 2018" ;
-       schema:version 2.0 ;
-       dco:content "Lighting pole is regionally red rusted on the left. Pole base at the connection with superstructure is corroded." .
+       schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_63DA
@@ -334,7 +315,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_7
 :D1_7 rdf:type owl:NamedIndividual ,
                cdo:Transverse_Crack ,
-               dco:Damage_Area ,
+               dco:DamageArea ,
                dco:Structural_Damage ;
       d-asb-ing:hasAssessment :D1_7DA ;
       dco:hasDocumentation :D1_7DD ;
@@ -342,9 +323,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
       schema:dateCreated "October 25th 2018" ;
       schema:dateModified "November 26th 2018" ;
       schema:version 2.0 ;
-      props:width 0.7 ;
-      cdo:width "between 0.4 and 1mm." ;
-      dco:content "Continuous cracks from left to right, behind the abutment." .
+      props:width 0.7 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_7DA
@@ -387,17 +366,14 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 :D1_abutment_wall rdf:type owl:NamedIndividual ,
                            dco:Component ;
                   dco:hasDamageArea :D1_1 ,
-                                    :D1_23 ,
                                     :D1_29 ,
-                                    :D1_34 ,
                                     :D1_6 ,
                                     :D1_7 ;
                   schema:author "Al-Hakam Hamdan" ;
                   schema:dateCreated "October 25th 2018" ;
                   schema:dateModified "November 26th 2018" ;
                   schema:name "Abutment Wall North" ;
-                  schema:version 2.0 ;
-                  dco1:hasDamage :D1_6 .
+                  schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_bridge_cap
@@ -413,31 +389,31 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_chamber_wall
 :D1_chamber_wall rdf:type owl:NamedIndividual ,
                           dco:Component ;
+                 dco:hasDamageArea :D1_7 ;
                  schema:author "Mohit Nagpal" ;
                  schema:dateCreated "October 25th 2018" ;
                  schema:name "Chamber Wall North" ;
-                 schema:version 1.0 ;
-                 dco1:hasDamage :D1_7 .
+                 schema:version 1.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_cornice
 :D1_cornice rdf:type owl:NamedIndividual ,
                      dco:Component ;
+            dco:hasDamageArea :D1_55 ;
             schema:author "Mohit Nagpal" ;
             schema:dateCreated "October 25th 2018" ;
             schema:name "Cornice" ;
-            schema:version 1.0 ;
-            dco1:hasDamage :D1_55 .
+            schema:version 1.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_foundation
 :D1_foundation rdf:type owl:NamedIndividual ,
                         dco:Component ;
+               dco:hasDamage :D1_23 ;
                schema:author "Mohit Nagpal" ;
                schema:dateCreated "October 25th 2018" ;
                schema:name "Foundation" ;
-               schema:version 1.0 ;
-               dco1:hasDamage :D1_23 .
+               schema:version 1.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_lighting_pole
@@ -448,8 +424,7 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
                   schema:dateCreated "October 25th 2018" ;
                   schema:dateModified "November 26th 2018" ;
                   schema:name "Lighting Pole 1" ;
-                  schema:version 2.0 ;
-                  dco1:hasDamage :D1_63 .
+                  schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_plain_with_pot_bearing
@@ -458,25 +433,25 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
                            schema:author "Mohit Nagpal" ;
                            schema:dateCreated "October 25th 2018" ;
                            schema:name "Plain with pot bearing 1" ;
-                           schema:version 1.0 ;
-                           dco1:hasDamage :D1_28 .
+                           schema:version 1.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_plain_with_pot_bearing_2
 :D1_plain_with_pot_bearing_2 rdf:type owl:NamedIndividual ,
                                       dco:Component ;
-                             dco:hasDamageArea :D1_28 ;
+                             dco:hasDamage :D1_28 ,
+                                           :D1_29 ;
                              schema:author "Al-Hakam Hamdan" ;
                              schema:dateCreated "October 25th 2018" ;
                              schema:dateModified "November 26th 2018" ;
                              schema:name "Plain with pot bearing 2" ;
-                             schema:version 2.0 ;
-                             dco1:hasDamage :D1_29 .
+                             schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_road_joint
 :D1_road_joint rdf:type owl:NamedIndividual ,
                         dco:Component ;
+               dco:hasDamageArea :D1_34 ;
                schema:author "Mohit Nagpal" ;
                schema:dateCreated "October 25th 2018" ;
                schema:name "Road Joint" ;
@@ -489,20 +464,19 @@ dco1:hasDamage rdf:type owl:AnnotationProperty .
                  schema:author "Mohit Nagpal" ;
                  schema:dateCreated "October 25th 2018" ;
                  schema:name "Road Joint 2" ;
-                 schema:version 1.0 ;
-                 dco1:hasDamage :D1_34 .
+                 schema:version 1.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#D1_slab
 :D1_slab rdf:type owl:NamedIndividual ,
                   dco:Component ;
+         dco:hasDamage :D1_1 ;
          dco:hasDamageArea :D1_55 ;
          schema:author "Al-Hakam Hamdan" ;
          schema:dateCreated "October 25th 2018" ;
          schema:dateModified "November 26th 2018" ;
          schema:name "Slab" ;
-         schema:version 2.0 ;
-         dco1:hasDamage :D1_1 .
+         schema:version 2.0 .
 
 
 ###  http://www.semanticweb.org/s7251409/ontologies/2018/9/D1#SA1
