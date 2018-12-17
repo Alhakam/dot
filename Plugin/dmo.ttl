@@ -8,226 +8,245 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <https://w3id.org/damagemodels/dmo#> .
 
-<https://w3id.org/damagemodels/dmo#> rdf:type owl:Ontology ;
-                                      owl:versionIRI <https://w3id.org/damagemodels/dmo#/0.1.0> ;
-                                      dce:Language "en" ;
-                                      dce:description "Ontology for defining the mechanical behaviour of damaged areas" ;
-                                      dce:title "Damage Mechanics Ontology" ;
-                                      dcterms:creator "Al-Hakam Hamdan" ;
-                                      dcterms:description "Ontology for defining the mechanical behaviour of damaged areas" ;
-                                      dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-                                      dcterms:modified "November 19th 2018" ;
-                                      dcterms:title "Damage Mechanics Ontology" ;
-                                      :preferredNamespacePrefix "dmo" ;
-                                      :preferredNamespaceUri "https://w3id.org/damagemodels/dmo#" .
+<https://w3id.org/damagemodels/dmo#> a owl:Ontology ;
+	owl:versionIRI <https://w3id.org/damagemodels/dmo#/0.1.0> ;
+	dce:Language "en" ;
+	dce:description "Ontology for defining the mechanical behaviour of damaged areas" ;
+	dce:title "Damage Mechanics Ontology" ;
+	dcterms:creator "Al-Hakam Hamdan" ;
+	dcterms:description "Ontology for defining the mechanical behaviour of damaged areas" ;
+	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	dcterms:modified "November 19th 2018" ;
+	dcterms:title "Damage Mechanics Ontology" ;
+	:preferredNamespacePrefix "dmo" ;
+	:preferredNamespaceUri "https://w3id.org/damagemodels/dmo#" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/Language
 
-#################################################################
-#    Annotation properties
-#################################################################
+dce:Language a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/description
 
-###  http://purl.org/dc/elements/1.1/Language
-dce:Language rdf:type owl:AnnotationProperty .
+dce:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/modified
 
+dce:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/title
 
-###  http://purl.org/dc/elements/1.1/description
-dce:description rdf:type owl:AnnotationProperty .
+dce:title a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/contributor
 
+dcterms:contributor a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/creator
 
-###  http://purl.org/dc/elements/1.1/modified
-dce:modified rdf:type owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/description
 
+dcterms:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/issued
 
-###  http://purl.org/dc/elements/1.1/title
-dce:title rdf:type owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/license
 
+dcterms:license a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/modified
 
-###  http://purl.org/dc/terms/contributor
-dcterms:contributor rdf:type owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
 
+dcterms:title a owl:AnnotationProperty .
+# 
+# https://w3id.org/damagemodels/dmo#preferredNamespacePrefix
 
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
+:preferredNamespacePrefix a owl:AnnotationProperty .
+# 
+# https://w3id.org/damagemodels/dmo#preferredNamespaceUri
 
+:preferredNamespaceUri a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/damagemodels/dmo#hasModulusParameter
 
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty .
+:hasModulusParameter a owl:ObjectProperty ;
+	rdfs:domain :Stiffness_Modulus ;
+	rdfs:range :Modulus_Parameter .
+# 
+# https://w3id.org/damagemodels/dmo#hasReducedMaterialParameter
 
+:hasReducedMaterialParameter a owl:ObjectProperty ;
+	rdfs:domain <https://w3id.org/dco#Structural_Damage> .
+# 
+# https://w3id.org/damagemodels/dmo#hasReducedStiffness
 
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
+:hasReducedStiffness a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasReducedMaterialParameter ;
+	rdfs:range :Stiffness .
+# 
+# https://w3id.org/damagemodels/dmo#hasReducedStiffnessModulus
 
+:hasReducedStiffnessModulus a owl:ObjectProperty ;
+	rdfs:subPropertyOf :hasReducedMaterialParameter ;
+	rdfs:range :Stiffness_Modulus ;
+	owl:propertyChainAxiom _:genid2 .
 
-###  http://purl.org/dc/terms/license
-dcterms:license rdf:type owl:AnnotationProperty .
+_:genid2 a rdf:List ;
+	rdf:first :hasReducedStiffness ;
+	rdf:rest _:genid1 .
 
+_:genid1 a rdf:List ;
+	rdf:first :hasStiffnessModulus ;
+	rdf:rest rdf:nil .
+# 
+# https://w3id.org/damagemodels/dmo#hasStiffnessModulus
 
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
+:hasStiffnessModulus a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:domain :Stiffness ;
+	rdfs:range :Stiffness_Modulus .
+# 
+# https://w3id.org/damagemodels/dmo#hasStiffnessParameter
 
+:hasStiffnessParameter a owl:ObjectProperty ;
+	rdfs:domain :Stiffness .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/maxValue
 
-###  http://purl.org/dc/terms/title
-dcterms:title rdf:type owl:AnnotationProperty .
+<http://schema.org/maxValue> a owl:DatatypeProperty .
+# 
+# http://schema.org/minValue
 
+<http://schema.org/minValue> a owl:DatatypeProperty .
+# 
+# http://schema.org/value
 
-###  https://w3id.org/damagemodels/dmo#preferredNamespacePrefix
-:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+<http://schema.org/value> a owl:DatatypeProperty .
+# 
+# https://w3id.org/damagemodels/dmo#direction
 
+:direction a owl:DatatypeProperty .
+# 
+# https://w3id.org/damagemodels/dmo#matrixIndex
 
-###  https://w3id.org/damagemodels/dmo#preferredNamespaceUri
-:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+:matrixIndex a owl:DatatypeProperty .
+# 
+# https://w3id.org/damagemodels/dmo#reductionValue
 
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/damagemodels/dmo#hasModulusParameter
-:hasModulusParameter rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Stiffness_Modulus ;
-                     rdfs:range :Modulus_Parameter .
-
-
-###  https://w3id.org/damagemodels/dmo#hasReducedMaterialParameter
-:hasReducedMaterialParameter rdf:type owl:ObjectProperty ;
-                             rdfs:domain <https://w3id.org/dco#Damage_Area> ,
-                                         <https://w3id.org/dco#Structural_Damage> .
-
-
-###  https://w3id.org/damagemodels/dmo#hasReducedStiffness
-:hasReducedStiffness rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf :hasReducedMaterialParameter ;
-                     rdfs:range :Stiffness .
-
-
-###  https://w3id.org/damagemodels/dmo#hasReducedStiffnessModulus
-:hasReducedStiffnessModulus rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf :hasReducedMaterialParameter ;
-                            rdfs:range :Stiffness_Modulus ;
-                            owl:propertyChainAxiom ( :hasReducedStiffness
-                                                     :hasStiffnessModulus
-                                                   ) .
-
-
-###  https://w3id.org/damagemodels/dmo#hasStiffnessModulus
-:hasStiffnessModulus rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf owl:topObjectProperty ;
-                     rdfs:domain :Stiffness ;
-                     rdfs:range :Stiffness_Modulus .
-
-
-###  https://w3id.org/damagemodels/dmo#hasStiffnessParameter
-:hasStiffnessParameter rdf:type owl:ObjectProperty ;
-                       rdfs:domain :Stiffness .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  http://schema.org/maxValue
-<http://schema.org/maxValue> rdf:type owl:DatatypeProperty .
-
-
-###  http://schema.org/minValue
-<http://schema.org/minValue> rdf:type owl:DatatypeProperty .
-
-
-###  http://schema.org/value
-<http://schema.org/value> rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/damagemodels/dmo#direction
-:direction rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/damagemodels/dmo#matrixIndex
-:matrixIndex rdf:type owl:DatatypeProperty .
-
-
-###  https://w3id.org/damagemodels/dmo#reductionValue
-:reductionValue rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf <http://schema.org/value> ;
-                rdfs:comment """A value, defining the amount of reduction of all other parameters of an individual with this dataproperty.
+:reductionValue a owl:DatatypeProperty ;
+	rdfs:subPropertyOf <http://schema.org/value> ;
+	rdfs:comment """A value, defining the amount of reduction of all other parameters of an individual with this dataproperty.
 
 Example: Stiffness matrix with multiple values linked to Stiffness-Individual.
 
 The linked redcuctionValue of the Stiffness-Individual is 0.9, so all values in the linked stiffness matrix are reduced by 10%.""" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://schema.org/QuantitativeValue
 
+<http://schema.org/QuantitativeValue> a owl:Class .
+# 
+# https://w3id.org/damagemodels/dmo#Bending_Stiffness
 
-#################################################################
-#    Classes
-#################################################################
+:Bending_Stiffness a owl:Class ;
+	rdfs:subClassOf :Stiffness .
+# 
+# https://w3id.org/damagemodels/dmo#E-Modulus
 
-###  http://schema.org/QuantitativeValue
-<http://schema.org/QuantitativeValue> rdf:type owl:Class .
+:E-Modulus a owl:Class ;
+	rdfs:subClassOf :Stiffness_Modulus .
+# 
+# https://w3id.org/damagemodels/dmo#Flexural_Strength
 
+:Flexural_Strength a owl:Class ;
+	rdfs:subClassOf :Stiffness .
+# 
+# https://w3id.org/damagemodels/dmo#G-Modulus
 
-###  https://w3id.org/damagemodels/dmo#Bending_Stiffness
-:Bending_Stiffness rdf:type owl:Class ;
-                   rdfs:subClassOf :Stiffness .
+:G-Modulus a owl:Class ;
+	rdfs:subClassOf :Stiffness_Modulus .
+# 
+# https://w3id.org/damagemodels/dmo#Modulus_Parameter
 
+:Modulus_Parameter a owl:Class ;
+	rdfs:subClassOf <http://schema.org/QuantitativeValue> .
+# 
+# https://w3id.org/damagemodels/dmo#Reduction_Parameter
 
-###  https://w3id.org/damagemodels/dmo#E-Modulus
-:E-Modulus rdf:type owl:Class ;
-           rdfs:subClassOf :Stiffness_Modulus .
+:Reduction_Parameter a owl:Class ;
+	rdfs:subClassOf <http://schema.org/QuantitativeValue> .
+# 
+# https://w3id.org/damagemodels/dmo#Shear_Stiffness
 
+:Shear_Stiffness a owl:Class ;
+	rdfs:subClassOf :Stiffness .
+# 
+# https://w3id.org/damagemodels/dmo#Stiffness
 
-###  https://w3id.org/damagemodels/dmo#Flexural_Strength
-:Flexural_Strength rdf:type owl:Class ;
-                   rdfs:subClassOf :Stiffness .
+:Stiffness a owl:Class .
+# 
+# https://w3id.org/damagemodels/dmo#Stiffness_Modulus
 
+:Stiffness_Modulus a owl:Class .
+# 
+# https://w3id.org/damagemodels/dmo#Stiffness_Parameter
 
-###  https://w3id.org/damagemodels/dmo#G-Modulus
-:G-Modulus rdf:type owl:Class ;
-           rdfs:subClassOf :Stiffness_Modulus .
+:Stiffness_Parameter a owl:Class ;
+	rdfs:subClassOf <http://schema.org/QuantitativeValue> .
+# 
+# https://w3id.org/damagemodels/dmo#Tensile_Stiffness
 
+:Tensile_Stiffness a owl:Class ;
+	rdfs:subClassOf :Stiffness .
+# 
+# https://w3id.org/damagemodels/dmo#Torsional_Stiffness
 
-###  https://w3id.org/damagemodels/dmo#Modulus_Parameter
-:Modulus_Parameter rdf:type owl:Class ;
-                   rdfs:subClassOf <http://schema.org/QuantitativeValue> .
+:Torsional_Stiffness a owl:Class ;
+	rdfs:subClassOf :Stiffness .
+# 
+# https://w3id.org/dco#Structural_Damage
 
-
-###  https://w3id.org/damagemodels/dmo#Reduction_Parameter
-:Reduction_Parameter rdf:type owl:Class ;
-                     rdfs:subClassOf <http://schema.org/QuantitativeValue> .
-
-
-###  https://w3id.org/damagemodels/dmo#Shear_Stiffness
-:Shear_Stiffness rdf:type owl:Class ;
-                 rdfs:subClassOf :Stiffness .
-
-
-###  https://w3id.org/damagemodels/dmo#Stiffness
-:Stiffness rdf:type owl:Class .
-
-
-###  https://w3id.org/damagemodels/dmo#Stiffness_Modulus
-:Stiffness_Modulus rdf:type owl:Class .
-
-
-###  https://w3id.org/damagemodels/dmo#Stiffness_Parameter
-:Stiffness_Parameter rdf:type owl:Class ;
-                     rdfs:subClassOf <http://schema.org/QuantitativeValue> .
-
-
-###  https://w3id.org/damagemodels/dmo#Tensile_Stiffness
-:Tensile_Stiffness rdf:type owl:Class ;
-                   rdfs:subClassOf :Stiffness .
-
-
-###  https://w3id.org/damagemodels/dmo#Torsional_Stiffness
-:Torsional_Stiffness rdf:type owl:Class ;
-                     rdfs:subClassOf :Stiffness .
-
-
-###  https://w3id.org/dco#Damage_Area
-<https://w3id.org/dco#Damage_Area> rdf:type owl:Class .
-
-
-###  https://w3id.org/dco#Structural_Damage
-<https://w3id.org/dco#Structural_Damage> rdf:type owl:Class .
-
-
-###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
+<https://w3id.org/dco#Structural_Damage> a owl:Class .
+# 
+# Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
