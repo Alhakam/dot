@@ -1,0 +1,193 @@
+@prefix : <https://w3id.org/damagemodels/d-asb-ing#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix dco: <https://w3id.org/dco#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://w3id.org/damagemodels/d-asb-ing#> a owl:Ontology ;
+	owl:versionIRI <https://w3id.org/damagemodels/d-asb-ing#/0.1.0> ;
+	dce:Language "en" ;
+	dce:description "Ontology for defining assessments of damage / defects, components and structures based on the german standard ASB-ING and DIN 1076." ;
+	dce:modified "October 25th 2018" ;
+	dce:title "ASB-ING Assessment Ontology" ;
+	dcterms:creator "Al-Hakam Hamdan" ;
+	dcterms:description "Ontology for defining assessments of damage / defects, components and structures based on the german standard ASB-ING and DIN 1076." ;
+	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	dcterms:title "ASB-ING Assessment Ontology" ;
+	vann:preferredNamespacePrefix "d-asb-ing" ;
+	vann:preferredNamespaceUri "https://w3id.org/damagemodels/d-asb-ing#" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/Language
+
+dce:Language a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/description
+
+dce:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/modified
+
+dce:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/elements/1.1/title
+
+dce:title a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/contributor
+
+dcterms:contributor a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/creator
+
+dcterms:creator a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/description
+
+dcterms:description a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/issued
+
+dcterms:issued a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/license
+
+dcterms:license a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/modified
+
+dcterms:modified a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
+
+dcterms:title a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/damagemodels/d-asb-ing#hasAssessment
+
+:hasAssessment a owl:ObjectProperty ;
+	rdfs:range :Assessment ;
+	rdfs:comment "Relationship between Assessment and Damage or Structure_Element."@en ;
+	rdfs:label "has Assessment"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword
+
+:BWPRUFkeyword a owl:DatatypeProperty ;
+	rdfs:domain <https://w3id.org/dot#Description> ;
+	rdfs:comment "Keyword for damage assessment based on the key-table of ASB-ING, Annex D (2013)."@en ;
+	rdfs:label "keyword"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#assessmentFactors
+
+:assessmentFactors a owl:DatatypeProperty ;
+	rdfs:domain :Assessment ;
+	rdfs:comment "Assessment factors, that rate the structure, component and damage / defect. Uses grades from 1-6"@en ;
+	rdfs:label "assessment factors"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#durabilityFactor
+
+:durabilityFactor a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :assessmentFactors ;
+	rdfs:comment "Rating for describing the durability / influence on the durability of the structure of the assessed element (1-6)."@en ;
+	rdfs:label "durabilty factor"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#overallRating
+
+:overallRating a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :assessmentFactors ;
+	rdfs:domain :StructureAssessment ;
+	rdfs:comment "The overall rating, that is given to the structure or sub-structure after considering the stability factor, traffic safety factor and durability factor from each assessed element. For the calculation formula see B22 of BASt[5]."@en ;
+	rdfs:label "overall rating"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#stabilityFactor
+
+:stabilityFactor a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :assessmentFactors ;
+	rdfs:comment "Rating for describing the stability / influence on the stability of the structure of the assessed element (1-6)"@en ;
+	rdfs:label "stability factor"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor
+
+:trafficSafetyFactor a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :assessmentFactors ;
+	rdfs:comment "Rating for describing the traffic safety /influence on the traffic safety of the structure of the assessed element (1-6)."@en ;
+	rdfs:label "traffic safety factor"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/damagemodels/d-asb-ing#Assessment
+
+:Assessment a owl:Class ;
+	rdfs:comment "Rating for the assessed structure, following the ASB-ING standard (DIN 1076)"@en ;
+	rdfs:label "Assessment"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#Component_Assessment
+
+:ComponentAssessment a owl:Class ;
+	rdfs:subClassOf :Assessment ;
+	rdfs:comment "Assessment for a specific component."@en ;
+	rdfs:label "Component Assessment"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment
+
+:DamageAssessment a owl:Class ;
+	rdfs:subClassOf :Assessment ;
+	rdfs:comment "Assessment for a specific Damage_Element (Damage_Area or Individual_Damage)."@en ;
+	rdfs:label "Damage Assessment"@en .
+# 
+# https://w3id.org/damagemodels/d-asb-ing#Structure_Assessment
+
+:StructureAssessment a owl:Class ;
+	rdfs:subClassOf :Assessment ;
+	rdfs:comment "Overall assessment for the whole structure or a sub-structure (includes overall rating)."@en ;
+	rdfs:label "Structure Assessment"@en .
+# 
+# https://w3id.org/dot#Description
+
+<https://w3id.org/dot#Description> a owl:Class .
+# 
+# Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
