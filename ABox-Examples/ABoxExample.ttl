@@ -1,0 +1,605 @@
+@prefix : <http://www.semanticweb.org/alhak/ontologies/2019/0/D1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/alhak/ontologies/2019/0/D1> .
+
+<http://www.semanticweb.org/alhak/ontologies/2019/0/D1> rdf:type owl:Ontology ;
+                                                         owl:imports <https://w3id.org/damagemodels/cdo#/0.2.0> ,
+                                                                     <https://w3id.org/damagemodels/d-asb-ing#/0.1.0> ,
+                                                                     <https://w3id.org/damagemodels/dmo#/0.1.0> ,
+                                                                     <https://w3id.org/dot/0.3> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/taras/ontologies/2018/7/BROT#contains
+<http://www.semanticweb.org/taras/ontologies/2018/7/BROT#contains> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/ns/prov#generatedAtTime
+<http://www.w3.org/ns/prov#generatedAtTime> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement
+<http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone
+<http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Al-Hakam_Hamdan
+:Al-Hakam_Hamdan rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/ns/prov#Person> .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Bend1
+:Bend1 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/damagemodels/dmo#StiffnessParameter> ;
+       <http://schema.org/maxValue> 0.9 ;
+       <http://schema.org/minValue> 0.1 ;
+       <https://w3id.org/damagemodels/dmo#direction> "y" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ConstructionReport1
+:ConstructionReport1 rdf:type owl:NamedIndividual ,
+                              <https://w3id.org/dot#ExternalResource> .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack1
+:Crack1 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#DiagonalCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/dot#adjacentDamage> :Crack2 ;
+        <https://w3id.org/product/props#width> 0.03 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack2
+:Crack2 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#LongitudinalCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/product/props#width> 0.04 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack3
+:Crack3 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#SurfaceCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#Defect> ;
+        <https://w3id.org/product/props#width> 0.02 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack4
+:Crack4 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#LongitudinalCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/product/props#width> 0.04 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack5
+:Crack5 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#DiagonalCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/dot#adjacentDamage> :Crack6 ;
+        <https://w3id.org/product/props#depth> 0.07 ;
+        <https://w3id.org/product/props#width> 0.12 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack6
+:Crack6 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#TransverseCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/dot#adjacentDamage> :Crack7 ;
+        <https://w3id.org/product/props#depth> 0.07 ;
+        <https://w3id.org/product/props#width> 0.14 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack7
+:Crack7 rdf:type owl:NamedIndividual ,
+                 <https://w3id.org/damagemodels/cdo#DiagonalCrack> ,
+                 <https://w3id.org/dot#DamageElement> ,
+                 <https://w3id.org/dot#StructuralDamage> ;
+        <https://w3id.org/product/props#depth> 0.05 ;
+        <https://w3id.org/product/props#width> 0.12 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1
+:D1_1 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/dot#DamageArea> ,
+               <https://w3id.org/dot#StructuralDamage> ;
+      <http://www.w3.org/ns/prov#wasAttributedTo> :Al-Hakam_Hamdan ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_1-Assessment ;
+      <https://w3id.org/dot#hasDocumentation> :D1_1-Description ;
+      <http://www.w3.org/ns/prov#generatedAtTime> "2019-01-14T13:35:23Z" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1-Assessment
+:D1_1-Assessment rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                 <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1-Description
+:D1_1-Description rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/dot#Description> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130041120000000 ,
+                                                                          130041220000000 ;
+                  <https://w3id.org/dot#descriptionContent> "The spacer gap across is restricted continuosly behind the abutment. The formwork residues are not removed from the joint between the super and substructure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23
+:D1_23 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <http://www.w3.org/ns/prov#wasAttributedTo> :Al-Hakam_Hamdan ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_23-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_23-Description ;
+       <http://www.w3.org/ns/prov#generatedAtTime> "2019-01-14T13:35:23Z" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23-Assessment
+:D1_23-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23-Description
+:D1_23-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130043231100000 ;
+                   <https://w3id.org/dot#descriptionContent> "Strip foundation has settled <2cm. Different settlements of the retaining walls on the left behind the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28
+:D1_28 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_28-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_28-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28-Assessment
+:D1_28-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28-Description
+:D1_28-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130043122000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Bearing metal/steel plate is regionally bent on the right of axis number 14. Bending is on all sides of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29
+:D1_29 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_29-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_29-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29-Assessment
+:D1_29-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29-Description
+:D1_29-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130043122000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Bearing metal/steel plate under is regionally bent on the left and behind abutment. Bending is on front side of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34
+:D1_34 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_34-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_34-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34-Assessment
+:D1_34-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34-Description
+:D1_34-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130044214000000 ;
+                   <https://w3id.org/dot#descriptionContent> "The steel/metal edge profile is continuously rusted with cross-sectional weakening underside in front of the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37
+:D1_37 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_37-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_37-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37-Assessment
+:D1_37-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37-Description
+:D1_37-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130044214000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Steel lamella construction with plastic flat profiles with are elatically controlled are fully rusted underside in front of the structure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38
+:D1_38 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_38-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_38-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38-Assessment
+:D1_38-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38-Description
+:D1_38-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130044214000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Steel/metal travers-box regionally rusted with leaf rust from underside in front of the structure. Travers-box and finishing profile of the anchorage is corroded in the superstructure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_51
+:D1_51 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#Defect> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_51-Assessment .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_51-Assessment
+:D1_51-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 0 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55
+:D1_55 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_55-Assessment ;
+       <https://w3id.org/damagemodels/dmo#hasReducedStiffness> :ReducedBendingStiffness1 ,
+                                                               :ReducedShearStiffness1 ;
+       <https://w3id.org/dot#aggregatesDamageElement> :Spalling1 ;
+       <https://w3id.org/dot#aggregatesDamagePattern> :D1_55-SpallingPattern ;
+       <https://w3id.org/dot#hasDocumentation> :D1_55-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-Assessment
+:D1_55-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-Description
+:D1_55-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130047110000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Numerous spalling with exposed reinforcement on the right at the outside between superstructures." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-SpallingPattern
+:D1_55-SpallingPattern rdf:type owl:NamedIndividual ,
+                                <https://w3id.org/dot#DamagePattern> ;
+                       <https://w3id.org/dot#groupsDamageElement> :Spalling3 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6
+:D1_6 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/dot#DamageArea> ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_6-Assessment ;
+      <https://w3id.org/damagemodels/dmo#hasReducedStiffnessModulus> :FlexMod1 ;
+      <https://w3id.org/dot#aggregatesDamageElement> :Crack3 ,
+                                                     :Crack4 ,
+                                                     :Spalling4 ;
+      <https://w3id.org/dot#aggregatesDamagePattern> :D1_6-CrackPattern ;
+      <https://w3id.org/dot#hasDocumentation> :D1_6-Description ;
+      <https://w3id.org/damagemodels/cdo#crackSpacing> 0.1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-Assessment
+:D1_6-Assessment rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                 <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-CrackPattern
+:D1_6-CrackPattern rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#DamagePattern> ;
+                   <https://w3id.org/dot#groupsDamageElement> :Crack1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-Description
+:D1_6-Description rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/dot#Description> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130045000000000 ,
+                                                                          130047110000000 ;
+                  <https://w3id.org/dot#descriptionContent> "Mutiple spalling with exposed reinforcement in front left of the abutment. Additional cracks and cavities due to corrosion and consequential damages due to leaking road joint construction." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63
+:D1_63 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageElement> ,
+                <https://w3id.org/dot#StructuralDamage> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_63-Assessment ;
+       <https://w3id.org/dot#hasDocumentation> :D1_63-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63-Assessment
+:D1_63-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 2 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63-Description
+:D1_63-Description rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#Description> ;
+                   <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130044214000000 ;
+                   <https://w3id.org/dot#descriptionContent> "Lighting pole is regionally red rusted on the left. Pole base at the connection with superstructure is corroded." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_65
+:D1_65 rdf:type owl:NamedIndividual ,
+                <https://w3id.org/dot#DamageArea> ,
+                <https://w3id.org/dot#Defect> ;
+       <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_65-Assessment ;
+       <https://w3id.org/dot#aggregatesDamageElement> :Defect1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_65-Assessment
+:D1_65-Assessment rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 1 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 0 ;
+                  <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7
+:D1_7 rdf:type owl:NamedIndividual ,
+               <https://w3id.org/dot#DamageArea> ,
+               <https://w3id.org/dot#StructuralDamage> ;
+      <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :D1_7-Assessment ;
+      <https://w3id.org/dot#aggregatesDamagePattern> :D1_7-CrackPattern ;
+      <https://w3id.org/dot#hasDocumentation> :D1_7-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-Assessment
+:D1_7-Assessment rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/damagemodels/d-asb-ing#DamageAssessment> ;
+                 <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 1 ;
+                 <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-CrackPattern
+:D1_7-CrackPattern rdf:type owl:NamedIndividual ,
+                            <https://w3id.org/dot#DamagePattern> ;
+                   <https://w3id.org/dot#groupsDamageElement> :Crack5 ,
+                                                              :Crack6 ,
+                                                              :Crack7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-Description
+:D1_7-Description rdf:type owl:NamedIndividual ,
+                           <https://w3id.org/dot#Description> ;
+                  <https://w3id.org/damagemodels/d-asb-ing#BWPRUFkeyword> 130045000000000 ;
+                  <https://w3id.org/dot#descriptionContent> "Continuous cracks from left to right, behind the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Defect1
+:Defect1 rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/dot#DamageElement> ,
+                  <https://w3id.org/dot#Defect> .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#FlexMod1
+:FlexMod1 rdf:type owl:NamedIndividual ,
+                   <https://w3id.org/damagemodels/dmo#E-Modulus> ;
+          <https://w3id.org/damagemodels/dmo#hasReducedMaterialParameter> :FlexReduction1 ;
+          <https://w3id.org/damagemodels/dmo#direction> "z" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#FlexReduction1
+:FlexReduction1 rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/damagemodels/dmo#ReductionParameter> ;
+                <https://w3id.org/damagemodels/dmo#reductionValue> 0.75 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ReducedBendingStiffness1
+:ReducedBendingStiffness1 rdf:type owl:NamedIndividual ,
+                                   <https://w3id.org/damagemodels/dmo#BendingStiffness> ;
+                          <https://w3id.org/damagemodels/dmo#hasStiffnessParameter> :Bend1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ReducedShearStiffness1
+:ReducedShearStiffness1 rdf:type owl:NamedIndividual ,
+                                 <https://w3id.org/damagemodels/dmo#ShearStiffness> ;
+                        <https://w3id.org/damagemodels/dmo#hasReducedStiffnessModulus> :ShearMod1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Shear1-3-3
+:Shear1-3-3 rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/damagemodels/dmo#ModulusParameter> ;
+            <https://w3id.org/damagemodels/dmo#matrixIndex> "3,3" ;
+            <https://w3id.org/damagemodels/dmo#reductionValue> 0.8 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ShearMod1
+:ShearMod1 rdf:type owl:NamedIndividual ,
+                    <https://w3id.org/damagemodels/dmo#G-Modulus> ;
+           <https://w3id.org/damagemodels/dmo#hasModulusParameter> :Shear1-3-3 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling1
+:Spalling1 rdf:type owl:NamedIndividual ,
+                    <https://w3id.org/damagemodels/cdo#Spalling> ,
+                    <https://w3id.org/dot#DamageElement> ,
+                    <https://w3id.org/dot#StructuralDamage> ;
+           <https://w3id.org/measurement/area> 1.2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling2
+:Spalling2 rdf:type owl:NamedIndividual ,
+                    <https://w3id.org/damagemodels/cdo#Spalling> ,
+                    <https://w3id.org/dot#DamageElement> ,
+                    <https://w3id.org/dot#StructuralDamage> ;
+           <https://w3id.org/dot#adjacentDamage> :Spalling3 ;
+           <https://w3id.org/measurement/area> 0.6 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling3
+:Spalling3 rdf:type owl:NamedIndividual ,
+                    <https://w3id.org/damagemodels/cdo#ReinforcementCorrosion> ,
+                    <https://w3id.org/damagemodels/cdo#Spalling> ,
+                    <https://w3id.org/dot#DamageElement> ,
+                    <https://w3id.org/dot#StructuralDamage> ;
+           <https://w3id.org/measurement/area> 0.4 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling4
+:Spalling4 rdf:type owl:NamedIndividual ,
+                    <https://w3id.org/damagemodels/cdo#Spalling> ,
+                    <https://w3id.org/dot#DamageElement> ,
+                    <https://w3id.org/dot#StructuralDamage> ;
+           <https://w3id.org/measurement/area> 1.7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#StructureAssessment1
+:StructureAssessment1 rdf:type owl:NamedIndividual ,
+                               <https://w3id.org/damagemodels/d-asb-ing#StructureAssessment> ;
+                      <https://w3id.org/damagemodels/d-asb-ing#durabilityFactor> 3 ;
+                      <https://w3id.org/damagemodels/d-asb-ing#overallRating> 3.4 ;
+                      <https://w3id.org/damagemodels/d-asb-ing#stabilityFactor> 2 ;
+                      <https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor> 2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#abutment-wall-north
+:abutment-wall-north rdf:type owl:NamedIndividual ,
+                              <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+                     <https://w3id.org/dot#hasDamageArea> :D1_1 ,
+                                                          :D1_6 ,
+                                                          :D1_7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#bridge-d1
+:bridge-d1 rdf:type owl:NamedIndividual ,
+                    <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> ;
+           <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#contains> :abutment-wall-north ,
+                                                                              :plain-with-pot-bearing1 ,
+                                                                              :plain-with-pot-bearing2 ,
+                                                                              :strip-foundation1 ,
+                                                                              :superstructure ;
+           <https://w3id.org/damagemodels/d-asb-ing#hasAssessment> :StructureAssessment1 ;
+           <https://w3id.org/dot#hasDocumentation> :ConstructionReport1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#cornice1
+:cornice1 rdf:type owl:NamedIndividual ,
+                   <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+          <https://w3id.org/dot#hasDamageArea> :D1_55 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#lighting-pole1
+:lighting-pole1 rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+                <https://w3id.org/dot#hasDamageElement> :D1_63 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#plain-with-pot-bearing1
+:plain-with-pot-bearing1 rdf:type owl:NamedIndividual ,
+                                  <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+                         <https://w3id.org/dot#hasDamageArea> :D1_29 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#plain-with-pot-bearing2
+:plain-with-pot-bearing2 rdf:type owl:NamedIndividual ,
+                                  <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+                         <https://w3id.org/dot#hasDamageArea> :D1_28 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#road-joint1
+:road-joint1 rdf:type owl:NamedIndividual ,
+                      <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+             <https://w3id.org/dot#hasDamageArea> :D1_34 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#strip-foundation1
+:strip-foundation1 rdf:type owl:NamedIndividual ,
+                            <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> ;
+                   <https://w3id.org/dot#hasDamageArea> :D1_23 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#superstructure
+:superstructure rdf:type owl:NamedIndividual ,
+                         <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> ;
+                <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#contains> :cornice1 ,
+                                                                                   :lighting-pole1 ,
+                                                                                   :road-joint1 .
+
+
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
