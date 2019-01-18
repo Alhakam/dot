@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="Imports Wizard Entry" name="https://w3id.org/damagemodels/dmo#/0.1.0" uri="file:/H:/DamageModelv2/Plugin/dmo.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/damagemodels/d-asb-ing#/0.1.0" uri="file:/H:/DamageModelv2/Plugin/d-asb-ing.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/damagemodels/cdo#/0.2.0" uri="file:/H:/DamageModelv2/Plugin/cdo.ttl"/>
-    <uri id="Imports Wizard Entry" name="https://w3id.org/dot/0.3" uri="file:/H:/DamageModelv2/DamageModelv2/dot.ttl"/>
-    <uri id="Imports Wizard Entry" name="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core-v1.0.2-snapshot.owl" uri="https://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1547238022354" name="duplicate:http://www.semanticweb.org/s7251409/ontologies/2018/9/D1" uri="D1/D1_R2.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1547238022354" name="duplicate:http://www.semanticweb.org/s7251409/ontologies/2018/9/D1" uri="D1/D1_R3.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1547238022354" name="http://www.semanticweb.org/s7389405/ontologies/2018/10/untitled-ontology-39" uri="D1/untitled-ontology-39.owl"/>
-    </group>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
 </catalog>
