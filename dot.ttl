@@ -11,10 +11,17 @@
 @prefix schema: <http://schema.org/#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-<https://w3id.org/dot#> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/dot/0.3> ;
-                         dcterms:creator [ ] ,
-[ ] ;
+<https://w3id.org/dot#> 
+rdf:type owl:Ontology ;
+  dcterms:creator [
+      rdf:type foaf:Person ;
+      foaf:name "Al-Hakam Hamdan" ;
+    ] ;  
+  dcterms:creator [
+      rdf:type foaf:Person ;
+      foaf:name "Mathias Bonduel" ;
+    ] ;
+owl:versionIRI <https://w3id.org/dot/0.3> ;
 dcterms:description "Ontology that defines the topology of damages in constructions."@en ;
 dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
 dcterms:modified "January 11th 2019" ;
@@ -185,12 +192,3 @@ dot:StructuralDamage rdf:type owl:Class ;
                   rdfs:subClassOf mondis:ManifestationOfDamage ;
                   rdfs:comment "Damage that impairs the structural integrity of the structure."@en ;
                   rdfs:label "Structural Damage"@en .
-
-
-[ rdf:type foaf:Person ;
-  foaf:name "Al-Hakam Hamdan"
-] .
-
-[ rdf:type foaf:Person ;
-   foaf:name "Mathias Bonduel"
- ] .
