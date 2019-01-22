@@ -1,0 +1,553 @@
+<html><h2 id="crossreference" class="list">Cross reference for Damage Topology Ontology classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Damage Topology Ontology.
+<div id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#DamageArea" title="https://w3id.org/dot#DamageArea">Damage Area</a>
+      </li>
+      <li>
+         <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
+      </li>
+      <li>
+         <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+      </li>
+      <li>
+         <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+      </li>
+      <li>
+         <a href="#Defect" title="https://w3id.org/dot#Defect">Defect</a>
+      </li>
+      <li>
+         <a href="#Description" title="https://w3id.org/dot#Description">Description</a>
+      </li>
+      <li>
+         <a href="#ExternalResource" title="https://w3id.org/dot#ExternalResource">External Resource</a>
+      </li>
+      <li>
+         <a href="#StructuralDamage" title="https://w3id.org/dot#StructuralDamage">Structural Damage</a>
+      </li>
+   </ul>
+   <div class="entity" id="DamageArea">
+      <h3>Damage Area<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#DamageArea</p>
+      <div class="comment">
+         <span class="markdown">Area in a component where damage is located. Holds collection of multiple DamageElements or DamagePatterns. Used to be attached with simplified geometry.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasDamageArea" title="https://w3id.org/dot#hasDamageArea">has DamageArea</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Documentation">
+      <h3>Damage Documentation<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#Documentation</p>
+      <div class="comment">
+         <span class="markdown">Material or data that provides information or evidence about the structure and its components or that serves as a record. Should only be used for damage-related documentation.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Description" title="https://w3id.org/dot#Description">Description</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ExternalResource" title="https://w3id.org/dot#ExternalResource">External Resource</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has Documentation</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DamageElement">
+      <h3>Damage Element<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#DamageElement</p>
+      <div class="comment">
+         <span class="markdown">Damage that is modeled on a very detailed level and belongs with other adjacent Damage Element instances to a broader damage area or damage pattern</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#adjacentDamage" title="https://w3id.org/dot#adjacentDamage">adjacent damage</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#adjacentDamage" title="https://w3id.org/dot#adjacentDamage">adjacent damage</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasDamageElement" title="https://w3id.org/dot#hasDamageElement">has DamageElement</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#DamageArea" title="https://w3id.org/dot#DamageArea">Damage Area</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DamagePattern">
+      <h3>Damage Pattern<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#DamagePattern</p>
+      <div class="comment">
+         <span class="markdown">Defines a group of associated or physically connected instances of DamageElement. Used as class for grouping inside an instance of DamageArea.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#DamageArea" title="https://w3id.org/dot#DamageArea">Damage Area</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Defect">
+      <h3>Defect<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#Defect</p>
+      <div class="comment">
+         <span class="markdown">Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted"
+                  title="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage">manifestation of damage</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#StructuralDamage" title="https://w3id.org/dot#StructuralDamage">Structural Damage</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Description">
+      <h3>Description<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#Description</p>
+      <div class="comment">
+         <span class="markdown">Short textual documentation about a Damage or Structure Element. Generally created by the inspecting person.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#descriptionContent" title="https://w3id.org/dot#descriptionContent">description content</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ExternalResource">
+      <h3>External Resource<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#ExternalResource</p>
+      <div class="comment">
+         <span class="markdown">Document that is stored in a separate file, referenced by an external path.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="StructuralDamage">
+      <h3>Structural Damage<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#StructuralDamage</p>
+      <div class="comment">
+         <span class="markdown">Damage that impairs the structural integrity of the structure.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted"
+                  title="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage">manifestation of damage</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Defect" title="https://w3id.org/dot#Defect">Defect</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#adjacentDamage" title="https://w3id.org/dot#adjacentDamage">adjacent damage</a>
+      </li>
+      <li>
+         <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+      </li>
+      <li>
+         <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
+      </li>
+      <li>
+         <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
+      </li>
+      <li>
+         <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+      </li>
+      <li>
+         <a href="#hasDamage" title="https://w3id.org/dot#hasDamage">
+            <span>has damage</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasDamageArea" title="https://w3id.org/dot#hasDamageArea">has DamageArea</a>
+      </li>
+      <li>
+         <a href="#hasDamageElement" title="https://w3id.org/dot#hasDamageElement">has DamageElement</a>
+      </li>
+      <li>
+         <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has Documentation</a>
+      </li>
+   </ul>
+   <div class="entity" id="adjacentDamage">
+      <h3>adjacent damage<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#adjacentDamage</p>
+      <div class="comment">
+         <span class="markdown">Defines the relationship between two instances of DamageElement that are physically connected with each other.</span>
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> symmetric</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="aggregatesDamage">
+      <h3>aggregates damage<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#aggregatesDamage</p>
+      <div class="comment">
+         <span class="markdown">The relationship between an instance of DamageArea and its contained instances (DamageElement or DamagePattern).</span>
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> transitive</p>
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DamageArea" title="https://w3id.org/dot#DamageArea">Damage Area</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#adjacentDamage" title="https://w3id.org/dot#adjacentDamage">adjacent damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="aggregatesDamageElement">
+      <h3>aggregates Damage Element<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#aggregatesDamageElement</p>
+      <div class="comment">
+         <span class="markdown">A relationship between an instance of Damage Area and its consisting DamageElement instance.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="aggregatesDamagePattern">
+      <h3>aggregates Damage Pattern<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#aggregatesDamagePattern</p>
+      <div class="comment">
+         <span class="markdown">A relationship between an instance of DamageArea and its consisting DamagePattern instance.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="groupsDamageElement">
+      <h3>groups Damage Elements<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#groupsDamageElement</p>
+      <div class="comment">
+         <span class="markdown">Groups instances of DamageElement that are physically connected in a DamagePattern.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#adjacentDamage" title="https://w3id.org/dot#adjacentDamage">adjacent damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasDamage">
+      <h3>has damage<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#hasDamage</p>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#hasDamageArea" title="https://w3id.org/dot#hasDamageArea">has DamageArea</a>
+               <sup class="type-op" title="object property">op</sup>, <a href="#hasDamageElement" title="https://w3id.org/dot#hasDamageElement">has DamageElement</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#hasDamage" title="https://w3id.org/dot#hasDamage">has damage</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#aggregatesDamage" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasDamageArea">
+      <h3>has DamageArea<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#hasDamageArea</p>
+      <div class="comment">
+         <span class="markdown">Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#hasDamage" title="https://w3id.org/dot#hasDamage">has damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamageArea" title="https://w3id.org/dot#DamageArea">Damage Area</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasDamageElement">
+      <h3>has DamageElement<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#hasDamageElement</p>
+      <div class="comment">
+         <span class="markdown">Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#hasDamage" title="https://w3id.org/dot#hasDamage">has damage</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamageElement" title="https://w3id.org/dot#DamageElement">Damage Element</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasDocumentation">
+      <h3>has Documentation<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#hasDocumentation</p>
+      <div class="comment">
+         <span class="markdown">Relationship between a Documenation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties">
+   <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#descriptionContent" title="https://w3id.org/dot#descriptionContent">description content</a>
+      </li>
+   </ul>
+   <div class="entity" id="descriptionContent">
+      <h3>description content<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#descriptionContent</p>
+      <div class="comment">
+         <span class="markdown">Textual content used for the Description.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Description" title="https://w3id.org/dot#Description">Description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</html>
