@@ -1,0 +1,576 @@
+@prefix abox: <http://www.semanticweb.org/alhak/ontologies/2019/0/D1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dmo: <https://w3id.org/damagemodels/dmo#> .
+@prefix dot: <https://w3id.org/dot#> .
+@prefix cdo: <https://w3id.org/damagemodels/cdo#> .
+@prefix props: <https://w3id.org/product/props#> .
+@prefix dasb: <https://w3id.org/damagemodels/d-asb-ing#> .
+@prefix measurement: <https://w3id.org/measurement/> .
+@prefix brot: <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#> .
+
+<http://www.semanticweb.org/alhak/ontologies/2019/0/D1> rdf:type owl:Ontology ;
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Al-Hakam_Hamdan
+abox:Al-Hakam_Hamdan rdf:type prov:Person .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Bend1
+abox:Bend1 rdf:type 
+                dmo:StiffnessParameter ;
+       schema:maxValue 0.9 ;
+       schema:minValue 0.1 ;
+       dmo:direction "y" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ConstructionReport1
+abox:ConstructionReport1 rdf:type 
+                              dot:ExternalResource .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack1
+abox:Crack1 rdf:type 
+                 cdo:DiagonalCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        dot:adjacentDamage abox:Crack2 ;
+        cdo:crackWidth 3.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack2
+abox:Crack2 rdf:type 
+                 cdo:LongitudinalCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        cdo:crackWidth 4.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack3
+abox:Crack3 rdf:type 
+                 cdo:SurfaceCrack ,
+                 dot:DamageElement ,
+                 dot:Defect ;
+        cdo:crackWidth 2.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack4
+abox:Crack4 rdf:type 
+                 cdo:LongitudinalCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        cdo:crackWidth 4.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack5
+abox:Crack5 rdf:type 
+                 cdo:DiagonalCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        dot:adjacentDamage abox:Crack6 ;
+        props:depth 0.07 ;
+        cdo:crackWidth 12.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack6
+abox:Crack6 rdf:type 
+                 cdo:TransverseCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        dot:adjacentDamage abox:Crack7 ;
+        props:depth 0.07 ;
+        cdo:crackWidth 14.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Crack7
+abox:Crack7 rdf:type 
+                 cdo:DiagonalCrack ,
+                 dot:DamageElement ,
+                 dot:StructuralDamage ;
+        props:depth 0.05 ;
+        cdo:crackWidth 12.0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1
+abox:D1_1 rdf:type 
+               dot:DamageArea ,
+               dot:StructuralDamage ;
+      prov:wasAttributedTo abox:Al-Hakam_Hamdan ;
+      dasb:hasAssessment abox:D1_1-Assessment ;
+      dot:hasDocumentation abox:D1_1-Description ;
+      prov:generatedAtTime "2019-01-14T13:35:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1-Assessment
+abox:D1_1-Assessment rdf:type 
+                          dasb:DamageAssessment ;
+                 dasb:durabilityFactor 2 ;
+                 dasb:stabilityFactor 2 ;
+                 dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_1-Description
+abox:D1_1-Description rdf:type 
+                           dot:Description ;
+                  dasb:BWPRUFkeyword 130041120000000 ,
+                                                                          130041220000000 ;
+                  dot:descriptionContent "The spacer gap across is restricted continuosly behind the abutment. The formwork residues are not removed from the joint between the super and substructure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23
+abox:D1_23 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       prov:wasAttributedTo abox:Al-Hakam_Hamdan ;
+       dasb:hasAssessment abox:D1_23-Assessment ;
+       dot:hasDocumentation abox:D1_23-Description ;
+       prov:generatedAtTime "2019-01-14T13:35:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23-Assessment
+abox:D1_23-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_23-Description
+abox:D1_23-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130043231100000 ;
+                   dot:descriptionContent "Strip foundation has settled <2cm. Different settlements of the retaining walls on the left behind the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28
+abox:D1_28 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_28-Assessment ;
+       dot:hasDocumentation abox:D1_28-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28-Assessment
+abox:D1_28-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_28-Description
+abox:D1_28-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130043122000000 ;
+                   dot:descriptionContent "Bearing metal/steel plate is regionally bent on the right of axis number 14. Bending is on all sides of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29
+abox:D1_29 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_29-Assessment ;
+       dot:hasDocumentation abox:D1_29-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29-Assessment
+abox:D1_29-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_29-Description
+abox:D1_29-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130043122000000 ;
+                   dot:descriptionContent "Bearing metal/steel plate under is regionally bent on the left and behind abutment. Bending is on front side of the plate with 1mm engraving." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34
+abox:D1_34 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_34-Assessment ;
+       dot:hasDocumentation abox:D1_34-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34-Assessment
+abox:D1_34-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 3 ;
+                  dasb:stabilityFactor 2 ;
+                  dasb:trafficSafetyFactor 2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_34-Description
+abox:D1_34-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130044214000000 ;
+                   dot:descriptionContent "The steel/metal edge profile is continuously rusted with cross-sectional weakening underside in front of the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37
+abox:D1_37 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_37-Assessment ;
+       dot:hasDocumentation abox:D1_37-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37-Assessment
+abox:D1_37-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_37-Description
+abox:D1_37-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130044214000000 ;
+                   dot:descriptionContent "Steel lamella construction with plastic flat profiles with are elatically controlled are fully rusted underside in front of the structure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38
+abox:D1_38 rdf:type 
+                dot:DamageArea ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_38-Assessment ;
+       dot:hasDocumentation abox:D1_38-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38-Assessment
+abox:D1_38-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 3 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_38-Description
+abox:D1_38-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130044214000000 ;
+                   dot:descriptionContent "Steel/metal travers-box regionally rusted with leaf rust from underside in front of the structure. Travers-box and finishing profile of the anchorage is corroded in the superstructure." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_51
+abox:D1_51 rdf:type 
+                dot:DamageArea ,
+                dot:Defect ;
+       dasb:hasAssessment abox:D1_51-Assessment .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_51-Assessment
+abox:D1_51-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 0 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55
+abox:D1_55 rdf:type 
+                dot:DamageArea ;
+       dasb:hasAssessment abox:D1_55-Assessment ;
+       dmo:hasReducedStiffness abox:ReducedBendingStiffness1 ,
+                                                               abox:ReducedShearStiffness1 ;
+       dot:aggregatesDamageElement abox:Spalling1 ;
+       dot:aggregatesDamagePattern abox:D1_55-SpallingPattern ;
+       dot:hasDocumentation abox:D1_55-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-Assessment
+abox:D1_55-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-Description
+abox:D1_55-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130047110000000 ;
+                   dot:descriptionContent "Numerous spalling with exposed reinforcement on the right at the outside between superstructures." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_55-SpallingPattern
+abox:D1_55-SpallingPattern rdf:type 
+                                dot:DamagePattern ;
+                       dot:groupsDamageElement abox:Spalling3 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6
+abox:D1_6 rdf:type 
+               dot:DamageArea ;
+      dasb:hasAssessment abox:D1_6-Assessment ;
+      dmo:hasReducedStiffnessModulus abox:FlexMod1 ;
+      dot:aggregatesDamageElement abox:Crack3 ,
+                                                     abox:Crack4 ,
+                                                     abox:Spalling4 ;
+      dot:aggregatesDamagePattern abox:D1_6-CrackPattern ;
+      dot:hasDocumentation abox:D1_6-Description ;
+      cdo:crackSpacing 0.1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-Assessment
+abox:D1_6-Assessment rdf:type 
+                          dasb:DamageAssessment ;
+                 dasb:durabilityFactor 3 ;
+                 dasb:stabilityFactor 1 ;
+                 dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-CrackPattern
+abox:D1_6-CrackPattern rdf:type 
+                            dot:DamagePattern ;
+                   dot:groupsDamageElement abox:Crack1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_6-Description
+abox:D1_6-Description rdf:type 
+                           dot:Description ;
+                  dasb:BWPRUFkeyword 130045000000000 ,
+                                                                          130047110000000 ;
+                  dot:descriptionContent "Mutiple spalling with exposed reinforcement in front left of the abutment. Additional cracks and cavities due to corrosion and consequential damages due to leaking road joint construction." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63
+abox:D1_63 rdf:type 
+                dot:DamageElement ,
+                dot:StructuralDamage ;
+       dasb:hasAssessment abox:D1_63-Assessment ;
+       dot:hasDocumentation abox:D1_63-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63-Assessment
+abox:D1_63-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 2 ;
+                  dasb:stabilityFactor 1 ;
+                  dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_63-Description
+abox:D1_63-Description rdf:type 
+                            dot:Description ;
+                   dasb:BWPRUFkeyword 130044214000000 ;
+                   dot:descriptionContent "Lighting pole is regionally red rusted on the left. Pole base at the connection with superstructure is corroded." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_65
+abox:D1_65 rdf:type 
+                dot:DamageArea ,
+                dot:Defect ;
+       dasb:hasAssessment abox:D1_65-Assessment ;
+       dot:aggregatesDamageElement abox:Defect1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_65-Assessment
+abox:D1_65-Assessment rdf:type 
+                           dasb:DamageAssessment ;
+                  dasb:durabilityFactor 1 ;
+                  dasb:stabilityFactor 0 ;
+                  dasb:trafficSafetyFactor 1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7
+abox:D1_7 rdf:type 
+               dot:DamageArea ,
+               dot:StructuralDamage ;
+      dasb:hasAssessment abox:D1_7-Assessment ;
+      dot:aggregatesDamagePattern abox:D1_7-CrackPattern ;
+      dot:hasDocumentation abox:D1_7-Description .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-Assessment
+abox:D1_7-Assessment rdf:type 
+                          dasb:DamageAssessment ;
+                 dasb:durabilityFactor 3 ;
+                 dasb:stabilityFactor 1 ;
+                 dasb:trafficSafetyFactor 0 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-CrackPattern
+abox:D1_7-CrackPattern rdf:type 
+                            dot:DamagePattern ;
+                   dot:groupsDamageElement abox:Crack5 ,
+                                                              abox:Crack6 ,
+                                                              abox:Crack7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#D1_7-Description
+abox:D1_7-Description rdf:type 
+                           dot:Description ;
+                  dasb:BWPRUFkeyword 130045000000000 ;
+                  dot:descriptionContent "Continuous cracks from left to right, behind the abutment." .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Defect1
+abox:Defect1 rdf:type 
+                  dot:DamageElement ,
+                  dot:Defect .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#FlexMod1
+abox:FlexMod1 rdf:type 
+                   dmo:E-Modulus ;
+          dmo:hasReducedMaterialParameter abox:FlexReduction1 ;
+          dmo:direction "z" .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#FlexReduction1
+abox:FlexReduction1 rdf:type 
+                         dmo:ReductionParameter ;
+                dmo:reductionValue 0.75 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ReducedBendingStiffness1
+abox:ReducedBendingStiffness1 rdf:type 
+                                   dmo:BendingStiffness ;
+                          dmo:hasStiffnessParameter abox:Bend1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ReducedShearStiffness1
+abox:ReducedShearStiffness1 rdf:type 
+                                 dmo:ShearStiffness ;
+                        dmo:hasReducedStiffnessModulus abox:ShearMod1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Shear1-3-3
+abox:Shear1-3-3 rdf:type 
+                     dmo:ModulusParameter ;
+            dmo:matrixIndex "3,3" ;
+            dmo:reductionValue 0.8 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#ShearMod1
+abox:ShearMod1 rdf:type 
+                    dmo:G-Modulus ;
+           dmo:hasModulusParameter abox:Shear1-3-3 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling1
+abox:Spalling1 rdf:type 
+                    cdo:Spalling ,
+                    dot:DamageElement ,
+                    dot:StructuralDamage ;
+           measurement:area 1.2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling2
+abox:Spalling2 rdf:type 
+                    cdo:Spalling ,
+                    dot:DamageElement ,
+                    dot:StructuralDamage ;
+           dot:adjacentDamage abox:Spalling3 ;
+           measurement:area 0.6 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling3
+abox:Spalling3 rdf:type 
+                    cdo:ReinforcementCorrosion ,
+                    cdo:Spalling ,
+                    dot:DamageElement ,
+                    dot:StructuralDamage ;
+           measurement:area 0.4 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#Spalling4
+abox:Spalling4 rdf:type 
+                    cdo:Spalling ,
+                    dot:DamageElement ,
+                    dot:StructuralDamage ;
+           measurement:area 1.7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#StructureAssessment1
+abox:StructureAssessment1 rdf:type 
+                               dasb:StructureAssessment ;
+                      dasb:durabilityFactor 3 ;
+                      dasb:overallRating 3.4 ;
+                      dasb:stabilityFactor 2 ;
+                      dasb:trafficSafetyFactor 2 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#abutment-wall-north
+abox:abutment-wall-north rdf:type 
+                              brot:BridgeElement ;
+                     dot:hasDamageArea abox:D1_1 ,
+                                                          abox:D1_6 ,
+                                                          abox:D1_7 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#bridge-d1
+abox:bridge-d1 rdf:type 
+                    brot:BridgeSpatialZone ;
+           brot:contains abox:abutment-wall-north ,
+                                                                              abox:plain-with-pot-bearing1 ,
+                                                                              abox:plain-with-pot-bearing2 ,
+                                                                              abox:strip-foundation1 ,
+                                                                              abox:superstructure ;
+           dasb:hasAssessment abox:StructureAssessment1 ;
+           dot:hasDocumentation abox:ConstructionReport1 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#cornice1
+abox:cornice1 rdf:type 
+                   brot:BridgeElement ;
+          dot:hasDamageArea abox:D1_55 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#lighting-pole1
+abox:lighting-pole1 rdf:type 
+                         brot:BridgeElement ;
+                dot:hasDamageElement abox:D1_63 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#plain-with-pot-bearing1
+abox:plain-with-pot-bearing1 rdf:type 
+                                  brot:BridgeElement ;
+                         dot:hasDamageArea abox:D1_29 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#plain-with-pot-bearing2
+abox:plain-with-pot-bearing2 rdf:type 
+                                  brot:BridgeElement ;
+                         dot:hasDamageArea abox:D1_28 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#road-joint1
+abox:road-joint1 rdf:type 
+                      brot:BridgeElement ;
+             dot:hasDamageArea abox:D1_34 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#slab1
+abox:slab1 rdf:type 
+                brot:BridgeElement ;
+       dot:hasDamageArea abox:D1_37 ,
+                                            abox:D1_38 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#strip-foundation1
+abox:strip-foundation1 rdf:type 
+                            brot:BridgeElement ;
+                   dot:hasDamageArea abox:D1_23 .
+
+
+###  http://www.semanticweb.org/alhak/ontologies/2019/0/D1#superstructure
+abox:superstructure rdf:type 
+                         brot:BridgeSpatialZone ;
+                brot:contains abox:cornice1 ,
+                                                                                   abox:lighting-pole1 ,
+                                                                                   abox:road-joint1 .
