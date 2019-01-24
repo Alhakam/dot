@@ -11,7 +11,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:schema="http://schema.org/#">
     <owl:Ontology rdf:about="https://w3id.org/dot#">
-        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.3"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.4"/>
         <terms:creator>
             <rdf:Description rdf:nodeID="genid1">
                 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -26,7 +26,7 @@
         </terms:creator>
         <terms:description xml:lang="en">Ontology that defines the topology of damages in constructions.</terms:description>
         <terms:license>https://creativecommons.org/licenses/by/1.0</terms:license>
-        <terms:modified>January 11th 2019</terms:modified>
+        <terms:modified>January 24th 2019</terms:modified>
         <terms:title xml:lang="en">Damage Topology Ontology</terms:title>
         <vann:preferredNamespacePrefix>dot</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/dot#</vann:preferredNamespaceUri>
@@ -46,24 +46,10 @@
     
 
 
-    <!-- http://purl.org/dc/terms/issued -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
-    
-
-
     <!-- http://schema.org/#domainIncludes -->
 
 
     <owl:AnnotationProperty rdf:about="http://schema.org/#domainIncludes"/>
-    
-
-
-    <!-- http://schema.org/#rangeIncludes -->
-
-
-    <owl:AnnotationProperty rdf:about="http://schema.org/#rangeIncludes"/>
     
 
 
@@ -86,10 +72,10 @@
     
 
 
-    <!-- https://w3id.org/dot#adjacentDamage -->
+    <!-- https://w3id.org/dot#adjacentDamageElement -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#adjacentDamage">
+    <owl:ObjectProperty rdf:about="https://w3id.org/dot#adjacentDamageElement">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/dot#DamageElement"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#DamageElement"/>
@@ -99,49 +85,18 @@
     
 
 
-    <!-- https://w3id.org/dot#aggregatesDamage -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#aggregatesDamage">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/dot#DamageArea"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/dot#aggregatesDamage"/>
-            <rdf:Description rdf:about="https://w3id.org/dot#adjacentDamage"/>
-        </owl:propertyChainAxiom>
-        <terms:issued>should it be removed?</terms:issued>
-        <schema:rangeIncludes rdf:resource="https://w3id.org/dot#DamageElement"/>
-        <schema:rangeIncludes rdf:resource="https://w3id.org/dot#DamagePattern"/>
-        <rdfs:comment xml:lang="en">The relationship between an instance of DamageArea and its contained instances (DamageElement or DamagePattern).</rdfs:comment>
-        <rdfs:label xml:lang="en">aggregates damage</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/dot#aggregatesDamageElement -->
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#aggregatesDamageElement">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/dot#aggregatesDamage"/>
+        <rdfs:domain rdf:resource="https://w3id.org/dot#DamageArea"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#DamageElement"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/dot#aggregatesDamagePattern"/>
-            <rdf:Description rdf:about="https://w3id.org/dot#groupsDamageElement"/>
+            <rdf:Description rdf:about="https://w3id.org/dot#aggregatesDamageElement"/>
+            <rdf:Description rdf:about="https://w3id.org/dot#adjacentDamageElement"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">A relationship between an instance of Damage Area and its consisting DamageElement instance.</rdfs:comment>
         <rdfs:label xml:lang="en">aggregates Damage Element</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/dot#aggregatesDamagePattern -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#aggregatesDamagePattern">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/dot#aggregatesDamage"/>
-        <rdfs:range rdf:resource="https://w3id.org/dot#DamagePattern"/>
-        <rdfs:comment xml:lang="en">A relationship between an instance of DamageArea and its consisting DamagePattern instance.</rdfs:comment>
-        <rdfs:label xml:lang="en">aggregates Damage Pattern</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -154,28 +109,10 @@
         <rdfs:range rdf:resource="https://w3id.org/dot#DamageElement"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/dot#groupsDamageElement"/>
-            <rdf:Description rdf:about="https://w3id.org/dot#adjacentDamage"/>
+            <rdf:Description rdf:about="https://w3id.org/dot#adjacentDamageElement"/>
         </owl:propertyChainAxiom>
         <rdfs:comment xml:lang="en">Groups instances of DamageElement that are physically connected in a DamagePattern.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Recommended Cardinality: min 2</rdfs:comment>
         <rdfs:label xml:lang="en">groups Damage Elements</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/dot#hasDamage -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasDamage">
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://w3id.org/dot#hasDamage"/>
-            <rdf:Description rdf:about="https://w3id.org/dot#aggregatesDamage"/>
-        </owl:propertyChainAxiom>
-        <terms:issued>should it be removed?</terms:issued>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
-        <schema:rangeIncludes rdf:resource="https://w3id.org/dot#DamageElement"/>
     </owl:ObjectProperty>
     
 
@@ -184,8 +121,11 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasDamageArea">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/dot#hasDamage"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#DamageArea"/>
+        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
+        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
         <rdfs:comment xml:lang="en">Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea.</rdfs:comment>
         <rdfs:label xml:lang="en">has DamageArea</rdfs:label>
     </owl:ObjectProperty>
@@ -196,8 +136,15 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasDamageElement">
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/dot#hasDamage"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#DamageElement"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/dot#hasDamageArea"/>
+            <rdf:Description rdf:about="https://w3id.org/dot#aggregatesDamageElement"/>
+        </owl:propertyChainAxiom>
+        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
+        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
         <rdfs:comment xml:lang="en">Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement.</rdfs:comment>
         <rdfs:label xml:lang="en">has DamageElement</rdfs:label>
     </owl:ObjectProperty>
@@ -303,7 +250,7 @@
     <owl:Class rdf:about="https://w3id.org/dot#Defect">
         <rdfs:subClassOf rdf:resource="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"/>
         <owl:disjointWith rdf:resource="https://w3id.org/dot#StructuralDamage"/>
-        <rdfs:comment xml:lang="en">Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.</rdfs:comment>
         <rdfs:label xml:lang="en">Defect</rdfs:label>
     </owl:Class>
     
@@ -346,14 +293,14 @@
 
     <owl:Class rdf:about="https://w3id.org/dot#StructuralDamage">
         <rdfs:subClassOf rdf:resource="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"/>
-        <rdfs:comment xml:lang="en">Damage that impairs the structural integrity of the structure.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.</rdfs:comment>
         <rdfs:label xml:lang="en">Structural Damage</rdfs:label>
     </owl:Class>
-    <rdf:Description rdf:nodeID="genid11">
+    <rdf:Description rdf:nodeID="genid9">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <foaf:name>Al-Hakam Hamdan</foaf:name>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid12">
+    <rdf:Description rdf:nodeID="genid10">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <foaf:name>Mathias Bonduel</foaf:name>
     </rdf:Description>

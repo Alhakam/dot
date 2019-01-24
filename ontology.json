@@ -5,13 +5,7 @@
     "@value" : "Al-Hakam Hamdan"
   } ]
 }, {
-  "@id" : "_:genid11",
-  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
-  "http://xmlns.com/foaf/0.1/name" : [ {
-    "@value" : "Al-Hakam Hamdan"
-  } ]
-}, {
-  "@id" : "_:genid12",
+  "@id" : "_:genid10",
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Mathias Bonduel"
@@ -23,16 +17,16 @@
     "@value" : "Mathias Bonduel"
   } ]
 }, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Al-Hakam Hamdan"
+  } ]
+}, {
   "@id" : "http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "http://purl.org/dc/terms/issued",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
-}, {
   "@id" : "http://schema.org/#domainIncludes",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
-}, {
-  "@id" : "http://schema.org/#rangeIncludes",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://xmlns.com/foaf/0.1/Person",
@@ -56,7 +50,7 @@
     "@value" : "https://creativecommons.org/licenses/by/1.0"
   } ],
   "http://purl.org/dc/terms/modified" : [ {
-    "@value" : "January 11th 2019"
+    "@value" : "January 24th 2019"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -69,7 +63,7 @@
     "@value" : "https://w3id.org/dot#"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/dot/0.3"
+    "@id" : "https://w3id.org/dot/0.4"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#DamageArea",
@@ -117,7 +111,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."
+    "@value" : "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -173,7 +167,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Damage that impairs the structural integrity of the structure."
+    "@value" : "Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -183,7 +177,7 @@
     "@id" : "http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"
   } ]
 }, {
-  "@id" : "https://w3id.org/dot#adjacentDamage",
+  "@id" : "https://w3id.org/dot#adjacentDamageElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#SymmetricProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -200,40 +194,14 @@
     "@id" : "https://w3id.org/dot#DamageElement"
   } ]
 }, {
-  "@id" : "https://w3id.org/dot#aggregatesDamage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ],
-  "http://purl.org/dc/terms/issued" : [ {
-    "@value" : "should it be removed?"
-  } ],
-  "http://schema.org/#rangeIncludes" : [ {
-    "@id" : "https://w3id.org/dot#DamageElement"
-  }, {
-    "@id" : "https://w3id.org/dot#DamagePattern"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "The relationship between an instance of DamageArea and its contained instances (DamageElement or DamagePattern)."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/dot#DamageArea"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "aggregates damage"
-  } ],
-  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/dot#aggregatesDamage"
-    }, {
-      "@id" : "https://w3id.org/dot#adjacentDamage"
-    } ]
-  } ]
-}, {
   "@id" : "https://w3id.org/dot#aggregatesDamageElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "A relationship between an instance of Damage Area and its consisting DamageElement instance."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dot#DamageArea"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -242,32 +210,12 @@
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#DamageElement"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/dot#aggregatesDamage"
-  } ],
   "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
     "@list" : [ {
-      "@id" : "https://w3id.org/dot#aggregatesDamagePattern"
+      "@id" : "https://w3id.org/dot#aggregatesDamageElement"
     }, {
-      "@id" : "https://w3id.org/dot#groupsDamageElement"
+      "@id" : "https://w3id.org/dot#adjacentDamageElement"
     } ]
-  } ]
-}, {
-  "@id" : "https://w3id.org/dot#aggregatesDamagePattern",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A relationship between an instance of DamageArea and its consisting DamagePattern instance."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "aggregates Damage Pattern"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/dot#DamagePattern"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/dot#aggregatesDamage"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#descriptionContent",
@@ -289,9 +237,6 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Groups instances of DamageElement that are physically connected in a DamagePattern."
-  }, {
-    "@language" : "en",
-    "@value" : "Recommended Cardinality: min 2"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/dot#DamagePattern"
@@ -307,35 +252,21 @@
     "@list" : [ {
       "@id" : "https://w3id.org/dot#groupsDamageElement"
     }, {
-      "@id" : "https://w3id.org/dot#adjacentDamage"
-    } ]
-  } ]
-}, {
-  "@id" : "https://w3id.org/dot#hasDamage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://purl.org/dc/terms/issued" : [ {
-    "@value" : "should it be removed?"
-  } ],
-  "http://schema.org/#domainIncludes" : [ {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
-  }, {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
-  }, {
-    "@id" : "https://w3id.org/bot#Zone"
-  } ],
-  "http://schema.org/#rangeIncludes" : [ {
-    "@id" : "https://w3id.org/dot#DamageElement"
-  } ],
-  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
-    "@list" : [ {
-      "@id" : "https://w3id.org/dot#hasDamage"
-    }, {
-      "@id" : "https://w3id.org/dot#aggregatesDamage"
+      "@id" : "https://w3id.org/dot#adjacentDamageElement"
     } ]
   } ]
 }, {
   "@id" : "https://w3id.org/dot#hasDamageArea",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://schema.org/#domainIncludes" : [ {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
+  }, {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
+  }, {
+    "@id" : "https://w3id.org/bot#Element"
+  }, {
+    "@id" : "https://w3id.org/bot#Zone"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea."
@@ -346,13 +277,19 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#DamageArea"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/dot#hasDamage"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#hasDamageElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://schema.org/#domainIncludes" : [ {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
+  }, {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
+  }, {
+    "@id" : "https://w3id.org/bot#Element"
+  }, {
+    "@id" : "https://w3id.org/bot#Zone"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement."
@@ -364,8 +301,12 @@
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#DamageElement"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://w3id.org/dot#hasDamage"
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/dot#hasDamageArea"
+    }, {
+      "@id" : "https://w3id.org/dot#aggregatesDamageElement"
+    } ]
   } ]
 }, {
   "@id" : "https://w3id.org/dot#hasDocumentation",

@@ -21,10 +21,10 @@ rdf:type owl:Ontology ;
       rdf:type foaf:Person ;
       foaf:name "Mathias Bonduel" ;
     ] ;
-owl:versionIRI <https://w3id.org/dot/0.3> ;
+owl:versionIRI <https://w3id.org/dot/0.4> ;
 dcterms:description "Ontology that defines the topology of damages in constructions."@en ;
 dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-dcterms:modified "January 11th 2019" ;
+dcterms:modified "January 24th 2019" ;
 dcterms:title "Damage Topology Ontology"@en ;
 vann:preferredNamespacePrefix "dot" ;
 vann:preferredNamespaceUri "https://w3id.org/dot#" .
@@ -33,8 +33,8 @@ vann:preferredNamespaceUri "https://w3id.org/dot#" .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/dot#adjacentDamage
-dot:adjacentDamage rdf:type owl:ObjectProperty ,
+###  https://w3id.org/dot#adjacentDamageElement
+dot:adjacentDamageElement rdf:type owl:ObjectProperty ,
                          owl:SymmetricProperty ;
                 rdfs:domain dot:DamageElement ;
                 rdfs:range dot:DamageElement ;
@@ -42,37 +42,15 @@ dot:adjacentDamage rdf:type owl:ObjectProperty ,
                 rdfs:label "adjacent damage"@en .
 
 
-###  https://w3id.org/dot#aggregatesDamage
-dot:aggregatesDamage rdf:type owl:ObjectProperty ,
-                           owl:TransitiveProperty ;
-                  rdfs:domain dot:DamageArea ;
-                  owl:propertyChainAxiom ( dot:aggregatesDamage
-                                           dot:adjacentDamage
-                                         ) ;
-                  dcterms:issued "should it be removed?" ;
-                  schema:rangeIncludes dot:DamageElement ,
-                                       dot:DamagePattern ;
-                  rdfs:comment "The relationship between an instance of DamageArea and its contained instances (DamageElement or DamagePattern)."@en ;
-                  rdfs:label "aggregates damage"@en .
-
-
 ###  https://w3id.org/dot#aggregatesDamageElement
 dot:aggregatesDamageElement rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf dot:aggregatesDamage ;
+                         rdfs:domain dot:DamageArea ;
                          rdfs:range dot:DamageElement ;
-                         owl:propertyChainAxiom ( dot:aggregatesDamagePattern
-                                                  dot:groupsDamageElement
+                         owl:propertyChainAxiom ( dot:aggregatesDamageElement
+                                                  dot:adjacentDamageElement
                                                 ) ;
                          rdfs:comment "A relationship between an instance of Damage Area and its consisting DamageElement instance."@en ;
                          rdfs:label "aggregates Damage Element"@en .
-
-
-###  https://w3id.org/dot#aggregatesDamagePattern
-dot:aggregatesDamagePattern rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf dot:aggregatesDamage ;
-                         rdfs:range dot:DamagePattern ;
-                         rdfs:comment "A relationship between an instance of DamageArea and its consisting DamagePattern instance."@en ;
-                         rdfs:label "aggregates Damage Pattern"@en .
 
 
 ###  https://w3id.org/dot#groupsDamageElement
@@ -80,28 +58,18 @@ dot:groupsDamageElement rdf:type owl:ObjectProperty ;
                      rdfs:domain dot:DamagePattern ;
                      rdfs:range dot:DamageElement ;
                      owl:propertyChainAxiom ( dot:groupsDamageElement
-                                              dot:adjacentDamage
+                                              dot:adjacentDamageElement
                                             ) ;
-                     rdfs:comment "Groups instances of DamageElement that are physically connected in a DamagePattern."@en ,
-                                  "Recommended Cardinality: min 2"@en ;
+                     rdfs:comment "Groups instances of DamageElement that are physically connected in a DamagePattern."@en ;
                      rdfs:label "groups Damage Elements"@en .
-
-
-###  https://w3id.org/dot#hasDamage
-dot:hasDamage rdf:type owl:ObjectProperty ;
-           owl:propertyChainAxiom ( dot:hasDamage
-                                    dot:aggregatesDamage
-                                  ) ;
-           dcterms:issued "should it be removed?" ;
-           schema:domainIncludes brot:BridgeElement ,
-                                 brot:BridgeSpatialZone ,
-                                 bot:Zone ;
-           schema:rangeIncludes dot:DamageElement .
 
 
 ###  https://w3id.org/dot#hasDamageArea
 dot:hasDamageArea rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf dot:hasDamage ;
+               schema:domainIncludes brot:BridgeElement ,
+                                     brot:BridgeSpatialZone ,
+                                     bot:Element ,
+                                     bot:Zone ;
                rdfs:range dot:DamageArea ;
                rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea."@en ;
                rdfs:label "has DamageArea"@en .
@@ -109,7 +77,13 @@ dot:hasDamageArea rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dot#hasDamageElement
 dot:hasDamageElement rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf dot:hasDamage ;
+                  owl:propertyChainAxiom ( dot:hasDamageArea
+                                           dot:aggregatesDamageElement
+                                          ) ;
+                  schema:domainIncludes brot:BridgeElement ,
+                                     brot:BridgeSpatialZone ,
+                                     bot:Element ,
+                                     bot:Zone ;
                   rdfs:range dot:DamageElement ;
                   rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement."@en ;
                   rdfs:label "has DamageElement"@en .
@@ -163,7 +137,7 @@ dot:DamagePattern rdf:type owl:Class ;
 dot:Defect rdf:type owl:Class ;
         rdfs:subClassOf mondis:ManifestationOfDamage ;
         owl:disjointWith dot:StructuralDamage ;
-        rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."@en ;
+        rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en ;
         rdfs:label "Defect"@en .
 
 
@@ -190,5 +164,5 @@ dot:ExternalResource rdf:type owl:Class ;
 ###  https://w3id.org/dot#StructuralDamage
 dot:StructuralDamage rdf:type owl:Class ;
                   rdfs:subClassOf mondis:ManifestationOfDamage ;
-                  rdfs:comment "Damage that impairs the structural integrity of the structure."@en ;
+                  rdfs:comment "Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en ;
                   rdfs:label "Structural Damage"@en .
