@@ -20,10 +20,10 @@ dcterms:creator [
       rdf:type foaf:Person ;
       foaf:name "Mathias Bonduel" ;
     ] ;
-                                      owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.3.0> ;
+                                      owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.4.0> ;
                                       dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
                                       dcterms:description "Ontology for damage and defects in reinforced concrete."@en ;
-                                      dcterms:modified "January 24th 2019" ;
+                                      dcterms:modified "January 28th 2019" ;
                                       dcterms:title "Concrete Damage Ontology"@en ;
                                       vann:preferredNamespacePrefix "cdo" ;
                                       vann:preferredNamespaceUri "https://w3id.org/damagemodels/cdo#" .
@@ -38,6 +38,12 @@ cdo:crackSpacing rdf:type owl:DatatypeProperty ;
                rdfs:domain cdo:Crack ;
                rdfs:comment "Defines the crack spacing."@en ;
                rdfs:label "crackSpacing" .
+
+###  https://w3id.org/damagemodels/cdo#spallingArea
+cdo:spallingArea rdf:type owl:DatatypeProperty ;
+               rdfs:domain cdo:Spalling ;
+               rdfs:comment "Defines the area value of a spalling. Unit in mm."@en ;
+               rdfs:label "spalling area" .               
 
 ###  https://w3id.org/damagemodels/cdo#crackWidth
 cdo:crackWidth rdf:type owl:DatatypeProperty ;
