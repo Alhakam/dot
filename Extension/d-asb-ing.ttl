@@ -7,6 +7,9 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dot: <https://w3id.org/dot#> .
+@prefix schema: <http://schema.org/#> .
+@prefix brot: <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#> .
+@prefix bot: <https://w3id.org/bot#> .
 
 <https://w3id.org/damagemodels/d-asb-ing#> rdf:type owl:Ontology ;
   dcterms:creator [
@@ -17,9 +20,9 @@
       rdf:type foaf:Person ;
       foaf:name "Mathias Bonduel" ;
     ] ;
-	owl:versionIRI <https://w3id.org/damagemodels/d-asb-ing#/0.2.0> ;
+	owl:versionIRI <https://w3id.org/damagemodels/d-asb-ing#/0.3.0> ;
 	dcterms:description "Ontology for defining assessments of damage / defects, components and structures based on the German standard ASB-ING and DIN 1076."@en ;
-	dcterms:modified "24th January 2019" ;
+	dcterms:modified "28th January 2019" ;
 	dcterms:title "ASB-ING Assessment Ontology"@en ;
 	dcterms:creator "Al-Hakam Hamdan" ;
 	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
@@ -39,6 +42,13 @@
 # https://w3id.org/damagemodels/d-asb-ing#hasAssessment
 
 dasb:hasAssessment a owl:ObjectProperty ;
+	schema:domainIncludes dot:DamageElement ,
+							dot:DamageArea ,
+							dot:DamagePattern ,
+							brot:BridgeElement ,
+                            brot:BridgeSpatialZone ,
+                            bot:Element ,
+                            bot:Zone ;
 	rdfs:range dasb:Assessment ;
 	rdfs:comment "Relationship between Assessment and Damage or Structure_Element."@en ;
 	rdfs:label "has Assessment"@en .
