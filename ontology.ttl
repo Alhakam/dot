@@ -39,7 +39,7 @@ dot:adjacentDamageElement rdf:type owl:ObjectProperty ,
                 rdfs:domain dot:DamageElement ;
                 rdfs:range dot:DamageElement ;
                 rdfs:comment "Defines the relationship between two instances of DamageElement that are physically connected with each other."@en ;
-                rdfs:label "adjacent damage"@en .
+                rdfs:label "adjacent DamageElement"@en .
 
 
 ###  https://w3id.org/dot#aggregatesDamageElement
@@ -49,8 +49,18 @@ dot:aggregatesDamageElement rdf:type owl:ObjectProperty ;
                          owl:propertyChainAxiom ( dot:aggregatesDamageElement
                                                   dot:adjacentDamageElement
                                                 ) ;
+                         owl:propertyChainAxiom ( dot:aggregatesDamagePattern
+                                                  dot:groupsDamageElement
+                                                ) ;
                          rdfs:comment "A relationship between an instance of Damage Area and its consisting DamageElement instance."@en ;
                          rdfs:label "aggregates Damage Element"@en .
+
+###  https://w3id.org/dot#aggregatesDamagePattern
+dot:aggregatesDamagePattern rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf dot:aggregatesDamage ;
+                         rdfs:range dot:DamagePattern ;
+                         rdfs:comment "A relationship between an instance of DamageArea and its consisting DamagePattern instance."@en ;
+                         rdfs:label "aggregates Damage Pattern"@en .
 
 
 ###  https://w3id.org/dot#groupsDamageElement
@@ -91,6 +101,13 @@ dot:hasDamageElement rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dot#hasDocumentation
 dot:hasDocumentation rdf:type owl:ObjectProperty ;
+                  schema:domainIncludes dot:DamageArea ,
+                                        dot:DamageElement ,
+                                        dot:DamagePattern ,
+                                        bot:Element ,
+                                        bot:Zone ,
+                                        brot:BridgeElement ,
+                                        brot:BridgeSpatialZone ;
                   rdfs:range dot:Documentation ;
                   rdfs:comment "Relationship between a Documenation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."@en ;
                   rdfs:label "has Documentation"@en .

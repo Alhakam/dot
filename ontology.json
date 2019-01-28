@@ -5,7 +5,13 @@
     "@value" : "Al-Hakam Hamdan"
   } ]
 }, {
-  "@id" : "_:genid10",
+  "@id" : "_:genid11",
+  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Al-Hakam Hamdan"
+  } ]
+}, {
+  "@id" : "_:genid12",
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Mathias Bonduel"
@@ -15,12 +21,6 @@
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Mathias Bonduel"
-  } ]
-}, {
-  "@id" : "_:genid9",
-  "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
-  "http://xmlns.com/foaf/0.1/name" : [ {
-    "@value" : "Al-Hakam Hamdan"
   } ]
 }, {
   "@id" : "http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage",
@@ -188,11 +188,14 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "adjacent damage"
+    "@value" : "adjacent DamageElement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#DamageElement"
   } ]
+}, {
+  "@id" : "https://w3id.org/dot#aggregatesDamage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
 }, {
   "@id" : "https://w3id.org/dot#aggregatesDamageElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
@@ -216,6 +219,29 @@
     }, {
       "@id" : "https://w3id.org/dot#adjacentDamageElement"
     } ]
+  }, {
+    "@list" : [ {
+      "@id" : "https://w3id.org/dot#aggregatesDamagePattern"
+    }, {
+      "@id" : "https://w3id.org/dot#groupsDamageElement"
+    } ]
+  } ]
+}, {
+  "@id" : "https://w3id.org/dot#aggregatesDamagePattern",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A relationship between an instance of DamageArea and its consisting DamagePattern instance."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "aggregates Damage Pattern"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dot#DamagePattern"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dot#aggregatesDamage"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#descriptionContent",
@@ -311,6 +337,21 @@
 }, {
   "@id" : "https://w3id.org/dot#hasDocumentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://schema.org/#domainIncludes" : [ {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
+  }, {
+    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
+  }, {
+    "@id" : "https://w3id.org/bot#Element"
+  }, {
+    "@id" : "https://w3id.org/bot#Zone"
+  }, {
+    "@id" : "https://w3id.org/dot#DamageArea"
+  }, {
+    "@id" : "https://w3id.org/dot#DamageElement"
+  }, {
+    "@id" : "https://w3id.org/dot#DamagePattern"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Relationship between a Documenation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."

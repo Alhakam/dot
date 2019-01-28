@@ -94,12 +94,12 @@ This section provides details for each class and property defined by Damage Topo
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent damage</a>
+            <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent DamageElement</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent damage</a>
+            <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent DamageElement</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasDamageElement" title="https://w3id.org/dot#hasDamageElement">has DamageElement</a>
@@ -127,6 +127,11 @@ This section provides details for each class and property defined by Damage Topo
          <dt>is in domain of</dt>
          <dd>
             <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is disjoint with</dt>
@@ -230,10 +235,13 @@ This section provides details for each class and property defined by Damage Topo
    <h3 id="properties" class="list">Object Properties</h3>
    <ul class="hlist">
       <li>
-         <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent damage</a>
+         <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent DamageElement</a>
       </li>
       <li>
          <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
+      </li>
+      <li>
+         <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
       </li>
       <li>
          <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
@@ -249,7 +257,7 @@ This section provides details for each class and property defined by Damage Topo
       </li>
    </ul>
    <div class="entity" id="adjacentDamageElement">
-      <h3>adjacent damage<sup class="type-op" title="object property">op</sup>
+      <h3>adjacent DamageElement<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -302,8 +310,40 @@ This section provides details for each class and property defined by Damage Topo
                <a href="#aggregatesDamageElement" title="https://w3id.org/dot#aggregatesDamageElement">aggregates Damage Element</a>
                <sup class="type-op" title="object property">op</sup> 
                <span class="logic">o</span> 
-               <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent damage</a>
+               <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent DamageElement</a>
                <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dd>
+               <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="aggregatesDamagePattern">
+      <h3>aggregates Damage Pattern<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#aggregatesDamagePattern</p>
+      <div class="comment">
+         <span class="markdown">A relationship between an instance of DamageArea and its consisting DamagePattern instance.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="https://w3id.org/dot#aggregatesDamage">aggregates damage</span>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DamagePattern" title="https://w3id.org/dot#DamagePattern">Damage Pattern</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
@@ -335,7 +375,7 @@ This section provides details for each class and property defined by Damage Topo
                <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
                <sup class="type-op" title="object property">op</sup> 
                <span class="logic">o</span> 
-               <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent damage</a>
+               <a href="#adjacentDamageElement" title="https://w3id.org/dot#adjacentDamageElement">adjacent DamageElement</a>
                <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
