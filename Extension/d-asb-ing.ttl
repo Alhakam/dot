@@ -50,7 +50,7 @@ dasb:hasAssessment a owl:ObjectProperty ;
                             bot:Element ,
                             bot:Zone ;
 	rdfs:range dasb:Assessment ;
-	rdfs:comment "Relationship between Assessment and Damage or Structure_Element."@en ;
+	rdfs:comment "Relationship between Damage or Structure_Element and an instance of Assessment."@en ;
 	rdfs:label "has Assessment"@en .
 # 
 # 
@@ -69,9 +69,9 @@ dasb:BWPRUFkeyword a owl:DatatypeProperty ;
 	rdfs:comment "Keyword for damage assessment based on the key-table of ASB-ING, Annex D (2013)."@en ;
 	rdfs:label "keyword"@en .
 # 
-# https://w3id.org/damagemodels/d-asb-ing#assessmentFactors
+# https://w3id.org/damagemodels/d-asb-ing#assessmentFactor
 
-dasb:assessmentFactors a owl:DatatypeProperty ;
+dasb:assessmentFactor a owl:DatatypeProperty ;
 	rdfs:domain dasb:Assessment ;
 	rdfs:comment "Assessment factors, that rate the structure, component and damage / defect. Uses grades from 1-6"@en ;
 	rdfs:label "assessment factors"@en .
@@ -79,14 +79,14 @@ dasb:assessmentFactors a owl:DatatypeProperty ;
 # https://w3id.org/damagemodels/d-asb-ing#durabilityFactor
 
 dasb:durabilityFactor a owl:DatatypeProperty ;
-	rdfs:subPropertyOf dasb:assessmentFactors ;
+	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the durability / influence on the durability of the structure of the assessed element (1-6)."@en ;
 	rdfs:label "durabilty factor"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#overallRating
 
 dasb:overallRating a owl:DatatypeProperty ;
-	rdfs:subPropertyOf dasb:assessmentFactors ;
+	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:domain dasb:StructureAssessment ;
 	rdfs:comment "The overall rating, that is given to the structure or sub-structure after considering the stability factor, traffic safety factor and durability factor from each assessed element. For the calculation formula see B22 of BASt[5]."@en ;
 	rdfs:label "overall rating"@en .
@@ -94,14 +94,14 @@ dasb:overallRating a owl:DatatypeProperty ;
 # https://w3id.org/damagemodels/d-asb-ing#stabilityFactor
 
 dasb:stabilityFactor a owl:DatatypeProperty ;
-	rdfs:subPropertyOf dasb:assessmentFactors ;
+	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the stability / influence on the stability of the structure of the assessed element (1-6)"@en ;
 	rdfs:label "stability factor"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor
 
 dasb:trafficSafetyFactor a owl:DatatypeProperty ;
-	rdfs:subPropertyOf dasb:assessmentFactors ;
+	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the traffic safety /influence on the traffic safety of the structure of the assessed element (1-6)."@en ;
 	rdfs:label "traffic safety factor"@en .
 # 
