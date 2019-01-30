@@ -42,7 +42,7 @@ cdo:crackSpacing rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/damagemodels/cdo#spallingArea
 cdo:spallingArea rdf:type owl:DatatypeProperty ;
                rdfs:domain cdo:Spalling ;
-               rdfs:comment "Defines the area value of a spalling. Unit in mm."@en ;
+               rdfs:comment "Defines the area value of a spalling. Unit in mm²."@en ;
                rdfs:label "spalling area" .               
 
 ###  https://w3id.org/damagemodels/cdo#crackWidth
