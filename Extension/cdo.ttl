@@ -8,7 +8,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms> .
-@prefix mondis: <http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#> .
 @prefix props: <https://w3id.org/product/props#> .
 
 <https://w3id.org/damagemodels/cdo#> rdf:type owl:Ontology ;
@@ -67,7 +66,7 @@ cdo:Carbonatation rdf:type owl:Class ;
 
 ###  https://w3id.org/damagemodels/cdo#ChemicalDamage
 cdo:ChemicalDamage rdf:type owl:Class ;
-                 rdfs:subClassOf mondis:ManifestationOfDamage ;
+                 
                  rdfs:comment "Damage that is caused by chemical reactions in the concrete material or the reinforcement."@en ;
                  rdfs:label "Chemical Damage"@en .
 
@@ -81,7 +80,7 @@ cdo:ChlorideAttack rdf:type owl:Class ;
 
 ###  https://w3id.org/damagemodels/cdo#Crack
 cdo:Crack rdf:type owl:Class ;
-       rdfs:subClassOf mondis:ManifestationOfDamage ;
+       
        rdfs:comment "A defect that defines a discontinuity in the structure due to material failuer / exceeding the breaking strength of the material."@en ;
        rdfs:label "Crack"@en .
 
@@ -108,7 +107,7 @@ cdo:ReinforcementCorrosion rdf:type owl:Class ;
 
 ###  https://w3id.org/damagemodels/cdo#Spalling
 cdo:Spalling rdf:type owl:Class ;
-          rdfs:subClassOf mondis:ManifestationOfDamage ;
+          
           rdfs:comment "A defect where the concrete is slowly broken down into small flakes known as spalls from a larger solidified concrete body."@en ;
           rdfs:label "Spalling"@en .
 
