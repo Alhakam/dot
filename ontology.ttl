@@ -7,7 +7,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix mondis: <http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#> .
 @prefix schema: <http://schema.org/#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -21,10 +20,10 @@ rdf:type owl:Ontology ;
       rdf:type foaf:Person ;
       foaf:name "Mathias Bonduel" ;
     ] ;
-owl:versionIRI <https://w3id.org/dot/0.4> ;
+owl:versionIRI <https://w3id.org/dot/0.5> ;
 dcterms:description "Ontology that defines the topology of damages in constructions."@en ;
 dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-dcterms:modified "January 24th 2019" ;
+dcterms:modified "January 30th 2019" ;
 dcterms:title "Damage Topology Ontology"@en ;
 vann:preferredNamespacePrefix "dot" ;
 vann:preferredNamespaceUri "https://w3id.org/dot#" .
@@ -149,10 +148,8 @@ dot:DamagePattern rdf:type owl:Class ;
                rdfs:comment "Defines a group of associated or physically connected instances of DamageElement. Used as class for grouping inside an instance of DamageArea."@en ;
                rdfs:label "Damage Pattern"@en .
 
-
 ###  https://w3id.org/dot#Defect
 dot:Defect rdf:type owl:Class ;
-        rdfs:subClassOf mondis:ManifestationOfDamage ;
         owl:disjointWith dot:StructuralDamage ;
         rdfs:comment "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en ;
         rdfs:label "Defect"@en .
@@ -180,6 +177,6 @@ dot:ExternalResource rdf:type owl:Class ;
 
 ###  https://w3id.org/dot#StructuralDamage
 dot:StructuralDamage rdf:type owl:Class ;
-                  rdfs:subClassOf mondis:ManifestationOfDamage ;
                   rdfs:comment "Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en ;
                   rdfs:label "Structural Damage"@en .
+

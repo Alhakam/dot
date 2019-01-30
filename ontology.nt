@@ -1,5 +1,5 @@
 <https://w3id.org/dot#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/dot#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dot/0.4> .
+<https://w3id.org/dot#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dot/0.5> .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/creator> _:genid1 .
 _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -9,7 +9,7 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" .
-<https://w3id.org/dot#> <http://purl.org/dc/terms/modified> "January 24th 2019" .
+<https://w3id.org/dot#> <http://purl.org/dc/terms/modified> "January 30th 2019" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/title> "Damage Topology Ontology"@en .
 <https://w3id.org/dot#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dot" .
 <https://w3id.org/dot#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/dot#" .
@@ -154,9 +154,6 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # #################################################################
 # 
 # 
-# http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage
-<http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-# 
 # http://xmlns.com/foaf/0.1/Person
 # 
 # https://w3id.org/dot#DamageArea
@@ -179,7 +176,6 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # 
 # https://w3id.org/dot#Defect
 <https://w3id.org/dot#Defect> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage> .
 <https://w3id.org/dot#Defect> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dot#StructuralDamage> .
 <https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en .
 <https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#label> "Defect"@en .
@@ -203,7 +199,6 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # 
 # https://w3id.org/dot#StructuralDamage
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage> .
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en .
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#label> "Structural Damage"@en .
 # 

@@ -11,7 +11,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:schema="http://schema.org/#">
     <owl:Ontology rdf:about="https://w3id.org/dot#">
-        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.4"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.5"/>
         <terms:creator>
             <rdf:Description rdf:nodeID="genid1">
                 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -26,7 +26,7 @@
         </terms:creator>
         <terms:description xml:lang="en">Ontology that defines the topology of damages in constructions.</terms:description>
         <terms:license>https://creativecommons.org/licenses/by/1.0</terms:license>
-        <terms:modified>January 24th 2019</terms:modified>
+        <terms:modified>January 30th 2019</terms:modified>
         <terms:title xml:lang="en">Damage Topology Ontology</terms:title>
         <vann:preferredNamespacePrefix>dot</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/dot#</vann:preferredNamespaceUri>
@@ -227,13 +227,6 @@
     
 
 
-    <!-- http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage -->
-
-
-    <owl:Class rdf:about="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"/>
-    
-
-
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
 
@@ -278,7 +271,6 @@
 
 
     <owl:Class rdf:about="https://w3id.org/dot#Defect">
-        <rdfs:subClassOf rdf:resource="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"/>
         <owl:disjointWith rdf:resource="https://w3id.org/dot#StructuralDamage"/>
         <rdfs:comment xml:lang="en">Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.</rdfs:comment>
         <rdfs:label xml:lang="en">Defect</rdfs:label>
@@ -322,7 +314,6 @@
 
 
     <owl:Class rdf:about="https://w3id.org/dot#StructuralDamage">
-        <rdfs:subClassOf rdf:resource="http://kbss.felk.cvut.cz/ontologies/2011/monument-damage-core.owl#ManifestationOfDamage"/>
         <rdfs:comment xml:lang="en">Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.</rdfs:comment>
         <rdfs:label xml:lang="en">Structural Damage</rdfs:label>
     </owl:Class>
