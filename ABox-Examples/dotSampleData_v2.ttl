@@ -321,7 +321,9 @@ inst:bridge-d1 rdf:type brot:BridgeSpatialZone ;
 						     inst:plain-with-pot-bearing1 ,
 						     inst:plain-with-pot-bearing2 ,
 						     inst:strip-foundation1 ,
-						     inst:superstructure ;
+						     inst:superstructure ,
+						     inst:slab1 ,
+						     inst:slab2 ;
 			   dasb:hasAssessment inst:StructureAssessment1 ;
 			   dot:hasDocumentation inst:ConstructionReport1 .
 
@@ -354,4 +356,6 @@ inst:strip-foundation1 rdf:type brot:BridgeElement ;
 inst:superstructure rdf:type brot:BridgeSpatialZone ;
 					brot:contains inst:cornice1 ,
 								  inst:lighting-pole1 ,
-								  inst:road-joint1 .
+								  inst:road-joint1 ,
+								  inst:slab1 ,
+								  inst:slab2 .
