@@ -316,12 +316,12 @@ inst:abutment-wall-north rdf:type brot:BridgeElement ;
 										   inst:D1_6 ,
 										   inst:D1_7 .
 
-inst:bridge-d1 rdf:type brot:BridgeSpatialZone ;
+inst:bridge-d1 rdf:type brot:Bridge ;
 			   brot:contains inst:abutment-wall-north ,
 						     inst:plain-with-pot-bearing1 ,
 						     inst:plain-with-pot-bearing2 ,
 						     inst:strip-foundation1 ,
-						     inst:superstructure ,
+						     inst:d1-west ,
 						     inst:slab1 ,
 						     inst:slab2 ;
 			   dasb:hasAssessment inst:StructureAssessment1 ;
@@ -353,7 +353,7 @@ inst:slab2 rdf:type brot:BridgeElement ;
 inst:strip-foundation1 rdf:type brot:BridgeElement ;
 					   dot:hasDamageArea inst:D1_23 .
 
-inst:superstructure rdf:type brot:BridgeSpatialZone ;
+inst:d1-west rdf:type brot:BridgeSuperStructure ;
 					brot:contains inst:cornice1 ,
 								  inst:lighting-pole1 ,
 								  inst:road-joint1 ,
