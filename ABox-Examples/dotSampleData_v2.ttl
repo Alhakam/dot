@@ -311,7 +311,8 @@ inst:StructureAssessment1 rdf:type dasb:StructureAssessment ;
 						  dasb:stabilityFactor 2 ;
 						  dasb:trafficSafetyFactor 2 .
 
-inst:abutment-wall-north dot:hasDamageArea inst:D1_1 ,
+inst:abutment-wall-north rdf:type brot:BridgeElement ;
+						 dot:hasDamageArea inst:D1_1 ,
 										   inst:D1_6 ,
 										   inst:D1_7 .
 
@@ -326,23 +327,31 @@ inst:bridge-d1 rdf:type brot:Bridge ;
 			   dasb:hasAssessment inst:StructureAssessment1 ;
 			   dot:hasDocumentation inst:ConstructionReport1 .
 
-inst:cornice1 dot:hasDamageArea inst:D1_55 .
+inst:cornice1 rdf:type brot:BridgeElement ;
+			  dot:hasDamageArea inst:D1_55 .
 
-inst:lighting-pole1 dot:hasDamageElement inst:D1_63 .
+inst:lighting-pole1 rdf:type brot:BridgeElement ;
+					dot:hasDamageElement inst:D1_63 .
 
-inst:plain-with-pot-bearing1 dot:hasDamageArea inst:D1_29 .
+inst:plain-with-pot-bearing1 rdf:type brot:BridgeElement ;
+							 dot:hasDamageArea inst:D1_29 .
 
-inst:plain-with-pot-bearing2 dot:hasDamageArea inst:D1_28 .
+inst:plain-with-pot-bearing2 rdf:type brot:BridgeElement ;
+							 dot:hasDamageArea inst:D1_28 .
 
-inst:road-joint1 dot:hasDamageArea inst:D1_34 .
+inst:road-joint1 rdf:type brot:BridgeElement ;
+				 dot:hasDamageArea inst:D1_34 .
 
-inst:slab1 dot:hasDamageArea inst:D1_37 ,
+inst:slab1 rdf:type brot:BridgeElement ;
+		   dot:hasDamageArea inst:D1_37 ,
                              inst:D1_38 .
 
-inst:slab2 dot:hasDamageArea inst:D1_65 ,
+inst:slab2 rdf:type brot:BridgeElement ;
+		   dot:hasDamageArea inst:D1_65 ,
                              inst:D1_51 .
 
-inst:strip-foundation1 dot:hasDamageArea inst:D1_23 .
+inst:strip-foundation1 rdf:type brot:BridgeElement ;
+					   dot:hasDamageArea inst:D1_23 .
 
 inst:d1-west rdf:type brot:BridgeSuperStructure ;
 					brot:contains inst:cornice1 ,
