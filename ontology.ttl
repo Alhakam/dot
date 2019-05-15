@@ -27,18 +27,6 @@ _:genid2 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
-###  http://schema.org/#domainIncludes
-<http://schema.org/#domainIncludes> rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
-
-
 ###  https://w3id.org/dot#descriptionContent
 :descriptionContent rdf:type owl:AnnotationProperty ;
                     rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
