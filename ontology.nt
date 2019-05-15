@@ -1,5 +1,5 @@
 <https://w3id.org/dot#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/dot#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dot/0.5> .
+<https://w3id.org/dot#> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dot/0.6> .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/creator> _:genid1 .
 _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -9,7 +9,7 @@ _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" .
-<https://w3id.org/dot#> <http://purl.org/dc/terms/modified> "January 30th 2019" .
+<https://w3id.org/dot#> <http://purl.org/dc/terms/modified> "May 15th 2019" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/title> "Damage Topology Ontology"@en .
 <https://w3id.org/dot#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dot" .
 <https://w3id.org/dot#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/dot#" .
@@ -22,11 +22,22 @@ _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 # #################################################################
 # 
 # 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # http://schema.org/#domainIncludes
 <http://schema.org/#domainIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://xmlns.com/foaf/0.1/name
 <http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://w3id.org/dot#descriptionContent
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#comment> "Textual content used for the Description of a Structure Element or Damage."@en .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#label> "description content"@en .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Description> .
 # 
 # 
 # 
@@ -44,9 +55,6 @@ _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 <https://w3id.org/dot#adjacentDamageElement> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#DamageElement> .
 <https://w3id.org/dot#adjacentDamageElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship between two instances of DamageElement that are physically connected with each other."@en .
 <https://w3id.org/dot#adjacentDamageElement> <http://www.w3.org/2000/01/rdf-schema#label> "adjacent DamageElement"@en .
-# 
-# https://w3id.org/dot#aggregatesDamage
-<https://w3id.org/dot#aggregatesDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 # 
 # https://w3id.org/dot#aggregatesDamageElement
 <https://w3id.org/dot#aggregatesDamageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -71,10 +79,17 @@ _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # 
 # https://w3id.org/dot#aggregatesDamagePattern
 <https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dot#aggregatesDamage> .
+<https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#DamageArea> .
 <https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#DamagePattern> .
 <https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/2000/01/rdf-schema#comment> "A relationship between an instance of DamageArea and its consisting DamagePattern instance."@en .
 <https://w3id.org/dot#aggregatesDamagePattern> <http://www.w3.org/2000/01/rdf-schema#label> "aggregates Damage Pattern"@en .
+# 
+# https://w3id.org/dot#belongsToInspection
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Damage> .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Inspection> .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Assigns to a Damage an affiliation to an Inspection."@en .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#label> "belongs to Inspection"@en .
 # 
 # https://w3id.org/dot#groupsDamageElement
 <https://w3id.org/dot#groupsDamageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -90,18 +105,33 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#groupsDamageElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Groups instances of DamageElement that are physically connected in a DamagePattern."@en .
 <https://w3id.org/dot#groupsDamageElement> <http://www.w3.org/2000/01/rdf-schema#label> "groups Damage Elements"@en .
 # 
+# https://w3id.org/dot#hasCausation
+<https://w3id.org/dot#hasCausation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasCausation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Damage> .
+<https://w3id.org/dot#hasCausation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Causation> .
+<https://w3id.org/dot#hasCausation> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a Damage and its Causation."@en .
+<https://w3id.org/dot#hasCausation> <http://www.w3.org/2000/01/rdf-schema#label> "has Causation"@en .
+# 
+# https://w3id.org/dot#hasDamage
+<https://w3id.org/dot#hasDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Damage> .
+<https://w3id.org/dot#hasDamage> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> .
+<https://w3id.org/dot#hasDamage> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> .
+<https://w3id.org/dot#hasDamage> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Element> .
+<https://w3id.org/dot#hasDamage> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Zone> .
+<https://w3id.org/dot#hasDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship between an affected component or structure (e.g. bot:Element) and a Damage."@en .
+<https://w3id.org/dot#hasDamage> <http://www.w3.org/2000/01/rdf-schema#label> "has Damage"@en .
+# 
 # https://w3id.org/dot#hasDamageArea
 <https://w3id.org/dot#hasDamageArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasDamageArea> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dot#hasDamage> .
 <https://w3id.org/dot#hasDamageArea> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#DamageArea> .
-<https://w3id.org/dot#hasDamageArea> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> .
-<https://w3id.org/dot#hasDamageArea> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> .
-<https://w3id.org/dot#hasDamageArea> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Element> .
-<https://w3id.org/dot#hasDamageArea> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Zone> .
 <https://w3id.org/dot#hasDamageArea> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea."@en .
 <https://w3id.org/dot#hasDamageArea> <http://www.w3.org/2000/01/rdf-schema#label> "has DamageArea"@en .
 # 
 # https://w3id.org/dot#hasDamageElement
 <https://w3id.org/dot#hasDamageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasDamageElement> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dot#hasDamage> .
 <https://w3id.org/dot#hasDamageElement> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#DamageElement> .
 <https://w3id.org/dot#hasDamageElement> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid10 .
 _:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
@@ -110,10 +140,6 @@ _:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid9 .
 _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/dot#aggregatesDamageElement> .
 _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/dot#hasDamageElement> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> .
-<https://w3id.org/dot#hasDamageElement> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> .
-<https://w3id.org/dot#hasDamageElement> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Element> .
-<https://w3id.org/dot#hasDamageElement> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Zone> .
 <https://w3id.org/dot#hasDamageElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement."@en .
 <https://w3id.org/dot#hasDamageElement> <http://www.w3.org/2000/01/rdf-schema#label> "has DamageElement"@en .
 # 
@@ -127,8 +153,25 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#hasDocumentation> <http://schema.org/#domainIncludes> <https://w3id.org/dot#DamageArea> .
 <https://w3id.org/dot#hasDocumentation> <http://schema.org/#domainIncludes> <https://w3id.org/dot#DamageElement> .
 <https://w3id.org/dot#hasDocumentation> <http://schema.org/#domainIncludes> <https://w3id.org/dot#DamagePattern> .
-<https://w3id.org/dot#hasDocumentation> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a Documenation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."@en .
+<https://w3id.org/dot#hasDocumentation> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."@en .
 <https://w3id.org/dot#hasDocumentation> <http://www.w3.org/2000/01/rdf-schema#label> "has Documentation"@en .
+# 
+# https://w3id.org/dot#hasInspection
+<https://w3id.org/dot#hasInspection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasInspection> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Inspection> .
+<https://w3id.org/dot#hasInspection> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement> .
+<https://w3id.org/dot#hasInspection> <http://schema.org/#domainIncludes> <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone> .
+<https://w3id.org/dot#hasInspection> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Element> .
+<https://w3id.org/dot#hasInspection> <http://schema.org/#domainIncludes> <https://w3id.org/bot#Zone> .
+<https://w3id.org/dot#hasInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between an inspected structure or component and its corresponding Inspection."@en .
+<https://w3id.org/dot#hasInspection> <http://www.w3.org/2000/01/rdf-schema#label> "has Inspection"@en .
+# 
+# https://w3id.org/dot#hasInspector
+<https://w3id.org/dot#hasInspector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dot#hasInspector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Inspection> .
+<https://w3id.org/dot#hasInspector> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Inspector> .
+<https://w3id.org/dot#hasInspector> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between an Inspector and the Inspection that has been performed by him."@en .
+<https://w3id.org/dot#hasInspector> <http://www.w3.org/2000/01/rdf-schema#label> "has Inspector"@en .
 # 
 # 
 # 
@@ -139,11 +182,12 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # #################################################################
 # 
 # 
-# https://w3id.org/dot#descriptionContent
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Description> .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#comment> "Textual content used for the Description."@en .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#label> "description content"@en .
+# https://w3id.org/dot#filePath
+<https://w3id.org/dot#filePath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dot#filePath> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#ExternalResource> .
+<https://w3id.org/dot#filePath> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/dot#filePath> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the unique location in a file system of an ExternalResource"@en .
+<https://w3id.org/dot#filePath> <http://www.w3.org/2000/01/rdf-schema#label> "file path"@en .
 # 
 # 
 # 
@@ -156,8 +200,19 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # 
 # http://xmlns.com/foaf/0.1/Person
 # 
+# https://w3id.org/dot#Causation
+<https://w3id.org/dot#Causation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#Causation> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the causation of a damage. \n\nShould be extended with domain-specific subclasses."@en .
+<https://w3id.org/dot#Causation> <http://www.w3.org/2000/01/rdf-schema#label> "Causation"@en .
+# 
+# https://w3id.org/dot#Damage
+<https://w3id.org/dot#Damage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#Damage> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.\n\nInstead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement)."@en .
+<https://w3id.org/dot#Damage> <http://www.w3.org/2000/01/rdf-schema#label> "Damage"@en .
+# 
 # https://w3id.org/dot#DamageArea
 <https://w3id.org/dot#DamageArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#DamageArea> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dot#Damage> .
 <https://w3id.org/dot#DamageArea> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dot#DamageElement> .
 <https://w3id.org/dot#DamageArea> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dot#DamagePattern> .
 <https://w3id.org/dot#DamageArea> <http://www.w3.org/2000/01/rdf-schema#comment> "Area in a component where damage is located. Holds collection of multiple DamageElements or DamagePatterns. Used to be attached with simplified geometry."@en .
@@ -165,6 +220,7 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # 
 # https://w3id.org/dot#DamageElement
 <https://w3id.org/dot#DamageElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#DamageElement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dot#Damage> .
 <https://w3id.org/dot#DamageElement> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dot#DamagePattern> .
 <https://w3id.org/dot#DamageElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage that is modeled on a very detailed level and belongs with other adjacent Damage Element instances to a broader damage area or damage pattern"@en .
 <https://w3id.org/dot#DamageElement> <http://www.w3.org/2000/01/rdf-schema#label> "Damage Element"@en .
@@ -177,7 +233,7 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # https://w3id.org/dot#Defect
 <https://w3id.org/dot#Defect> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/dot#Defect> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dot#StructuralDamage> .
-<https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en .
+<https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#comment> "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."@en .
 <https://w3id.org/dot#Defect> <http://www.w3.org/2000/01/rdf-schema#label> "Defect"@en .
 # 
 # https://w3id.org/dot#Description
@@ -197,9 +253,20 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#ExternalResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Document that is stored in a separate file, referenced by an external path."@en .
 <https://w3id.org/dot#ExternalResource> <http://www.w3.org/2000/01/rdf-schema#label> "External Resource"@en .
 # 
+# https://w3id.org/dot#Inspection
+<https://w3id.org/dot#Inspection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#Inspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Careful examination or scrutiny in which an existing construction or a part of it is inspected and detected damages are recorded.\nShould be repeated at regular time intervals."@en .
+<https://w3id.org/dot#Inspection> <http://www.w3.org/2000/01/rdf-schema#label> "Inspection"@en .
+# 
+# https://w3id.org/dot#Inspector
+<https://w3id.org/dot#Inspector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dot#Inspector> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Person> .
+<https://w3id.org/dot#Inspector> <http://www.w3.org/2000/01/rdf-schema#comment> "A person who inspects constructions (for damages) or whose task it is to carry out inspections on constructions."@en .
+<https://w3id.org/dot#Inspector> <http://www.w3.org/2000/01/rdf-schema#label> "Inspector"@en .
+# 
 # https://w3id.org/dot#StructuralDamage
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Damage that impairs the structural integrity of the structure. Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement."@en .
+<https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that impairs the structural integrity of the structure."@en .
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#label> "Structural Damage"@en .
 # 
 _:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
