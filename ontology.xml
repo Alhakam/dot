@@ -43,28 +43,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-    
-
-
-    <!-- http://schema.org/#domainIncludes -->
-
-
-    <owl:AnnotationProperty rdf:about="http://schema.org/#domainIncludes"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/name -->
-
-
-    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
     
 
 
