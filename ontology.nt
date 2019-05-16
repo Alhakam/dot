@@ -22,6 +22,15 @@ _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 # #################################################################
 # 
 # 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/#domainIncludes
+<http://schema.org/#domainIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
 # https://w3id.org/dot#descriptionContent
 <https://w3id.org/dot#descriptionContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#comment> "Textual content used for the Description of a Structure Element or Damage."@en .
@@ -79,7 +88,7 @@ _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Damage> .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Inspection> .
-<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Assigns to a Damage an affiliation to an Inspection."@en .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a Damage and the Inspection in which it has been recorded."@en .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#label> "belongs to Inspection"@en .
 # 
 # https://w3id.org/dot#groupsDamageElement

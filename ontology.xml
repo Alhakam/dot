@@ -43,6 +43,28 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://schema.org/#domainIncludes -->
+
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/#domainIncludes"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
     
 
 
@@ -122,7 +144,7 @@
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#belongsToInspection">
         <rdfs:domain rdf:resource="https://w3id.org/dot#Damage"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#Inspection"/>
-        <rdfs:comment xml:lang="en">Assigns to a Damage an affiliation to an Inspection.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a Damage and the Inspection in which it has been recorded.</rdfs:comment>
         <rdfs:label xml:lang="en">belongs to Inspection</rdfs:label>
     </owl:ObjectProperty>
     
