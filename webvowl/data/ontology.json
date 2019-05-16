@@ -1,0 +1,766 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.4), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "https://w3id.org/dot", "http://www.w3.org/2000/01/rdf-schema", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1" ],
+    "title" : {
+      "en" : "Damage Topology Ontology"
+    },
+    "iri" : "https://w3id.org/dot#",
+    "author" : [ "_:genid2147483649", "_:genid2147483648" ],
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/1.0",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "_:genid2147483649",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "_:genid2147483648",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "dot",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "May 15th 2019",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/dot#",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Damage Topology Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "metrics" : {
+    "classCount" : 13,
+    "objectPropertyCount" : 12,
+    "datatypePropertyCount" : 3,
+    "individualCount" : 1
+  },
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "39",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "4",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "24",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "7",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/dot#Damage",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Damage",
+      "en" : "Damage"
+    },
+    "subClasses" : [ "1", "2" ],
+    "comment" : {
+      "en" : "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.\n\nInstead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement)."
+    },
+    "id" : "0"
+  }, {
+    "iri" : "https://w3id.org/dot#Documentation",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Documentation",
+      "en" : "Damage Documentation"
+    },
+    "subClasses" : [ "10", "11" ],
+    "comment" : {
+      "en" : "Material or data that provides information or evidence about the structure and its components or that serves as a record. Should only be used for damage-related documentation."
+    },
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/dot#StructuralDamage",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "StructuralDamage",
+      "en" : "Structural Damage"
+    },
+    "comment" : {
+      "en" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that impairs the structural integrity of the structure."
+    },
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/dot#Inspection",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Inspection",
+      "en" : "Inspection"
+    },
+    "comment" : {
+      "en" : "Careful examination or scrutiny in which an existing construction or a part of it is inspected and detected damages are recorded.\nShould be repeated at regular time intervals."
+    },
+    "id" : "15"
+  }, {
+    "iri" : "https://w3id.org/dot#Inspector",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Inspector",
+      "en" : "Inspector"
+    },
+    "comment" : {
+      "en" : "A person who inspects constructions (for damages) or whose task it is to carry out inspections on constructions."
+    },
+    "id" : "21",
+    "superClasses" : [ "23" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "30",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Person",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "subClasses" : [ "21" ],
+    "attributes" : [ "external" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "34",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "https://w3id.org/dot#Description",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Description",
+      "en" : "Description"
+    },
+    "comment" : {
+      "en" : "Short textual documentation about a Damage or Structure Element. Generally created by the inspecting person."
+    },
+    "id" : "11",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dot#DamageArea",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DamageArea",
+      "en" : "Damage Area"
+    },
+    "comment" : {
+      "en" : "Area in a component where damage is located. Holds collection of multiple DamageElements or DamagePatterns. Used to be attached with simplified geometry."
+    },
+    "id" : "2",
+    "superClasses" : [ "0" ]
+  }, {
+    "iri" : "https://w3id.org/dot#DamagePattern",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DamagePattern",
+      "en" : "Damage Pattern"
+    },
+    "comment" : {
+      "en" : "Defines a group of associated or physically connected instances of DamageElement. Used as class for grouping inside an instance of DamageArea."
+    },
+    "id" : "17"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "19",
+    "label" : {
+      "IRI-based" : "anyURI"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "39",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "4",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "24",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "7",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://w3id.org/dot#ExternalResource",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ExternalResource",
+      "en" : "External Resource"
+    },
+    "comment" : {
+      "en" : "Document that is stored in a separate file, referenced by an external path."
+    },
+    "id" : "10",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dot#Defect",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Defect",
+      "en" : "Defect"
+    },
+    "comment" : {
+      "en" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."
+    },
+    "id" : "37"
+  }, {
+    "iri" : "https://w3id.org/dot#Causation",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Causation",
+      "en" : "Causation"
+    },
+    "comment" : {
+      "en" : "Represents the causation of a damage. \n\nShould be extended with domain-specific subclasses."
+    },
+    "id" : "14"
+  }, {
+    "iri" : "https://w3id.org/dot#DamageElement",
+    "baseIri" : "https://w3id.org/dot",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DamageElement",
+      "en" : "Damage Element"
+    },
+    "comment" : {
+      "en" : "Damage that is modeled on a very detailed level and belongs with other adjacent Damage Element instances to a broader damage area or damage pattern"
+    },
+    "id" : "1",
+    "superClasses" : [ "0" ]
+  } ],
+  "property" : [ {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "6",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "13",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "35",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "36",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "40",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "43",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "8",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/dot#hasDocumentation",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "5",
+    "annotations" : {
+      "domainIncludes" : [ {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/dot#DamagePattern",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/dot#DamageArea",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Zone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Element",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/dot#DamageElement",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasDocumentation",
+      "en" : "has Documentation"
+    },
+    "domain" : "4",
+    "comment" : {
+      "en" : "Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."
+    },
+    "attributes" : [ "object" ],
+    "id" : "3"
+  }, {
+    "iri" : "https://w3id.org/dot#hasDamage",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "0",
+    "annotations" : {
+      "domainIncludes" : [ {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Zone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Element",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasDamage",
+      "en" : "has Damage"
+    },
+    "domain" : "7",
+    "subproperty" : [ "8", "9" ],
+    "comment" : {
+      "en" : "Defines the relationship between an affected component or structure (e.g. bot:Element) and a Damage."
+    },
+    "attributes" : [ "object" ],
+    "id" : "6"
+  }, {
+    "iri" : "https://w3id.org/dot#hasCausation",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "hasCausation",
+      "en" : "has Causation"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "Relationship between a Damage and its Causation."
+    },
+    "attributes" : [ "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/dot#groupsDamageElement",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "groupsDamageElement",
+      "en" : "groups Damage Elements"
+    },
+    "domain" : "17",
+    "comment" : {
+      "en" : "Groups instances of DamageElement that are physically connected in a DamagePattern."
+    },
+    "attributes" : [ "object" ],
+    "id" : "16"
+  }, {
+    "iri" : "https://w3id.org/dot#filePath",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "filePath",
+      "en" : "file path"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Defines the unique location in a file system of an ExternalResource"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "18"
+  }, {
+    "iri" : "https://w3id.org/dot#hasInspector",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "hasInspector",
+      "en" : "has Inspector"
+    },
+    "domain" : "15",
+    "comment" : {
+      "en" : "Relationship between an Inspector and the Inspection that has been performed by him."
+    },
+    "attributes" : [ "object" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://w3id.org/dot#aggregatesDamageElement",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "aggregatesDamageElement",
+      "en" : "aggregates Damage Element"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "A relationship between an instance of Damage Area and its consisting DamageElement instance."
+    },
+    "attributes" : [ "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://w3id.org/dot#hasDamageElement",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasDamageElement",
+      "en" : "has DamageElement"
+    },
+    "superproperty" : [ "6" ],
+    "domain" : "24",
+    "comment" : {
+      "en" : "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement."
+    },
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "range" : "23",
+    "domain" : "21",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/dot#aggregatesDamagePattern",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "aggregatesDamagePattern",
+      "en" : "aggregates Damage Pattern"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "A relationship between an instance of DamageArea and its consisting DamagePattern instance."
+    },
+    "attributes" : [ "object" ],
+    "id" : "26"
+  }, {
+    "range" : "0",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "27"
+  }, {
+    "range" : "0",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://purl.org/dc/terms/description",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "description"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "29"
+  }, {
+    "range" : "5",
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "32"
+  }, {
+    "range" : "5",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "33"
+  }, {
+    "range" : "17",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "35"
+  }, {
+    "range" : "12",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "36"
+  }, {
+    "iri" : "https://w3id.org/dot#descriptionContent",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "descriptionContent",
+      "en" : "description content"
+    },
+    "domain" : "11",
+    "comment" : {
+      "en" : "Textual content used for the Description of a Structure Element or Damage."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://w3id.org/dot#belongsToInspection",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "belongsToInspection",
+      "en" : "belongs to Inspection"
+    },
+    "domain" : "0",
+    "comment" : {
+      "en" : "Relationship between a Damage and the Inspection in which it has been recorded."
+    },
+    "attributes" : [ "object" ],
+    "id" : "41"
+  }, {
+    "range" : "1",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "42"
+  }, {
+    "range" : "17",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/dot#hasDamageArea",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasDamageArea",
+      "en" : "has DamageArea"
+    },
+    "superproperty" : [ "6" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea."
+    },
+    "attributes" : [ "object" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://w3id.org/dot#adjacentDamageElement",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "adjacentDamageElement",
+      "en" : "adjacent DamageElement"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "Defines the relationship between two instances of DamageElement that are physically connected with each other."
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/dot#hasInspection",
+    "baseIri" : "https://w3id.org/dot",
+    "range" : "15",
+    "annotations" : {
+      "domainIncludes" : [ {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Zone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement",
+        "type" : "iri"
+      }, {
+        "identifier" : "domainIncludes",
+        "language" : "undefined",
+        "value" : "https://w3id.org/bot#Element",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasInspection",
+      "en" : "has Inspection"
+    },
+    "domain" : "34",
+    "comment" : {
+      "en" : "Relationship between an inspected structure or component and its corresponding Inspection."
+    },
+    "attributes" : [ "object" ],
+    "id" : "45"
+  } ]
+}

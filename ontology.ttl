@@ -10,7 +10,6 @@
                          owl:versionIRI <https://w3id.org/dot/0.6> ;
                          <http://purl.org/dc/terms/creator> _:genid1 ,
                                                             _:genid2 ;
-                         <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en ;
                          <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" ;
                          <http://purl.org/dc/terms/modified> "May 15th 2019" ;
                          <http://purl.org/dc/terms/title> "Damage Topology Ontology"@en ;
@@ -27,25 +26,12 @@ _:genid2 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
 ###  http://schema.org/#domainIncludes
 <http://schema.org/#domainIncludes> rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/name
 <http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
-
-
-###  https://w3id.org/dot#descriptionContent
-:descriptionContent rdf:type owl:AnnotationProperty ;
-                    rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
-                    rdfs:label "description content"@en ;
-                    rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
-                    rdfs:range xsd:string ;
-                    rdfs:domain :Description .
 
 
 #################################################################
@@ -177,6 +163,19 @@ _:genid2 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
 #    Data properties
 #################################################################
 
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/dot#descriptionContent
+:descriptionContent rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
+                    rdfs:domain :Description ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
+                    rdfs:label "description content"@en .
+
+
 ###  https://w3id.org/dot#filePath
 :filePath rdf:type owl:DatatypeProperty ;
           rdfs:domain :ExternalResource ;
@@ -281,6 +280,15 @@ Should be repeated at regular time intervals."""@en ;
 
 Damage that impairs the structural integrity of the structure."""@en ;
                   rdfs:label "Structural Damage"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/dot#
+<https://w3id.org/dot#> rdf:type owl:NamedIndividual ;
+                        <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en .
 
 
 _:genid11 rdf:type <http://xmlns.com/foaf/0.1/Person> ;
