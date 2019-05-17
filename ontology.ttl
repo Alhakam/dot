@@ -29,19 +29,6 @@ vann:preferredNamespacePrefix "dot" ;
 vann:preferredNamespaceUri "https://w3id.org/dot#" .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  https://w3id.org/dot#descriptionContent
-dot:descriptionContent rdf:type owl:AnnotationProperty ;
-                       rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
-                       rdfs:label "description content"@en ;
-                       rdfs:subPropertyOf dcterms:description ;
-                       rdfs:range xsd:string ;
-                       rdfs:domain dot:Description .
-
-
-#################################################################
 #    Object Properties
 #################################################################
 
@@ -80,7 +67,7 @@ dot:aggregatesDamagePattern rdf:type owl:ObjectProperty ;
 dot:belongsToInspection rdf:type owl:ObjectProperty ;
                         rdfs:domain dot:Damage ;
                         rdfs:range dot:Inspection ;
-                        rdfs:comment "Assigns to a Damage an affiliation to an Inspection."@en ;
+                        rdfs:comment "Relationship between a Damage and the Inspection in which it has been recorded."@en ;
                         rdfs:label "belongs to Inspection"@en .
 
 
@@ -176,6 +163,14 @@ dot:filePath rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:anyURI ;
              rdfs:comment "Defines the unique location in a file system of an ExternalResource"@en ;
              rdfs:label "file path"@en .
+
+###  https://w3id.org/dot#descriptionContent
+dot:descriptionContent rdf:type owl:DatatypeProperty ;
+                       rdfs:comment "Textual content used for the Description of a Structure Element or Damage."@en ;
+                       rdfs:label "description content"@en ;
+                       rdfs:subPropertyOf dcterms:description ;
+                       rdfs:range xsd:string ;
+                       rdfs:domain dot:Description .
 
 
 #################################################################

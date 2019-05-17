@@ -7,7 +7,6 @@ _:genid1 <http://xmlns.com/foaf/0.1/name> "Al-Hakam Hamdan" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/creator> _:genid2 .
 _:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
-<https://w3id.org/dot#> <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/1.0" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/modified> "May 15th 2019" .
 <https://w3id.org/dot#> <http://purl.org/dc/terms/title> "Damage Topology Ontology"@en .
@@ -22,13 +21,11 @@ _:genid2 <http://xmlns.com/foaf/0.1/name> "Mathias Bonduel" .
 # #################################################################
 # 
 # 
-# https://w3id.org/dot#descriptionContent
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#comment> "Textual content used for the Description of a Structure Element or Damage."@en .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#label> "description content"@en .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Description> .
+# http://schema.org/#domainIncludes
+<http://schema.org/#domainIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -79,7 +76,7 @@ _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Damage> .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dot#Inspection> .
-<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Assigns to a Damage an affiliation to an Inspection."@en .
+<https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship between a Damage and the Inspection in which it has been recorded."@en .
 <https://w3id.org/dot#belongsToInspection> <http://www.w3.org/2000/01/rdf-schema#label> "belongs to Inspection"@en .
 # 
 # https://w3id.org/dot#groupsDamageElement
@@ -173,6 +170,17 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 # #################################################################
 # 
 # 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://w3id.org/dot#descriptionContent
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#Description> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#comment> "Textual content used for the Description of a Structure Element or Damage."@en .
+<https://w3id.org/dot#descriptionContent> <http://www.w3.org/2000/01/rdf-schema#label> "description content"@en .
+# 
 # https://w3id.org/dot#filePath
 <https://w3id.org/dot#filePath> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/dot#filePath> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dot#ExternalResource> .
@@ -259,6 +267,19 @@ _:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/19
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that impairs the structural integrity of the structure."@en .
 <https://w3id.org/dot#StructuralDamage> <http://www.w3.org/2000/01/rdf-schema#label> "Structural Damage"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/dot#
+<https://w3id.org/dot#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/dot#> <http://purl.org/dc/terms/description> "Ontology that defines the topology of damages in constructions."@en .
 # 
 _:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 _:genid11 <http://xmlns.com/foaf/0.1/name> "Al-Hakam Hamdan" .

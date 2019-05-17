@@ -23,8 +23,20 @@
     "@value" : "Mathias Bonduel"
   } ]
 }, {
+  "@id" : "http://purl.org/dc/terms/description",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://schema.org/#domainIncludes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Person",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/name",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
   "@id" : "https://w3id.org/dot#",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@id" : "_:genid1"
   }, {
@@ -280,7 +292,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Assigns to a Damage an affiliation to an Inspection."
+    "@value" : "Relationship between a Damage and the Inspection in which it has been recorded."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/dot#Damage"
@@ -294,7 +306,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/dot#descriptionContent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "Textual content used for the Description of a Structure Element or Damage."
