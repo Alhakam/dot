@@ -49,7 +49,6 @@ This section provides details for each class and property defined by Damage Topo
          <strong>IRI:</strong> https://w3id.org/dot#Causation</p>
       <div class="comment">
          <span class="markdown">Represents the causation of a damage. 
-
 Should be extended with domain-specific subclasses.</span>
       </div>
       <dl class="description">
@@ -69,7 +68,6 @@ Should be extended with domain-specific subclasses.</span>
          <strong>IRI:</strong> https://w3id.org/dot#Damage</p>
       <div class="comment">
          <span class="markdown">Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.
-
 Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement).</span>
       </div>
       <dl class="description">
@@ -81,8 +79,7 @@ Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#belongsToInspection" title="https://w3id.org/dot#belongsToInspection">belongs to Inspection</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasCausation" title="https://w3id.org/dot#hasCausation">has Causation</a>
+            <a href="#hasCausation" title="https://w3id.org/dot#hasCausation">has Causation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
@@ -146,7 +143,8 @@ Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has Documentation</a>
+            <a href="#coveredInDocumentation" title="https://w3id.org/dot#coveredInDocumentation">covered by documentation</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has documentation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -226,7 +224,6 @@ Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage
          <strong>IRI:</strong> https://w3id.org/dot#Defect</p>
       <div class="comment">
          <span class="markdown">Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value.</span>
       </div>
       <dl class="description">
@@ -298,12 +295,12 @@ Should be repeated at regular time intervals.</span>
          <dt>is in domain of</dt>
          <dd>
             <a href="#hasInspector" title="https://w3id.org/dot#hasInspector">has Inspector</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has documentation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#belongsToInspection" title="https://w3id.org/dot#belongsToInspection">belongs to Inspection</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasInspection" title="https://w3id.org/dot#hasInspection">has Inspection</a>
+            <a href="#coveredByInspection" title="https://w3id.org/dot#coveredByInspection">covered by inspection</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -340,7 +337,6 @@ Should be repeated at regular time intervals.</span>
          <strong>IRI:</strong> https://w3id.org/dot#StructuralDamage</p>
       <div class="comment">
          <span class="markdown">Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that impairs the structural integrity of the structure.</span>
       </div>
       <dl class="description">
@@ -364,7 +360,13 @@ Damage that impairs the structural integrity of the structure.</span>
          <a href="#aggregatesDamagePattern" title="https://w3id.org/dot#aggregatesDamagePattern">aggregates Damage Pattern</a>
       </li>
       <li>
-         <a href="#belongsToInspection" title="https://w3id.org/dot#belongsToInspection">belongs to Inspection</a>
+         <a href="#coveredInDocumentation" title="https://w3id.org/dot#coveredInDocumentation">covered by documentation</a>
+      </li>
+      <li>
+         <a href="#coveredByInspection" title="https://w3id.org/dot#coveredByInspection">covered by inspection</a>
+      </li>
+      <li>
+         <a href="#documentationFromInspection" title="https://w3id.org/dot#documentationFromInspection">documentation from inspection</a>
       </li>
       <li>
          <a href="#groupsDamageElement" title="https://w3id.org/dot#groupsDamageElement">groups Damage Elements</a>
@@ -382,10 +384,7 @@ Damage that impairs the structural integrity of the structure.</span>
          <a href="#hasDamageElement" title="https://w3id.org/dot#hasDamageElement">has DamageElement</a>
       </li>
       <li>
-         <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has Documentation</a>
-      </li>
-      <li>
-         <a href="#hasInspection" title="https://w3id.org/dot#hasInspection">has Inspection</a>
+         <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has documentation</a>
       </li>
       <li>
          <a href="#hasInspector" title="https://w3id.org/dot#hasInspector">has Inspector</a>
@@ -483,27 +482,71 @@ Damage that impairs the structural integrity of the structure.</span>
          </dl>
       </div>
    </div>
-   <div class="entity" id="belongsToInspection">
-      <h3>belongs to Inspection<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="coveredInDocumentation">
+      <h3>covered by documentation<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> https://w3id.org/dot#belongsToInspection</p>
+         <strong>IRI:</strong> https://w3id.org/dot#coveredInDocumentation</p>
       <div class="comment">
-         <span class="markdown">Relationship between a Damage and the Inspection in which it has been recorded.</span>
+         <span class="markdown">Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations.</span>
       </div>
       <div class="description">
          <dl>
-            <dt>has domain</dt>
+            <dt>has range</dt>
             <dd>
-               <a href="#Damage" title="https://w3id.org/dot#Damage">Damage</a>
+               <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="coveredByInspection">
+      <h3>covered by inspection<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#coveredByInspection</p>
+      <div class="comment">
+         <span class="markdown">Relationship between a documented object (damage or component / zone) and the Inspection in which the object has been covered.</span>
+      </div>
+      <div class="description">
+         <dl>
             <dt>has range</dt>
             <dd>
                <a href="#Inspection" title="https://w3id.org/dot#Inspection">Inspection</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#coveredInDocumentation" title="https://w3id.org/dot#coveredInDocumentation">covered by documentation</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#documentationFromInspection" title="https://w3id.org/dot#documentationFromInspection">documentation from inspection</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="documentationFromInspection">
+      <h3>documentation from inspection<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/dot#documentationFromInspection</p>
+      <div class="comment">
+         <span class="markdown">Relationship between a Documentation and the Inspection to which the Documentation refers.
+                                Inverse object property of dot:hasDocumentation .</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasDocumentation" title="https://w3id.org/dot#hasDocumentation">has documentation</a>
+               <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
       </div>
@@ -651,41 +694,31 @@ Damage that impairs the structural integrity of the structure.</span>
       </div>
    </div>
    <div class="entity" id="hasDocumentation">
-      <h3>has Documentation<sup class="type-op" title="object property">op</sup>
+      <h3>has documentation<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> https://w3id.org/dot#hasDocumentation</p>
       <div class="comment">
-         <span class="markdown">Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations.</span>
+         <span class="markdown">Relationship between an Inspection and the corresponding Documentation</span>
       </div>
       <div class="description">
          <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Inspection" title="https://w3id.org/dot#Inspection">Inspection</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
             <dt>has range</dt>
             <dd>
                <a href="#Documentation" title="https://w3id.org/dot#Documentation">Damage Documentation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasInspection">
-      <h3>has Inspection<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://w3id.org/dot#hasInspection</p>
-      <div class="comment">
-         <span class="markdown">Relationship between an inspected structure or component and its corresponding Inspection.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
+            <dt>is inverse of</dt>
             <dd>
-               <a href="#Inspection" title="https://w3id.org/dot#Inspection">Inspection</a>
-               <sup class="type-c" title="class">c</sup>
+               <a href="#documentationFromInspection" title="https://w3id.org/dot#documentationFromInspection">documentation from inspection</a>
+               <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
       </div>

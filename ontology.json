@@ -5,13 +5,13 @@
     "@value" : "Al-Hakam Hamdan"
   } ]
 }, {
-  "@id" : "_:genid11",
+  "@id" : "_:genid13",
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Al-Hakam Hamdan"
   } ]
 }, {
-  "@id" : "_:genid12",
+  "@id" : "_:genid14",
   "@type" : [ "http://xmlns.com/foaf/0.1/Person" ],
   "http://xmlns.com/foaf/0.1/name" : [ {
     "@value" : "Mathias Bonduel"
@@ -50,7 +50,7 @@
     "@value" : "https://creativecommons.org/licenses/by/1.0"
   } ],
   "http://purl.org/dc/terms/modified" : [ {
-    "@value" : "May 15th 2019"
+    "@value" : "June 18th 2019"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -63,14 +63,14 @@
     "@value" : "https://w3id.org/dot#"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/dot/0.6"
+    "@id" : "https://w3id.org/dot/0.7"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#Causation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Represents the causation of a damage. \n\nShould be extended with domain-specific subclasses."
+    "@value" : "Represents the causation of a damage. \r\nShould be extended with domain-specific subclasses."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -81,7 +81,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.\n\nInstead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement)."
+    "@value" : "Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.\r\nInstead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -139,7 +139,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."
+    "@value" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\r\nDamage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -192,7 +192,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Careful examination or scrutiny in which an existing construction or a part of it is inspected and detected damages are recorded.\nShould be repeated at regular time intervals."
+    "@value" : "Careful examination or scrutiny in which an existing construction or a part of it is inspected and detected damages are recorded.\r\nShould be repeated at regular time intervals."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -217,7 +217,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\n\nDamage that impairs the structural integrity of the structure."
+    "@value" : "Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.\r\nDamage that impairs the structural integrity of the structure."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -288,21 +288,61 @@
     "@id" : "https://w3id.org/dot#DamagePattern"
   } ]
 }, {
-  "@id" : "https://w3id.org/dot#belongsToInspection",
+  "@id" : "https://w3id.org/dot#coveredByInspection",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://schema.org/#domainIncludes" : [ {
+    "@id" : "https://w3id.org/bot#Element"
+  }, {
+    "@id" : "https://w3id.org/bot#Zone"
+  }, {
+    "@id" : "https://w3id.org/dot#Damage"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeElement"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeSpatialZone"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Relationship between a Damage and the Inspection in which it has been recorded."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://w3id.org/dot#Damage"
+    "@value" : "Relationship between a documented object (damage or component / zone) and the Inspection in which the object has been covered."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "belongs to Inspection"
+    "@value" : "covered by inspection"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#Inspection"
+  } ],
+  "http://www.w3.org/2002/07/owl#propertyChainAxiom" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/dot#coveredInDocumentation"
+    }, {
+      "@id" : "https://w3id.org/dot#documentationFromInspection"
+    } ]
+  } ]
+}, {
+  "@id" : "https://w3id.org/dot#coveredInDocumentation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://schema.org/#domainIncludes" : [ {
+    "@id" : "https://w3id.org/bot#Element"
+  }, {
+    "@id" : "https://w3id.org/bot#Zone"
+  }, {
+    "@id" : "https://w3id.org/dot#Damage"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeElement"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeSpatialZone"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "covered by documentation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dot#Documentation"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#descriptionContent",
@@ -323,6 +363,17 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://purl.org/dc/terms/description"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dot#documentationFromInspection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Relationship between a Documentation and the Inspection to which the Documentation refers.\r\n                                Inverse object property of dot:hasDocumentation ."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "documentation from inspection"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#filePath",
@@ -386,13 +437,13 @@
   "@id" : "https://w3id.org/dot#hasDamage",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://schema.org/#domainIncludes" : [ {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
-  }, {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
-  }, {
     "@id" : "https://w3id.org/bot#Element"
   }, {
     "@id" : "https://w3id.org/bot#Zone"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeElement"
+  }, {
+    "@id" : "https://wisib.de/ontologie/brot#BridgeSpatialZone"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
@@ -449,54 +500,22 @@
 }, {
   "@id" : "https://w3id.org/dot#hasDocumentation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://schema.org/#domainIncludes" : [ {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
-  }, {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
-  }, {
-    "@id" : "https://w3id.org/bot#Element"
-  }, {
-    "@id" : "https://w3id.org/bot#Zone"
-  }, {
-    "@id" : "https://w3id.org/dot#DamageArea"
-  }, {
-    "@id" : "https://w3id.org/dot#DamageElement"
-  }, {
-    "@id" : "https://w3id.org/dot#DamagePattern"
-  } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."
+    "@value" : "Relationship between an Inspection and the corresponding Documentation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dot#Inspection"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
-    "@value" : "has Documentation"
+    "@value" : "has documentation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://w3id.org/dot#Documentation"
-  } ]
-}, {
-  "@id" : "https://w3id.org/dot#hasInspection",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://schema.org/#domainIncludes" : [ {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"
-  }, {
-    "@id" : "http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"
-  }, {
-    "@id" : "https://w3id.org/bot#Element"
-  }, {
-    "@id" : "https://w3id.org/bot#Zone"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Relationship between an inspected structure or component and its corresponding Inspection."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has Inspection"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "https://w3id.org/dot#Inspection"
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://w3id.org/dot#documentationFromInspection"
   } ]
 }, {
   "@id" : "https://w3id.org/dot#hasInspector",

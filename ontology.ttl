@@ -3,7 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix brot: <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#> .
+@prefix brot: <https://wisib.de/ontologie/brot#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -20,10 +20,10 @@ rdf:type owl:Ontology ;
       rdf:type foaf:Person ;
       foaf:name "Mathias Bonduel" ;
     ] ;
-owl:versionIRI <https://w3id.org/dot/0.6> ;
+owl:versionIRI <https://w3id.org/dot/0.7> ;
 dcterms:description "Ontology that defines the topology of damages in constructions."@en ;
 dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-dcterms:modified "May 15th 2019" ;
+dcterms:modified "June 18th 2019" ;
 dcterms:title "Damage Topology Ontology"@en ;
 vann:preferredNamespacePrefix "dot" ;
 vann:preferredNamespaceUri "https://w3id.org/dot#" .
@@ -61,14 +61,6 @@ dot:aggregatesDamagePattern rdf:type owl:ObjectProperty ;
                             rdfs:range dot:DamagePattern ;
                             rdfs:comment "A relationship between an instance of DamageArea and its consisting DamagePattern instance."@en ;
                             rdfs:label "aggregates Damage Pattern"@en .
-
-
-###  https://w3id.org/dot#belongsToInspection
-dot:belongsToInspection rdf:type owl:ObjectProperty ;
-                        rdfs:domain dot:Damage ;
-                        rdfs:range dot:Inspection ;
-                        rdfs:comment "Relationship between a Damage and the Inspection in which it has been recorded."@en ;
-                        rdfs:label "belongs to Inspection"@en .
 
 
 ###  https://w3id.org/dot#groupsDamageElement
@@ -120,29 +112,16 @@ dot:hasDamageElement rdf:type owl:ObjectProperty ;
                      rdfs:label "has DamageElement"@en .
 
 
-###  https://w3id.org/dot#hasDocumentation
-dot:hasDocumentation rdf:type owl:ObjectProperty ;
+###  https://w3id.org/dot#coveredInDocumentation
+dot:coveredInDocumentation rdf:type owl:ObjectProperty ;
                      rdfs:range dot:Documentation ;
                      schema:domainIncludes brot:BridgeElement ,
                                            brot:BridgeSpatialZone ,
                                            bot:Element ,
                                            bot:Zone ,
-                                           dot:DamageArea ,
-                                           dot:DamageElement ,
-                                           dot:DamagePattern ;
+                                           dot:Damage ;
                      rdfs:comment "Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations."@en ;
-                     rdfs:label "has Documentation"@en .
-
-
-###  https://w3id.org/dot#hasInspection
-dot:hasInspection rdf:type owl:ObjectProperty ;
-                  rdfs:range dot:Inspection ;
-                  schema:domainIncludes brot:BridgeElement ,
-                                        brot:BridgeSpatialZone ,
-                                        bot:Element ,
-                                        bot:Zone ;
-                  rdfs:comment "Relationship between an inspected structure or component and its corresponding Inspection."@en ;
-                  rdfs:label "has Inspection"@en .
+                     rdfs:label "covered by documentation"@en .
 
 
 ###  https://w3id.org/dot#hasInspector
@@ -152,6 +131,37 @@ dot:hasInspector rdf:type owl:ObjectProperty ;
                  rdfs:comment "Relationship between an Inspector and the Inspection that has been performed by him."@en ;
                  rdfs:label "has Inspector"@en .
 
+
+###  https://w3id.org/dot#coveredByInspection
+dot:coveredByInspection rdf:type owl:ObjectProperty ;
+                        schema:domainIncludes dot:Damage ,
+                                              brot:BridgeElement ,
+                                              brot:BridgeSpatialZone ,
+                                              bot:Element ,
+                                              bot:Zone ;
+                        rdfs:range dot:Inspection ;
+                        owl:propertyChainAxiom ( dot:coveredInDocumentation
+                                                 dot:documentationFromInspection
+                                               ) ;
+                        rdfs:comment "Relationship between a documented object (damage or component / zone) and the Inspection in which the object has been covered."@en ;
+                        rdfs:label "covered by inspection"@en .
+
+
+###  https://w3id.org/dot#hasDocumentation
+dot:hasDocumentation rdf:type owl:ObjectProperty ;
+                     owl:inverseOf dot:documentationFromInspection ;
+                     rdfs:domain dot:Inspection ;
+                     rdfs:range dot:Documentation ;
+                     rdfs:comment "Relationship between an Inspection and the corresponding Documentation"@en ;
+                     rdfs:label "has documentation"@en .
+
+
+###  https://w3id.org/dot#documentationFromInspection
+dot:documentationFromInspection rdf:type owl:ObjectProperty ;
+                                owl:inverseOf dot:hasDocumentation ;
+                                rdfs:comment "Relationship between a Documentation and the Inspection to which the Documentation refers.
+                                Inverse object property of dot:hasDocumentation ."@en ;
+                                rdfs:label "documentation from inspection"@en .
 
 #################################################################
 #    Data properties
@@ -180,7 +190,6 @@ dot:descriptionContent rdf:type owl:DatatypeProperty ;
 ###  https://w3id.org/dot#Causation
 dot:Causation rdf:type owl:Class ;
               rdfs:comment """Represents the causation of a damage. 
-
 Should be extended with domain-specific subclasses."""@en ;
               rdfs:label "Causation"@en .
 
@@ -188,7 +197,6 @@ Should be extended with domain-specific subclasses."""@en ;
 ###  https://w3id.org/dot#Damage
 dot:Damage rdf:type owl:Class ;
            rdfs:comment """Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.
-
 Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement)."""@en ;
            rdfs:label "Damage"@en .
 
@@ -220,7 +228,6 @@ dot:DamagePattern rdf:type owl:Class ;
 dot:Defect rdf:type owl:Class ;
            owl:disjointWith dot:StructuralDamage ;
            rdfs:comment """Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value."""@en ;
            rdfs:label "Defect"@en .
 
@@ -262,6 +269,5 @@ dot:Inspector rdf:type owl:Class ;
 ###  https://w3id.org/dot#StructuralDamage
 dot:StructuralDamage rdf:type owl:Class ;
                      rdfs:comment """Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that impairs the structural integrity of the structure."""@en ;
                      rdfs:label "Structural Damage"@en .

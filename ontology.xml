@@ -11,7 +11,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:schema="http://schema.org/#">
     <owl:Ontology rdf:about="https://w3id.org/dot#">
-        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.6"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/dot/0.7"/>
         <terms:creator>
             <rdf:Description rdf:nodeID="genid1">
                 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -25,7 +25,7 @@
             </rdf:Description>
         </terms:creator>
         <terms:license>https://creativecommons.org/licenses/by/1.0</terms:license>
-        <terms:modified>May 15th 2019</terms:modified>
+        <terms:modified>June 18th 2019</terms:modified>
         <terms:title xml:lang="en">Damage Topology Ontology</terms:title>
         <vann:preferredNamespacePrefix>dot</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/dot#</vann:preferredNamespaceUri>
@@ -116,14 +116,49 @@
     
 
 
-    <!-- https://w3id.org/dot#belongsToInspection -->
+    <!-- https://w3id.org/dot#coveredByInspection -->
 
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#belongsToInspection">
-        <rdfs:domain rdf:resource="https://w3id.org/dot#Damage"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/dot#coveredByInspection">
         <rdfs:range rdf:resource="https://w3id.org/dot#Inspection"/>
-        <rdfs:comment xml:lang="en">Relationship between a Damage and the Inspection in which it has been recorded.</rdfs:comment>
-        <rdfs:label xml:lang="en">belongs to Inspection</rdfs:label>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/dot#coveredInDocumentation"/>
+            <rdf:Description rdf:about="https://w3id.org/dot#documentationFromInspection"/>
+        </owl:propertyChainAxiom>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/dot#Damage"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeElement"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeSpatialZone"/>
+        <rdfs:comment xml:lang="en">Relationship between a documented object (damage or component / zone) and the Inspection in which the object has been covered.</rdfs:comment>
+        <rdfs:label xml:lang="en">covered by inspection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/dot#coveredInDocumentation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/dot#coveredInDocumentation">
+        <rdfs:range rdf:resource="https://w3id.org/dot#Documentation"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
+        <schema:domainIncludes rdf:resource="https://w3id.org/dot#Damage"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeElement"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeSpatialZone"/>
+        <rdfs:comment xml:lang="en">Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations.</rdfs:comment>
+        <rdfs:label xml:lang="en">covered by documentation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/dot#documentationFromInspection -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/dot#documentationFromInspection">
+        <rdfs:comment xml:lang="en">Relationship between a Documentation and the Inspection to which the Documentation refers.
+                                Inverse object property of dot:hasDocumentation .</rdfs:comment>
+        <rdfs:label xml:lang="en">documentation from inspection</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -161,10 +196,10 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasDamage">
         <rdfs:range rdf:resource="https://w3id.org/dot#Damage"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
         <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
         <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeElement"/>
+        <schema:domainIncludes rdf:resource="https://wisib.de/ontologie/brot#BridgeSpatialZone"/>
         <rdfs:comment xml:lang="en">Defines the relationship between an affected component or structure (e.g. bot:Element) and a Damage.</rdfs:comment>
         <rdfs:label xml:lang="en">has Damage</rdfs:label>
     </owl:ObjectProperty>
@@ -203,31 +238,11 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasDocumentation">
+        <owl:inverseOf rdf:resource="https://w3id.org/dot#documentationFromInspection"/>
+        <rdfs:domain rdf:resource="https://w3id.org/dot#Inspection"/>
         <rdfs:range rdf:resource="https://w3id.org/dot#Documentation"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/dot#DamageArea"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/dot#DamageElement"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/dot#DamagePattern"/>
-        <rdfs:comment xml:lang="en">Relationship between a Documentation and the relevant documented or inspected object (e.g. DamageArea or bot:Element). Should only be used for damage-relevant documentations.</rdfs:comment>
-        <rdfs:label xml:lang="en">has Documentation</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/dot#hasInspection -->
-
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/dot#hasInspection">
-        <rdfs:range rdf:resource="https://w3id.org/dot#Inspection"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeElement"/>
-        <schema:domainIncludes rdf:resource="http://www.semanticweb.org/taras/ontologies/2018/7/BROT#BridgeSpatialZone"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Element"/>
-        <schema:domainIncludes rdf:resource="https://w3id.org/bot#Zone"/>
-        <rdfs:comment xml:lang="en">Relationship between an inspected structure or component and its corresponding Inspection.</rdfs:comment>
-        <rdfs:label xml:lang="en">has Inspection</rdfs:label>
+        <rdfs:comment xml:lang="en">Relationship between an Inspection and the corresponding Documentation</rdfs:comment>
+        <rdfs:label xml:lang="en">has documentation</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -312,7 +327,6 @@
 
     <owl:Class rdf:about="https://w3id.org/dot#Causation">
         <rdfs:comment xml:lang="en">Represents the causation of a damage. 
-
 Should be extended with domain-specific subclasses.</rdfs:comment>
         <rdfs:label xml:lang="en">Causation</rdfs:label>
     </owl:Class>
@@ -324,7 +338,6 @@ Should be extended with domain-specific subclasses.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/dot#Damage">
         <rdfs:comment xml:lang="en">Damage is the harm to a structure resulting in impairment or loss of function, usefulness or value.
-
 Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage (either dot:DamageArea or dot:DamageElement).</rdfs:comment>
         <rdfs:label xml:lang="en">Damage</rdfs:label>
     </owl:Class>
@@ -372,7 +385,6 @@ Instead of using dot:Damage, it is recommended to use one subclass of dot:Damage
     <owl:Class rdf:about="https://w3id.org/dot#Defect">
         <owl:disjointWith rdf:resource="https://w3id.org/dot#StructuralDamage"/>
         <rdfs:comment xml:lang="en">Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that does not impair the structural integrity of the structure, but can still have influence on the durability, usability and / or value.</rdfs:comment>
         <rdfs:label xml:lang="en">Defect</rdfs:label>
     </owl:Class>
@@ -438,7 +450,6 @@ Should be repeated at regular time intervals.</rdfs:comment>
 
     <owl:Class rdf:about="https://w3id.org/dot#StructuralDamage">
         <rdfs:comment xml:lang="en">Should be used on nodes that are already classified as dot:DamageArea, dot:DamagePattern or dot:DamageElement.
-
 Damage that impairs the structural integrity of the structure.</rdfs:comment>
         <rdfs:label xml:lang="en">Structural Damage</rdfs:label>
     </owl:Class>
@@ -463,11 +474,11 @@ Damage that impairs the structural integrity of the structure.</rdfs:comment>
     <owl:NamedIndividual rdf:about="https://w3id.org/dot#">
         <terms:description xml:lang="en">Ontology that defines the topology of damages in constructions.</terms:description>
     </owl:NamedIndividual>
-    <rdf:Description rdf:nodeID="genid11">
+    <rdf:Description rdf:nodeID="genid13">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <foaf:name>Al-Hakam Hamdan</foaf:name>
     </rdf:Description>
-    <rdf:Description rdf:nodeID="genid12">
+    <rdf:Description rdf:nodeID="genid14">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <foaf:name>Mathias Bonduel</foaf:name>
     </rdf:Description>
