@@ -159,8 +159,7 @@ dot:hasDocumentation rdf:type owl:ObjectProperty ;
 ###  https://w3id.org/dot#documentationFromInspection
 dot:documentationFromInspection rdf:type owl:ObjectProperty ;
                                 owl:inverseOf dot:hasDocumentation ;
-                                rdfs:comment "Relationship between a Documentation and the Inspection to which the Documentation refers.
-                                Inverse object property of dot:hasDocumentation ."@en ;
+                                rdfs:comment "Relationship between a Documentation and the Inspection to which the Documentation refers. Inverse object property of dot:hasDocumentation ."@en ;
                                 rdfs:label "documentation from inspection"@en .
 
 #################################################################
