@@ -8,7 +8,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms> .
-@prefix props: <https://w3id.org/product/props#> .
 
 <https://w3id.org/damagemodels/cdo#> rdf:type owl:Ontology ;
 dcterms:creator [
@@ -46,7 +45,6 @@ cdo:spallingArea rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/damagemodels/cdo#crackWidth
 cdo:crackWidth rdf:type owl:DatatypeProperty ;
-               rdfs:subClassOf props:with ;
                rdfs:domain cdo:Crack ;
                rdfs:comment "Defines the crack width. Unit: mm"@en ;
                rdfs:label "crack width" .

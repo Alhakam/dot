@@ -8,7 +8,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dot: <https://w3id.org/dot#> .
 @prefix schema: <http://schema.org/#> .
-@prefix brot: <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#> .
+@prefix brot: <https://wisib.de/ontologie/brot#> .
 @prefix bot: <https://w3id.org/bot#> .
 
 <https://w3id.org/damagemodels/d-asb-ing#> rdf:type owl:Ontology ;

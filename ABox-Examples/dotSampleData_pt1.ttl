@@ -3,7 +3,7 @@
 @prefix bot: <https://w3id.org/bot#> .
 
 inst:structuralFrameA a bot:Element ;
-	bot:aggregates inst:frameA-beam1 , inst:frameA-column1 , inst:frameA-column2 .
+	bot:hasSubElement inst:frameA-beam1 , inst:frameA-column1 , inst:frameA-column2 .
 inst:frameA-beam1 a bot:Element .
 inst:frameA-column1 a bot:Element .
 inst:frameA-column2 a bot:Element .
