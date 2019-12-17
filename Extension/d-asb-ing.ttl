@@ -10,22 +10,27 @@
 @prefix schema: <http://schema.org/#> .
 @prefix brot: <https://wisib.de/ontologie/brot#> .
 @prefix bot: <https://w3id.org/bot#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 
-<https://w3id.org/damagemodels/d-asb-ing#> rdf:type owl:Ontology ;
-  dcterms:creator [
+<https://w3id.org/damagemodels/d-asb-ing#> rdf:type owl:Ontology , voaf:Vocabulary ;
+	dcterms:creator [
       rdf:type foaf:Person ;
       foaf:name "Al-Hakam Hamdan" ;
     ] ;  
-  dcterms:creator [
-      rdf:type foaf:Person ;
-      foaf:name "Mathias Bonduel" ;
-    ] ;
-	owl:versionIRI <https://w3id.org/damagemodels/d-asb-ing#/0.3.0> ;
+	dcterms:creator <https://www.researchgate.net/profile/Mathias_Bonduel> ;
+	owl:versionIRI <https://w3id.org/damagemodels/d-asb-ing#/0.4.0> ;
+	owl:versionInfo "0.4.0" ;
+	rdfs:comment """- Version 0.4.0: 
+* completed ontology metadata wrt LOV
+"""@en ;
 	dcterms:description "Ontology for defining assessments of damage / defects, components and structures based on the German standard ASB-ING and DIN 1076."@en ;
-	dcterms:modified "28th January 2019" ;
+	dcterms:modified "2019-12-17"^^xsd:date ;
+	dcterms:issued "2018-10-25"^^xsd:date ;
 	dcterms:title "ASB-ING Assessment Ontology"@en ;
 	dcterms:creator "Al-Hakam Hamdan" ;
 	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	vann:example "https://madsholten.github.io/sparql-visualizer/?file=https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dot-demo.json"^^xsd:anyURI ;
+	vann:example "https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dotSampleData_pt2.ttl"^^xsd:anyURI ;
 	vann:preferredNamespacePrefix "dasb" ;
 	vann:preferredNamespaceUri "https://w3id.org/damagemodels/d-asb-ing#" .
 
@@ -51,6 +56,7 @@ dasb:hasAssessment a owl:ObjectProperty ;
                             bot:Zone ;
 	rdfs:range dasb:Assessment ;
 	rdfs:comment "Relationship between Damage or Structure_Element and an instance of Assessment."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "has Assessment"@en .
 # 
 # 
@@ -67,6 +73,7 @@ dasb:hasAssessment a owl:ObjectProperty ;
 dasb:BWPRUFkeyword a owl:DatatypeProperty ;
 	rdfs:domain dot:Description ;
 	rdfs:comment "Keyword for damage assessment based on the key-table of ASB-ING, Annex D (2013)."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "keyword"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#assessmentFactor
@@ -74,6 +81,7 @@ dasb:BWPRUFkeyword a owl:DatatypeProperty ;
 dasb:assessmentFactor a owl:DatatypeProperty ;
 	rdfs:domain dasb:Assessment ;
 	rdfs:comment "Assessment factors, that rate the structure, component and damage / defect. Uses grades from 1-6"@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "assessment factors"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#durabilityFactor
@@ -81,6 +89,7 @@ dasb:assessmentFactor a owl:DatatypeProperty ;
 dasb:durabilityFactor a owl:DatatypeProperty ;
 	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the durability / influence on the durability of the structure of the assessed element (1-6)."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "durabilty factor"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#overallRating
@@ -89,6 +98,7 @@ dasb:overallRating a owl:DatatypeProperty ;
 	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:domain dasb:StructureAssessment ;
 	rdfs:comment "The overall rating, that is given to the structure or sub-structure after considering the stability factor, traffic safety factor and durability factor from each assessed element. For the calculation formula see B22 of BASt[5]."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "overall rating"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#stabilityFactor
@@ -96,6 +106,7 @@ dasb:overallRating a owl:DatatypeProperty ;
 dasb:stabilityFactor a owl:DatatypeProperty ;
 	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the stability / influence on the stability of the structure of the assessed element (1-6)"@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "stability factor"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#trafficSafetyFactor
@@ -103,6 +114,7 @@ dasb:stabilityFactor a owl:DatatypeProperty ;
 dasb:trafficSafetyFactor a owl:DatatypeProperty ;
 	rdfs:subPropertyOf dasb:assessmentFactor ;
 	rdfs:comment "Rating for describing the traffic safety /influence on the traffic safety of the structure of the assessed element (1-6)."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "traffic safety factor"@en .
 # 
 # 
@@ -118,6 +130,7 @@ dasb:trafficSafetyFactor a owl:DatatypeProperty ;
 
 dasb:Assessment a owl:Class ;
 	rdfs:comment "Rating for the assessed structure, following the ASB-ING standard (DIN 1076)"@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "Assessment"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#Component_Assessment
@@ -125,6 +138,7 @@ dasb:Assessment a owl:Class ;
 dasb:ComponentAssessment a owl:Class ;
 	rdfs:subClassOf dasb:Assessment ;
 	rdfs:comment "Assessment for a specific component."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "Component Assessment"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#Damage_Assessment
@@ -132,6 +146,7 @@ dasb:ComponentAssessment a owl:Class ;
 dasb:DamageAssessment a owl:Class ;
 	rdfs:subClassOf dasb:Assessment ;
 	rdfs:comment "Assessment for a specific Damage_Element (Damage_Area or Individual_Damage)."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "Damage Assessment"@en .
 # 
 # https://w3id.org/damagemodels/d-asb-ing#Structure_Assessment
@@ -139,4 +154,5 @@ dasb:DamageAssessment a owl:Class ;
 dasb:StructureAssessment a owl:Class ;
 	rdfs:subClassOf dasb:Assessment ;
 	rdfs:comment "Overall assessment for the whole structure or a sub-structure (includes overall rating)."@en ;
+	rdfs:isDefinedBy dasb: ;
 	rdfs:label "Structure Assessment"@en .
