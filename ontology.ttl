@@ -44,9 +44,9 @@ dot:adjacentDamageElement rdf:type owl:ObjectProperty ,
                                    owl:SymmetricProperty ;
                           rdfs:domain dot:DamageElement ;
                           rdfs:range dot:DamageElement ;
-                          rdfs:comment "Defines the relationship between two instances of DamageElement that are physically connected with each other."@en ;
+                          rdfs:comment "Defines the relationship between two instances of Damage Element that are physically connected with each other."@en ;
 						  rdfs:isDefinedBy dot: ;
-                          rdfs:label "adjacent DamageElement"@en .
+                          rdfs:label "adjacent Damage Element"@en .
 
 
 ###  https://w3id.org/dot#aggregatesDamageElement
@@ -68,7 +68,7 @@ dot:aggregatesDamageElement rdf:type owl:ObjectProperty ;
 dot:aggregatesDamagePattern rdf:type owl:ObjectProperty ;
                             rdfs:domain dot:DamageArea ;
                             rdfs:range dot:DamagePattern ;
-                            rdfs:comment "A relationship between an instance of DamageArea and its consisting DamagePattern instance."@en ;
+                            rdfs:comment "A relationship between an instance of Damage Area and its consisting Damage Pattern instance."@en ;
 							rdfs:isDefinedBy dot: ;
                             rdfs:label "aggregates Damage Pattern"@en .
 
@@ -80,9 +80,9 @@ dot:groupsDamageElement rdf:type owl:ObjectProperty ;
                         owl:propertyChainAxiom ( dot:groupsDamageElement
                                                  dot:adjacentDamageElement
                                                ) ;
-                        rdfs:comment "Groups instances of DamageElement that are physically connected in a DamagePattern."@en ;
+                        rdfs:comment "Groups instances of Damage Element that are physically connected in a Damage Pattern."@en ;
 						rdfs:isDefinedBy dot: ;
-                        rdfs:label "groups Damage Elements"@en .
+                        rdfs:label "groups Damage Element"@en .
 
 
 ###  https://w3id.org/dot#hasCausation
@@ -110,9 +110,9 @@ dot:hasDamage rdf:type owl:ObjectProperty ;
 dot:hasDamageArea rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf dot:hasDamage ;
                   rdfs:range dot:DamageArea ;
-                  rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageArea."@en ;
+                  rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a Damage Area."@en ;
 				  rdfs:isDefinedBy dot: ;
-                  rdfs:label "has DamageArea"@en .
+                  rdfs:label "has Damage Area"@en .
 
 
 ###  https://w3id.org/dot#hasDamageElement
@@ -122,9 +122,9 @@ dot:hasDamageElement rdf:type owl:ObjectProperty ;
                      owl:propertyChainAxiom ( dot:hasDamageArea
                                               dot:aggregatesDamageElement
                                             ) ;
-                     rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a DamageElement."@en ;
+                     rdfs:comment "Defines the relationship between an affected component or structure (e.g. bot:Element) and a Damage Element."@en ;
 					 rdfs:isDefinedBy dot: ;
-                     rdfs:label "has DamageElement"@en .
+                     rdfs:label "has Damage Element"@en .
 
 
 ###  https://w3id.org/dot#coveredInDocumentation
@@ -172,7 +172,7 @@ dot:hasDocumentation rdf:type owl:ObjectProperty ;
                      rdfs:range dot:Documentation ;
                      rdfs:comment "Relationship between an Inspection and the corresponding Documentation"@en ;
 					 rdfs:isDefinedBy dot: ;
-                     rdfs:label "has documentation"@en .
+                     rdfs:label "has Documentation"@en .
 
 
 ###  https://w3id.org/dot#documentationFromInspection
