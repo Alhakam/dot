@@ -8,24 +8,30 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms> .
-@prefix props: <https://w3id.org/product/props#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix dot: <https://w3id.org/dot#> .
 
-<https://w3id.org/damagemodels/cdo#> rdf:type owl:Ontology ;
-dcterms:creator [
+<https://w3id.org/damagemodels/cdo#> rdf:type owl:Ontology , voaf:Vocabulary ;
+	dcterms:creator [
       rdf:type foaf:Person ;
       foaf:name "Al-Hakam Hamdan" ;
     ] ;  
-  dcterms:creator [
-      rdf:type foaf:Person ;
-      foaf:name "Mathias Bonduel" ;
-    ] ;
-                                      owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.4.0> ;
-                                      dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-                                      dcterms:description "Ontology for damage and defects in reinforced concrete."@en ;
-                                      dcterms:modified "January 28th 2019" ;
-                                      dcterms:title "Concrete Damage Ontology"@en ;
-                                      vann:preferredNamespacePrefix "cdo" ;
-                                      vann:preferredNamespaceUri "https://w3id.org/damagemodels/cdo#" .
+	dcterms:creator <https://www.researchgate.net/profile/Mathias_Bonduel> ;
+	owl:versionIRI <https://w3id.org/damagemodels/cdo#/0.5.0> ;
+	owl:versionInfo "0.5.0" ;
+	rdfs:comment """- Version 0.5.0: 
+* completed ontology metadata wrt LOV
+* made top CDO damage classification classes subclasses of dot:ClassifiedDamage
+"""@en ;
+	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	dcterms:description "Ontology for damage and defects in reinforced concrete."@en ;
+	dcterms:modified "2019-12-17"^^xsd:date ;
+	dcterms:issued "2018-10-25"^^xsd:date ;
+	dcterms:title "Concrete Damage Ontology"@en ;
+	vann:example "https://madsholten.github.io/sparql-visualizer/?file=https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dot-demo.json"^^xsd:anyURI ;
+	vann:example "https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dotSampleData_pt2.ttl"^^xsd:anyURI ;
+	vann:preferredNamespacePrefix "cdo" ;
+	vann:preferredNamespaceUri "https://w3id.org/damagemodels/cdo#" .
 
 
 #################################################################
@@ -36,19 +42,21 @@ dcterms:creator [
 cdo:crackSpacing rdf:type owl:DatatypeProperty ;
                rdfs:domain cdo:Crack ;
                rdfs:comment "Defines the crack spacing."@en ;
+			   rdfs:isDefinedBy cdo: ;
                rdfs:label "crackSpacing" .
 
 ###  https://w3id.org/damagemodels/cdo#spallingArea
 cdo:spallingArea rdf:type owl:DatatypeProperty ;
                rdfs:domain cdo:Spalling ;
                rdfs:comment "Defines the area value of a spalling. Unit in mm²."@en ;
+			   rdfs:isDefinedBy cdo: ;
                rdfs:label "spalling area" .               
 
 ###  https://w3id.org/damagemodels/cdo#crackWidth
 cdo:crackWidth rdf:type owl:DatatypeProperty ;
-               rdfs:subClassOf props:with ;
                rdfs:domain cdo:Crack ;
                rdfs:comment "Defines the crack width. Unit: mm"@en ;
+			   rdfs:isDefinedBy cdo: ;
                rdfs:label "crack width" .
 
 
@@ -61,13 +69,15 @@ cdo:crackWidth rdf:type owl:DatatypeProperty ;
 cdo:Carbonatation rdf:type owl:Class ;
                rdfs:subClassOf cdo:ChemicalDamage ;
                rdfs:comment "Carbonatation leads to a decrease of the alkalinity, which is essential for corrosion prevention of the reinforcement steel."@en ;
+			   rdfs:isDefinedBy cdo: ;
                rdfs:label "Carbonatation"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#ChemicalDamage
 cdo:ChemicalDamage rdf:type owl:Class ;
-                 
+                 rdfs:subClassOf dot:ClassifiedDamage ;
                  rdfs:comment "Damage that is caused by chemical reactions in the concrete material or the reinforcement."@en ;
+				 rdfs:isDefinedBy cdo: ;
                  rdfs:label "Chemical Damage"@en .
 
 
@@ -75,26 +85,30 @@ cdo:ChemicalDamage rdf:type owl:Class ;
 cdo:ChlorideAttack rdf:type owl:Class ;
                  rdfs:subClassOf cdo:ChemicalDamage ;
                  rdfs:comment "Calcium chloride and (to a lesser extent) sodium chloride have been shown to leach calcium hydroxide and cause chemical changes in Portland cement, leading to loss of strength, as well as attacking the steel reinforcement present in most concrete."@en ;
-                 rdfs:label "Chloride Attack"@en .
+                 rdfs:isDefinedBy cdo: ;
+				 rdfs:label "Chloride Attack"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#Crack
 cdo:Crack rdf:type owl:Class ;
-       
+       rdfs:subClassOf dot:ClassifiedDamage ;
        rdfs:comment "A defect that defines a discontinuity in the structure due to material failuer / exceeding the breaking strength of the material."@en ;
-       rdfs:label "Crack"@en .
+       rdfs:isDefinedBy cdo: ;
+	   rdfs:label "Crack"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#DiagonalCrack
 cdo:DiagonalCrack rdf:type owl:Class ;
                 rdfs:subClassOf cdo:Crack ;
                 rdfs:comment "Caused by shearing"@en ;
+				rdfs:isDefinedBy cdo: ;
                 rdfs:label "Diagonal Crack"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#LongitudinalCrack
 cdo:LongitudinalCrack rdf:type owl:Class ;
                     rdfs:subClassOf cdo:Crack ;
+					rdfs:isDefinedBy cdo: ;
                     rdfs:label "Longitudinal Crack"@en .
 
 
@@ -102,30 +116,35 @@ cdo:LongitudinalCrack rdf:type owl:Class ;
 cdo:ReinforcementCorrosion rdf:type owl:Class ;
                          rdfs:subClassOf cdo:ChlorideAttack ;
                          rdfs:comment "Chloride Damage, where reinforcement has been corroded. The brown outline of the corroded reinforcement can be seen at the surface of the concrete."@en ;
-                         rdfs:label "Reinforcement Corrosion"@en .
+                         rdfs:isDefinedBy cdo: ;
+						 rdfs:label "Reinforcement Corrosion"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#Spalling
 cdo:Spalling rdf:type owl:Class ;
-          
+          rdfs:subClassOf dot:ClassifiedDamage ;
           rdfs:comment "A defect where the concrete is slowly broken down into small flakes known as spalls from a larger solidified concrete body."@en ;
-          rdfs:label "Spalling"@en .
+          rdfs:isDefinedBy cdo: ;
+		  rdfs:label "Spalling"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#SulfateAttack
 cdo:SulfateAttack rdf:type owl:Class ;
                 rdfs:subClassOf cdo:ChemicalDamage ;
                 rdfs:comment "Sulfates in solution in contact with concrete can cause chemical changes to the cement, which can cause significant microstructural effects leading to the weakening of the cement binder (chemical sulfate attack)."@en ;
-                rdfs:label "Sulfate Attack"@en .
+                rdfs:isDefinedBy cdo: ;
+				rdfs:label "Sulfate Attack"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#SurfaceCrack
 cdo:SurfaceCrack rdf:type owl:Class ;
                rdfs:subClassOf cdo:Crack ;
-               rdfs:label "Surface Crack"@en .
+               rdfs:isDefinedBy cdo: ;
+			   rdfs:label "Surface Crack"@en .
 
 
 ###  https://w3id.org/damagemodels/cdo#TransverseCrack
 cdo:TransverseCrack rdf:type owl:Class ;
                   rdfs:subClassOf cdo:Crack ;
-                  rdfs:label "Transverse Crack"@en .
+                  rdfs:isDefinedBy cdo: ;
+				  rdfs:label "Transverse Crack"@en .
