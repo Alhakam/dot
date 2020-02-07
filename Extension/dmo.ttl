@@ -7,24 +7,29 @@
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dot: <https://w3id.org/dot#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-<https://w3id.org/damagemodels/dmo#> rdf:type owl:Ontology ;
-dcterms:creator [
+<https://w3id.org/damagemodels/dmo#> rdf:type owl:Ontology , voaf:Vocabulary ;
+	dcterms:creator [
       rdf:type foaf:Person ;
       foaf:name "Al-Hakam Hamdan" ;
     ] ;  
-  dcterms:creator [
-      rdf:type foaf:Person ;
-      foaf:name "Mathias Bonduel" ;
-    ] ;
-                                      owl:versionIRI <https://w3id.org/damagemodels/dmo#/0.2.0> ;
-                                      dcterms:creator "Al-Hakam Hamdan" ;
-                                      dcterms:description "Ontology for defining the mechanical behaviour of damaged areas"@en ;
-                                      dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
-                                      dcterms:modified "January 24th 2019" ;
-                                      dcterms:title "Damage Mechanics Ontology"@en ;
-                                      vann:preferredNamespacePrefix "dmo" ;
-                                      vann:preferredNamespaceUri "https://w3id.org/damagemodels/dmo#" .
+	dcterms:creator <https://www.researchgate.net/profile/Mathias_Bonduel> ;
+	owl:versionIRI <https://w3id.org/damagemodels/dmo#/0.3.0> ;
+	owl:versionInfo "0.3.0" ;
+	rdfs:comment """- Version 0.3.0: 
+* completed ontology metadata wrt LOV
+"""@en ;
+	dcterms:description "Ontology for defining the mechanical behaviour of damaged areas"@en ;
+	dcterms:license "https://creativecommons.org/licenses/by/1.0" ;
+	dcterms:modified "2019-12-17"^^xsd:date ;
+	dcterms:issued "2018-11-19"^^xsd:date ;
+	dcterms:title "Damage Mechanics Ontology"@en ;
+	vann:example "https://madsholten.github.io/sparql-visualizer/?file=https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dot-demo.json"^^xsd:anyURI ;
+	vann:example "https://raw.githubusercontent.com/Alhakam/dot/master/ABox-Examples/dotSampleData_pt2.ttl"^^xsd:anyURI ;
+	vann:preferredNamespacePrefix "dmo" ;
+	vann:preferredNamespaceUri "https://w3id.org/damagemodels/dmo#" .
 
 
 #################################################################
@@ -33,30 +38,35 @@ dcterms:creator [
 
 ###  https://w3id.org/damagemodels/dmo#hasModulusParameter
 dmo:hasModulusParameter rdf:type owl:ObjectProperty ;
+					 rdfs:isDefinedBy dmo: ;
                      rdfs:domain dmo:StiffnessModulus ;
                      rdfs:range dmo:ModulusParameter .
 
 
 ###  https://w3id.org/damagemodels/dmo#hasReducedMaterialParameter
 dmo:hasReducedMaterialParameter rdf:type owl:ObjectProperty ;
-                             rdfs:domain dot:StructuralDamage .
+                             rdfs:isDefinedBy dmo: ;
+							 rdfs:domain dot:StructuralDamage .
 
 
 ###  https://w3id.org/damagemodels/dmo#hasReducedStiffness
 dmo:hasReducedStiffness rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf dmo:hasReducedMaterialParameter ;
-                     rdfs:range dmo:Stiffness .
+                     rdfs:isDefinedBy dmo: ;
+					 rdfs:range dmo:Stiffness .
 
 
 ###  https://w3id.org/damagemodels/dmo#hasReducedStiffnessModulus
 dmo:hasReducedStiffnessModulus rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf dmo:hasReducedMaterialParameter ;
-                            rdfs:range dmo:StiffnessModulus .
+                            rdfs:isDefinedBy dmo: ;
+							rdfs:range dmo:StiffnessModulus .
 
 
 ###  https://w3id.org/damagemodels/dmo#hasStiffnessParameter
 dmo:hasStiffnessParameter rdf:type owl:ObjectProperty ;
-                       rdfs:domain dmo:Stiffness .
+                       rdfs:isDefinedBy dmo: ;
+					   rdfs:domain dmo:Stiffness .
 
 
 #################################################################
@@ -65,16 +75,19 @@ dmo:hasStiffnessParameter rdf:type owl:ObjectProperty ;
 
 
 ###  https://w3id.org/damagemodels/dmo#direction
-dmo:direction rdf:type owl:DatatypeProperty .
+dmo:direction rdf:type owl:DatatypeProperty ;
+	rdfs:isDefinedBy dmo: .
 
 
 ###  https://w3id.org/damagemodels/dmo#matrixIndex
-dmo:matrixIndex rdf:type owl:DatatypeProperty .
+dmo:matrixIndex rdf:type owl:DatatypeProperty ;
+	rdfs:isDefinedBy dmo: .
 
 
 ###  https://w3id.org/damagemodels/dmo#reductionValue
 dmo:reductionValue rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf schema:value ;
+				rdfs:isDefinedBy dmo: ;
                 rdfs:comment """A value, defining the amount of reduction of all other parameters of an individual with this dataproperty.
 
 Example: Stiffness matrix with multiple values linked to Stiffness-Individual.
@@ -89,58 +102,70 @@ The linked redcuctionValue of the Stiffness-Individual is 0.9, so all values in 
 
 ###  https://w3id.org/damagemodels/dmo#BendingStiffness
 dmo:BendingStiffness rdf:type owl:Class ;
+				  rdfs:isDefinedBy dmo: ;
                   rdfs:subClassOf dmo:Stiffness .
 
 
 ###  https://w3id.org/damagemodels/dmo#E-Modulus
 dmo:E-Modulus rdf:type owl:Class ;
-           rdfs:subClassOf dmo:StiffnessModulus .
+           rdfs:isDefinedBy dmo: ;
+		   rdfs:subClassOf dmo:StiffnessModulus .
 
 
 ###  https://w3id.org/damagemodels/dmo#FlexuralStrength
 dmo:FlexuralStrength rdf:type owl:Class ;
-                  rdfs:subClassOf dmo:Stiffness .
+                  rdfs:isDefinedBy dmo: ;
+				  rdfs:subClassOf dmo:Stiffness .
 
 
 ###  https://w3id.org/damagemodels/dmo#G-Modulus
 dmo:G-Modulus rdf:type owl:Class ;
-           rdfs:subClassOf dmo:StiffnessModulus .
+           rdfs:isDefinedBy dmo: ;
+		   rdfs:subClassOf dmo:StiffnessModulus .
 
 
 ###  https://w3id.org/damagemodels/dmo#ModulusParameter
 dmo:ModulusParameter rdf:type owl:Class ;
-                  rdfs:subClassOf schema:QuantitativeValue .
+                  rdfs:isDefinedBy dmo: ;
+				  rdfs:subClassOf schema:QuantitativeValue .
 
 
 ###  https://w3id.org/damagemodels/dmo#ReductionParameter
 dmo:ReductionParameter rdf:type owl:Class ;
-                    rdfs:subClassOf schema:QuantitativeValue .
+                    rdfs:isDefinedBy dmo: ;
+					rdfs:subClassOf schema:QuantitativeValue .
 
 
 ###  https://w3id.org/damagemodels/dmo#ShearStiffness
 dmo:ShearStiffness rdf:type owl:Class ;
-                rdfs:subClassOf dmo:Stiffness .
+                rdfs:isDefinedBy dmo: ;
+				rdfs:subClassOf dmo:Stiffness .
 
 
 ###  https://w3id.org/damagemodels/dmo#Stiffness
-dmo:Stiffness rdf:type owl:Class .
+dmo:Stiffness rdf:type owl:Class ;
+	rdfs:isDefinedBy dmo: .
 
 
 ###  https://w3id.org/damagemodels/dmo#StiffnessModulus
-dmo:StiffnessModulus rdf:type owl:Class .
+dmo:StiffnessModulus rdf:type owl:Class ;
+	rdfs:isDefinedBy dmo: .
 
 
 ###  https://w3id.org/damagemodels/dmo#StiffnessParameter
 dmo:StiffnessParameter rdf:type owl:Class ;
-                    rdfs:subClassOf schema:QuantitativeValue .
+                    rdfs:isDefinedBy dmo: ;
+					rdfs:subClassOf schema:QuantitativeValue .
 
 
 ###  https://w3id.org/damagemodels/dmo#TensileStiffness
 dmo:TensileStiffness rdf:type owl:Class ;
-                  rdfs:subClassOf dmo:Stiffness .
+                  rdfs:isDefinedBy dmo: ;
+				  rdfs:subClassOf dmo:Stiffness .
 
 
 ###  https://w3id.org/damagemodels/dmo#TorsionalStiffness
 dmo:TorsionalStiffness rdf:type owl:Class ;
-                    rdfs:subClassOf dmo:Stiffness .
+                    rdfs:isDefinedBy dmo: ;
+					rdfs:subClassOf dmo:Stiffness .
 

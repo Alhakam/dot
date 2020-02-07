@@ -10,7 +10,7 @@
 @prefix cdo: <https://w3id.org/damagemodels/cdo#> .
 @prefix props: <https://w3id.org/product/props#> .
 @prefix dasb: <https://w3id.org/damagemodels/d-asb-ing#> .
-@prefix brot: <http://www.semanticweb.org/taras/ontologies/2018/7/BROT#> .
+@prefix brot: <https://wisib.de/ontologie/brot#> .
 
 inst:Al-Hakam_Hamdan rdf:type prov:Person .
 
